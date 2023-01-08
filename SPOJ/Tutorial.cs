@@ -2,24 +2,16 @@
 {
 	internal static class Tutorial
 	{
-		public static bool TutorialProblems()
-		{
-			bool isWorking = true;
-			while (isWorking)
-			{
-				Console.Clear();
-				Console.WriteLine("Tutorial Problems: ");
-				Console.WriteLine("1. ");
+		public static void TutorialProblems() => MainSPOJ.DoWork(_solvedProblemsFunctions, "Tutorial Problems: ");
 
-				Console.Write("Wybierz numer zadania: ");
-				int menuNumber = int.Parse(Console.ReadLine());
-				isWorking = menuNumber switch
-				{
-					//1 => ,
-					_ => false,
-				};
-			}
-			return true;
+		private static readonly Action[] _solvedProblemsFunctions = new[]
+		{
+			Method1,
+		};
+
+		private static void Method1()
+		{
+
 		}
 	}
 }

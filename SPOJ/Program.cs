@@ -1,6 +1,16 @@
 ﻿using SPOJ;
 
-Console.Title = "Zadania SPOJ";
+Console.Title = "Sphere online judge - SPOJ";
 Console.ForegroundColor = ConsoleColor.Green;
 
-MainMenu.ShowMenu();
+Action[] solvedProblemsFunctions = new[]
+{
+	Basics.BasicsProblems,
+	Tutorial.TutorialProblems,
+	Classical.ClassicalProblems,
+	Challenge.ChallengeProblems,
+	Partial.PartialProblems,
+	Riddle.RiddleProblems,
+};
+
+MainSPOJ.DoWork(solvedProblemsFunctions);

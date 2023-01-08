@@ -2,24 +2,16 @@
 {
 	internal static class Partial
 	{
-		public static bool PartialProblems()
-		{
-			bool isWorking = true;
-			while (isWorking)
-			{
-				Console.Clear();
-				Console.WriteLine("Partial Problems: ");
-				Console.WriteLine("1. ");
+		public static void PartialProblems() => MainSPOJ.DoWork(_solvedProblemsFunctions, "Partial Problems: ");
 
-				Console.Write("Wybierz numer zadania: ");
-				int menuNumber = int.Parse(Console.ReadLine());
-				isWorking = menuNumber switch
-				{
-					//1 => ,
-					_ => false,
-				};
-			}
-			return true;
+		private static readonly Action[] _solvedProblemsFunctions = new[]
+		{
+			Method1,
+		};
+
+		private static void Method1()
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

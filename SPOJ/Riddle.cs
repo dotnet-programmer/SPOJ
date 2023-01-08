@@ -2,22 +2,16 @@
 {
 	internal static class Riddle
 	{
-		public static bool RiddleProblems()
-		{
-			bool isWorking = true;
-			while (isWorking)
-			{
-				Console.WriteLine("1. ");
+		public static void RiddleProblems() => MainSPOJ.DoWork(_solvedProblemsFunctions, "Riddle Problems: ");
 
-				Console.Write("Wybierz numer zadania: ");
-				int menuNumber = int.Parse(Console.ReadLine());
-				isWorking = menuNumber switch
-				{
-					//1 => ,
-					_ => false,
-				};
-			}
-			return true;
+		private static readonly Action[] _solvedProblemsFunctions = new[]
+		{
+			Method1,
+		};
+
+		private static void Method1()
+		{
+			throw new NotImplementedException();
 		}
 	}
 }
