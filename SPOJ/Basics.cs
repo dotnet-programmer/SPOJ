@@ -239,45 +239,60 @@ namespace SPOJ
 
 		public static void SMPSEQ3_Fun_with_Sequences_Act_1()
 		{
-			// TODO make version with Select(int.Parse).ToHashSet() and without for loops like below:
-			//var input = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
-
-			int numberOfFirstSet = int.Parse(Console.ReadLine());
-			var input = Console.ReadLine().Split(' ');
-			HashSet<int> set1 = new HashSet<int>(numberOfFirstSet);
-			for (int i = 0; i < numberOfFirstSet; i++)
-			{
-				set1.Add(int.Parse(input[i]));
-			}
-			int numberOfSecondSet = int.Parse(Console.ReadLine());
-			input = Console.ReadLine().Split(' ');
-			HashSet<int> set2 = new HashSet<int>(numberOfSecondSet);
-			for (int i = 0; i < numberOfSecondSet; i++)
-			{
-				set2.Add(int.Parse(input[i]));
-			}
+			_ = Console.ReadLine();
+			var set1 = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
+			_ = Console.ReadLine();
+			var set2 = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
 			set1.ExceptWith(set2);
 			Console.WriteLine(string.Join(" ", set1));
+
+			#region first version
+			//int numberOfFirstSet = int.Parse(Console.ReadLine());
+			//var input = Console.ReadLine().Split(' ');
+			//HashSet<int> set1 = new HashSet<int>(numberOfFirstSet);
+			//for (int i = 0; i < numberOfFirstSet; i++)
+			//{
+			//	set1.Add(int.Parse(input[i]));
+			//}
+			//int numberOfSecondSet = int.Parse(Console.ReadLine());
+			//input = Console.ReadLine().Split(' ');
+			//HashSet<int> set2 = new HashSet<int>(numberOfSecondSet);
+			//for (int i = 0; i < numberOfSecondSet; i++)
+			//{
+			//	set2.Add(int.Parse(input[i]));
+			//}
+			//set1.ExceptWith(set2);
+			//Console.WriteLine(string.Join(" ", set1));
+			#endregion
 		}
 
 		public static void SMPSEQ4_Fun_with_Sequences_Act_2()
 		{
-			int numberOfFirstSet = int.Parse(Console.ReadLine());
-			var input = Console.ReadLine().Split(' ');
-			HashSet<int> set1 = new HashSet<int>(numberOfFirstSet);
-			for (int i = 0; i < numberOfFirstSet; i++)
-			{
-				set1.Add(int.Parse(input[i]));
-			}
-			int numberOfSecondSet = int.Parse(Console.ReadLine());
-			input = Console.ReadLine().Split(' ');
-			HashSet<int> set2 = new HashSet<int>(numberOfSecondSet);
-			for (int i = 0; i < numberOfSecondSet; i++)
-			{
-				set2.Add(int.Parse(input[i]));
-			}
+			_ = Console.ReadLine();
+			var set1 = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
+			_ = Console.ReadLine();
+			var set2 = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
 			set1.IntersectWith(set2);
 			Console.WriteLine(string.Join(" ", set1));
+
+			#region first version
+			//int numberOfFirstSet = int.Parse(Console.ReadLine());
+			//var input = Console.ReadLine().Split(' ');
+			//HashSet<int> set1 = new HashSet<int>(numberOfFirstSet);
+			//for (int i = 0; i < numberOfFirstSet; i++)
+			//{
+			//	set1.Add(int.Parse(input[i]));
+			//}
+			//int numberOfSecondSet = int.Parse(Console.ReadLine());
+			//input = Console.ReadLine().Split(' ');
+			//HashSet<int> set2 = new HashSet<int>(numberOfSecondSet);
+			//for (int i = 0; i < numberOfSecondSet; i++)
+			//{
+			//	set2.Add(int.Parse(input[i]));
+			//}
+			//set1.IntersectWith(set2);
+			//Console.WriteLine(string.Join(" ", set1));
+			#endregion
 		}
 
 		public static void SMPSEQ5_Fun_with_Sequences_Act_3()
