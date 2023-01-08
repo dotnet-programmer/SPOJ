@@ -4,6 +4,115 @@ namespace SPOJ
 {
 	internal static class Basics
 	{
+		private static readonly string[] _solvedProblemsNames = new[]
+		{
+			"TESTINT - Test 1",
+			"STRHH - Half of the half",
+			"SMPWOW - Wow",
+			"CPTTRN1 - Character Patterns (Act 1)",
+			"BACTERIA - SPOJ Custom Test",
+			"CPTTRN2 - Character Patterns (Act 2)",
+			"SMPDIV - Divisibility",
+			"BSCXOR - XOR",
+			"SMPSUM - Iterated sums",
+			"CPTTRN3 - Character Patterns (Act 3)",
+			"CHITEST1 - Sum of two numbers",
+			"ALCATRAZ1 - SUM OF DIGITS",
+			"SMPSEQ3 - Fun with Sequences",
+			"SMPSEQ4 - Fun with Sequences (Act 2)",
+			"SMPSEQ5 - Fun with Sequences (Act 3)",
+			"SMPCIRC - Two Circles",
+			"CPTTRN4 - Character Patterns (Act 4)",
+			"HS12MBR - Minimum Bounding Rectangle",
+			"CPTTRN6 - Character Patterns (Act 6)",
+			"CPTTRN6 - Character Patterns (Act 5)",
+		};
+
+		private static readonly Func<bool>[] _solvedProblemsFunctions = new[]
+		{
+			TESTINT_Test_1,
+			STRHH_Half_of_the_half,
+			SMPWOW_Wow,
+			CPTTRN1_Character_Patterns_Act_1,
+			BACTERIA_SPOJ_Custom_Test,
+			CPTTRN2_Character_Patterns_Act_2,
+			SMPDIV_Divisibility,
+			BSCXOR_XOR,
+			SMPSUM_Iterated_sums,
+			CPTTRN3_Character_Pattern_Act_3,
+			CHITEST1_Sum_of_two_numbers,
+			ALCATRAZ1_SUM_OF_DIGITS,
+			SMPSEQ3_Fun_with_Sequences,
+			SMPSEQ4_Fun_with_Sequences_Act_2,
+			SMPSEQ5_Fun_with_Sequences_Act_3,
+			SMPCIR_Two_Circles,
+			CPTTRN4_Character_Patterns_Act_4,
+			HS12MBR_Minimum_Bounding_Rectangle,
+			CPTTRN6_Character_Patterns_Act_6,
+			CPTTRN5_Character_Patterns_Act_5,
+		};
+
+		public static bool BasicsProblems()
+		{
+
+			MainMenu.ShowMenu("Basics Problems: ", _solvedProblemsNames, _solvedProblemsFunctions);
+
+			//bool isWorking = true;
+			//while (isWorking)
+			//{
+			//	Console.Clear();
+			//	Console.WriteLine("Basics Problems: ");
+			//	Console.WriteLine("1. TESTINT - Test 1");
+			//	Console.WriteLine("2. STRHH - Half of the half");
+			//	Console.WriteLine("3. SMPWOW - Wow");
+			//	Console.WriteLine("4. CPTTRN1 - Character Patterns (Act 1)");
+			//	Console.WriteLine("5. BACTERIA - SPOJ Custom Test");
+			//	Console.WriteLine("6. CPTTRN2 - Character Patterns (Act 2)");
+			//	Console.WriteLine("7. SMPDIV - Divisibility");
+			//	Console.WriteLine("8. BSCXOR - XOR");
+			//	Console.WriteLine("9. SMPSUM - Iterated sums");
+			//	Console.WriteLine("10. CPTTRN3 - Character Patterns (Act 3)");
+			//	Console.WriteLine("11. CHITEST1 - Sum of two numbers");
+			//	Console.WriteLine("12. ALCATRAZ1 - SUM OF DIGITS");
+			//	Console.WriteLine("13. SMPSEQ3 - Fun with Sequences");
+			//	Console.WriteLine("14. SMPSEQ4 - Fun with Sequences (Act 2)");
+			//	Console.WriteLine("15. SMPSEQ5 - Fun with Sequences (Act 3)");
+			//	Console.WriteLine("16. SMPCIRC - Two Circles");
+			//	Console.WriteLine("17. CPTTRN4 - Character Patterns (Act 4)");
+			//	Console.WriteLine("18. HS12MBR - Minimum Bounding Rectangle");
+			//	Console.WriteLine("19. CPTTRN6 - Character Patterns (Act 6)");
+			//	Console.WriteLine("20. CPTTRN6 - Character Patterns (Act 5)");
+
+			//	Console.Write("Wybierz numer zadania: ");
+			//	int menuNumber = int.Parse(Console.ReadLine());
+			//	isWorking = menuNumber switch
+			//	{
+			//		1 => TESTINT_Test_1(),
+			//		2 => STRHH_Half_of_the_half(),
+			//		3 => SMPWOW_Wow(),
+			//		4 => CPTTRN1_Character_Patterns_Act_1(),
+			//		5 => BACTERIA_SPOJ_Custom_Test(),
+			//		6 => CPTTRN2_Character_Patterns_Act_2(),
+			//		7 => SMPDIV_Divisibility(),
+			//		8 => BSCXOR_XOR(),
+			//		9 => SMPSUM_Iterated_sums(),
+			//		10 => CPTTRN3_Character_Pattern_Act_3(),
+			//		11 => CHITEST1_Sum_of_two_numbers(),
+			//		12 => ALCATRAZ1_SUM_OF_DIGITS(),
+			//		13 => SMPSEQ3_Fun_with_Sequences(),
+			//		14 => SMPSEQ4_Fun_with_Sequences_Act_2(),
+			//		15 => SMPSEQ5_Fun_with_Sequences_Act_3(),
+			//		16 => SMPCIR_Two_Circles(),
+			//		17 => CPTTRN4_Character_Patterns_Act_4(),
+			//		18 => HS12MBR_Minimum_Bounding_Rectangle(),
+			//		19 => CPTTRN6_Character_Patterns_Act_6(),
+			//		20 => CPTTRN5_Character_Patterns_Act_5(),
+			//		_ => false,
+			//	};
+			//}
+			return true;
+		}
+
 		public static bool CPTTRN1_Character_Patterns_Act_1()
 		{
 			int number = int.Parse(Console.ReadLine());
@@ -16,14 +125,7 @@ namespace SPOJ
 				{
 					for (int k = 0; k < numberOfColumns; k++)
 					{
-						if (j % 2 == 0 && k % 2 == 0 || j % 2 != 0 && k % 2 != 0)
-						{
-							Console.Write("*");
-						}
-						else
-						{
-							Console.Write(".");
-						}
+						Console.Write((j % 2 == 0 && k % 2 == 0 || j % 2 != 0 && k % 2 != 0) ? "*" : ".");
 					}
 					Console.WriteLine();
 				}
@@ -43,14 +145,7 @@ namespace SPOJ
 				{
 					for (int k = 0; k < numberOfColumns; k++)
 					{
-						if (j == 0 || j == numberOfLines - 1 || k == 0 || k == numberOfColumns - 1)
-						{
-							Console.Write("*");
-						}
-						else
-						{
-							Console.Write(".");
-						}
+						Console.Write((j == 0 || j == numberOfLines - 1 || k == 0 || k == numberOfColumns - 1) ? "*" : ".");
 					}
 					Console.WriteLine();
 				}
@@ -71,14 +166,7 @@ namespace SPOJ
 				{
 					for (int k = 0; k < numberOfColumns * 3 + 1; k++)
 					{
-						if (j % 3 == 0 || k % 3 == 0)
-						{
-							Console.Write("*");
-						}
-						else
-						{
-							Console.Write(".");
-						}
+						Console.Write((j % 3 == 0 || k % 3 == 0) ? "*" : ".");
 					}
 					Console.WriteLine();
 				}
@@ -102,14 +190,7 @@ namespace SPOJ
 				{
 					for (int k = 0; k < numberOfColumns * widthOfRectangle + numberOfColumns + 1; k++)
 					{
-						if (j % (heightOfRectangle + 1) == 0 || k % (widthOfRectangle + 1) == 0)
-						{
-							Console.Write("*");
-						}
-						else
-						{
-							Console.Write(".");
-						}
+						Console.Write((j % (heightOfRectangle + 1) == 0 || k % (widthOfRectangle + 1) == 0) ? "*" : ".");
 					}
 					Console.WriteLine();
 				}
@@ -248,6 +329,9 @@ namespace SPOJ
 
 		public static bool SMPSEQ3_Fun_with_Sequences()
 		{
+			// TODO make version with Select(int.Parse).ToHashSet() and without for loops like below:
+			//var input = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
+
 			int numberOfFirstSet = int.Parse(Console.ReadLine());
 			var input = Console.ReadLine().Split(' ');
 			HashSet<int> set1 = new HashSet<int>(numberOfFirstSet);
