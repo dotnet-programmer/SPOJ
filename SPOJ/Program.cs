@@ -1,5 +1,7 @@
 ﻿using SPOJ;
 
+using System.Reflection;
+
 Console.Title = "Sphere online judge - SPOJ";
 Console.ForegroundColor = ConsoleColor.Green;
 

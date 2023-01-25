@@ -1,17 +1,15 @@
-﻿namespace SPOJ
+﻿using System.Reflection;
+
+namespace SPOJ;
+
+internal static class Tutorial
 {
-	internal static class Tutorial
-	{
-		public static void TutorialProblems() => MainSPOJ.DoWork(_solvedProblemsFunctions, "Tutorial Problems: ");
+	private static readonly Action[] _solvedProblemsFunctions = typeof(Tutorial).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
+		.Skip(1)
+		.Select(x => x.CreateDelegate<Action>())
+		.ToArray();
 
-		private static readonly Action[] _solvedProblemsFunctions = new[]
-		{
-			Method1,
-		};
+	public static void TutorialProblems() => MainSPOJ.DoWork(_solvedProblemsFunctions, "Tutorial Problems: ");
 
-		private static void Method1()
-		{
-
-		}
-	}
+	public static void Method1() => throw new NotImplementedException();
 }
