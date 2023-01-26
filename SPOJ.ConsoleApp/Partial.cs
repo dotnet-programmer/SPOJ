@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace SPOJ;
+namespace SPOJ.ConsoleApp;
 
 internal static class Partial
 {

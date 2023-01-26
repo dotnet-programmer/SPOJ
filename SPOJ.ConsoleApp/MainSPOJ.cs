@@ -1,4 +1,4 @@
-﻿namespace SPOJ;
+﻿namespace SPOJ.ConsoleApp;
 
 internal class MainSPOJ
 {
