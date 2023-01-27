@@ -1,17 +1,9 @@
 ﻿using System.Drawing;
-using System.Reflection;
 
-namespace SPOJ.ConsoleApp;
+namespace SPOJ.Lib;
 
-internal static class Basics
+public static class Basics
 {
-	private static readonly Action[] _solvedProblemsFunctions = typeof(Basics).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
-		.Skip(1)
-		.Select(x => x.CreateDelegate<Action>())
-		.ToArray();
-
-	public static void BasicsProblems() => MainSPOJ.DoWork(_solvedProblemsFunctions, "Basics Problems: ");
-
 	public static void CPTTRN1_Character_Patterns_Act_1()
 	{
 		int number = int.Parse(Console.ReadLine());
