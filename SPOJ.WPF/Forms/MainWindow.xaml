@@ -11,10 +11,8 @@
 			<TabItem Header="Basics">
 				<DataGrid>
 					<DataGrid.Columns>
-						<DataGridTextColumn Header="Nazwa zadania">
-						</DataGridTextColumn>
-						<DataGridTextColumn Header="Opis">
-						</DataGridTextColumn>
+						<DataGridTextColumn Header="Nazwa zadania"/>
+						<DataGridTextColumn Header="Opis"/>
 					</DataGrid.Columns>
 				</DataGrid>
 			</TabItem>
