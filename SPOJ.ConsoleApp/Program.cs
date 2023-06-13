@@ -29,7 +29,11 @@ Action[] _riddle = typeof(Riddle).GetMethods(BindingFlags.Public | BindingFlags.
 	.Select(x => x.CreateDelegate<Action>())
 	.ToArray();
 
-string[] menuItems = new[] { "Basics", "Tutorial", "Classical", "Challenge", "Partial", "Riddle" };
+Action[] _polishEasy = typeof(PolishEasy).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
+	.Select(x => x.CreateDelegate<Action>())
+	.ToArray();
+
+string[] menuItems = new[] { "Basics", "Tutorial", "Classical", "Challenge", "Partial", "Riddle", "Polish Easy" };
 
 while (true)
 {
@@ -55,6 +59,9 @@ while (true)
 			break;
 		case '6':
 			MainSPOJ.DoWork(_riddle);
+			break;
+		case '7':
+			MainSPOJ.DoWork(_polishEasy);
 			break;
 		default:
 			return;

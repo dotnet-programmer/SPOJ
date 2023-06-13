@@ -4,6 +4,7 @@ namespace SPOJ.Lib;
 
 public static class Basics
 {
+	// 12176 Character Patterns (Act 1)
 	public static void CPTTRN1_Character_Patterns_Act_1()
 	{
 		int number = int.Parse(Console.ReadLine());
@@ -23,6 +24,7 @@ public static class Basics
 		}
 	}
 
+	// 12177 Character Patterns (Act 2)
 	public static void CPTTRN2_Character_Patterns_Act_2()
 	{
 		int number = int.Parse(Console.ReadLine());
@@ -43,6 +45,7 @@ public static class Basics
 		}
 	}
 
+	// 12178 Character Patterns (Act 3)
 	public static void CPTTRN3_Character_Patterns_Act_3()
 	{
 		int number = int.Parse(Console.ReadLine());
@@ -63,6 +66,7 @@ public static class Basics
 		}
 	}
 
+	// 12180 Character Patterns (Act 4)
 	public static void CPTTRN4_Character_Patterns_Act_4()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -86,6 +90,7 @@ public static class Basics
 		}
 	}
 
+	// 12185 Character Patterns (Act 5)
 	public static void CPTTRN5_Character_Patterns_Act_5()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -126,6 +131,7 @@ public static class Basics
 		}
 	}
 
+	// 12187 Character Patterns(Act 6)
 	public static void CPTTRN6_Character_Patterns_Act_6()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -211,6 +217,7 @@ public static class Basics
 		#endregion
 	}
 
+	// 17102 Fun with Sequences
 	public static void SMPSEQ3_Fun_with_Sequences_Act_1()
 	{
 		_ = Console.ReadLine();
@@ -240,6 +247,7 @@ public static class Basics
 		#endregion
 	}
 
+	// 17103 Fun with Sequences (Act 2)
 	public static void SMPSEQ4_Fun_with_Sequences_Act_2()
 	{
 		_ = Console.ReadLine();
@@ -269,6 +277,7 @@ public static class Basics
 		#endregion
 	}
 
+	// 17104 Fun with Sequences (Act 3)
 	public static void SMPSEQ5_Fun_with_Sequences_Act_3()
 	{
 		int numberOfFirstSet = int.Parse(Console.ReadLine());
@@ -297,8 +306,10 @@ public static class Basics
 		Console.WriteLine(string.Join(" ", result));
 	}
 
+	// 12026 Test 1
 	public static void TESTINT_Test_1() => Console.WriteLine(int.Parse(Console.ReadLine()) + int.Parse(Console.ReadLine()));
 
+	// 12156 Half of the half
 	public static void STRHH_Half_of_the_half()
 	{
 		int number = int.Parse(Console.ReadLine());
@@ -313,6 +324,7 @@ public static class Basics
 		}
 	}
 
+	// 15711 Wow
 	public static void SMPWOW_Wow()
 	{
 		int number = int.Parse(Console.ReadLine());
@@ -324,8 +336,10 @@ public static class Basics
 		Console.Write("w");
 	}
 
+	// 2135	SPOJ Custom Test
 	public static void BACTERIA_SPOJ_Custom_Test() => Console.WriteLine("1234");
 
+	// 15708 Divisibility
 	public static void SMPDIV_Divisibility()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -347,12 +361,14 @@ public static class Basics
 		}
 	}
 
+	// 17921 XOR
 	public static void BSCXOR_XOR()
 	{
 		var input = Console.ReadLine().Split(' ');
 		Console.WriteLine(int.Parse(input[0]) ^ int.Parse(input[1]));
 	}
 
+	// 15710 Iterated sums
 	public static void SMPSUM_Iterated_sums()
 	{
 		var input = Console.ReadLine().Split(' ');
@@ -366,6 +382,7 @@ public static class Basics
 		Console.WriteLine(sum);
 	}
 
+	// 23919 Sum of two numbers
 	public static void CHITEST1_Sum_of_two_numbers()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -378,6 +395,7 @@ public static class Basics
 		}
 	}
 
+	// 29154 SUM OF DIGITS
 	public static void ALCATRAZ1_SUM_OF_DIGITS()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -393,6 +411,7 @@ public static class Basics
 		}
 	}
 
+	// 15709 Two Circles
 	public static void SMPCIR_Two_Circles()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -423,6 +442,7 @@ public static class Basics
 		}
 	}
 
+	// 12205 Minimum Bounding Rectangle
 	public static void HS12MBR_Minimum_Bounding_Rectangle()
 	{
 		Point lowerLeft = new();
