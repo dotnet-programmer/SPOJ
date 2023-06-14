@@ -264,6 +264,39 @@ public static class PolishEasy
 		}
 	}
 
+	// 619 Reprezentacja liczb typu float
+	public static void PP0504D_Reprezentacja_liczb_typu_float()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			printFloat(float.Parse(Console.ReadLine()));
+		}
+		static void printFloat(float number)
+		{
+			byte[] bytes = BitConverter.GetBytes(number);
+			System.Text.StringBuilder stringBuilder = new();
+			foreach (byte b in bytes)
+			{
+				string value = string.Empty;
+				if (b == 0)
+				{
+					value = b.ToString("x1");
+				}
+				else
+				{
+					value = b.ToString("x2");
+					if (value[0] == '0')
+					{
+						value = value[1].ToString();
+					}
+				}
+				stringBuilder.Insert(0, value + " ");
+			}
+			Console.WriteLine(stringBuilder.ToString().Trim());
+		}
+	}
+
 	// 626 Obżartuchy
 	public static void GLUTTON_Obżartuchy()
 	{
@@ -290,6 +323,49 @@ public static class PolishEasy
 			}
 			Console.WriteLine(result);
 		}
+	}
+
+	// 663 Sort 1
+	public static void PP0506A_Sort_1()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			List<Point> points = new();
+			int numberOfPoints = int.Parse(Console.ReadLine());
+			for (int j = 0; j < numberOfPoints; j++)
+			{
+				var input = Console.ReadLine().Split(' ');
+				points.Add(new Point(input[0], int.Parse(input[1]), int.Parse(input[2])));
+			}
+			points.Sort();
+			foreach (var item in points)
+			{
+				Console.WriteLine(item);
+			}
+			Console.WriteLine();
+			Console.ReadLine();
+		}
+	}
+
+	public class Point : IComparable<Point>
+	{
+		private readonly string _name;
+		private readonly int _x;
+		private readonly int _y;
+		private readonly double _distance;
+
+		public Point(string name, int x, int y)
+		{
+			_name = name;
+			_x = x;
+			_y = y;
+			_distance = Math.Sqrt(_x * _x + _y * _y);
+		}
+
+		public int CompareTo(Point? other) => this._distance > other._distance ? 1 : this._distance < other._distance ? -1 : 0;
+
+		public override string ToString() => $"{_name} {_x} {_y}";
 	}
 
 	// 675 SkarbFinder
@@ -411,6 +487,43 @@ public static class PolishEasy
 			int remainder = a % b;
 			return remainder == 0 ? b : NWD(b, remainder);
 		}
+	}
+
+	// 833 Dwumiany
+	// source: https://pl.wikipedia.org/wiki/Symbol_Newtona
+	public static void BINOMS_Dwumiany()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			var input = Console.ReadLine().Split(' ');
+			int n = int.Parse(input[0]);
+			int k = int.Parse(input[1]);
+			if (k == 0 || k == n)
+			{
+				Console.WriteLine("1");
+			}
+			else
+			{
+				Console.WriteLine(NewtonSymbol(n, k));
+			}
+		}
+		static int NewtonSymbol(int n, int k)
+		{
+			int tmp = n - k;
+			if (k > tmp)
+			{
+				k = tmp;
+			}
+			double result = 1;
+			for (int i = 1; i <= k; i++)
+			{
+				result = result * (n - i + 1) / i;
+			}
+			return (int)result;
+		}
+		// recursion, too long execution
+		//static int NewtonSymbol(int n, int k) => k == 0 || k == n ? 1 : NewtonSymbol(n - 1, k - 1) + NewtonSymbol(n - 1, k);
 	}
 
 	// 968 Suma
@@ -582,6 +695,53 @@ public static class PolishEasy
 		}
 	}
 
+	// 1019 Systemy pozycyjne
+	public static void SYS_Systemy_pozycyjne()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			int input = int.Parse(Console.ReadLine());
+			Console.WriteLine(ConvertToHexOrEleventhSystem(input, 16) + " " + ConvertToHexOrEleventhSystem(input, 11));
+		}
+		static string ConvertToHexOrEleventhSystem(int number, int system)
+		{
+			string result = string.Empty;
+			//int counter = 0;
+			do
+			{
+				int remainder = number % system;
+				number /= system;
+
+				if (remainder > 9)
+				{
+					string letter = remainder switch
+					{
+						10 => "A",
+						11 => "B",
+						12 => "C",
+						13 => "D",
+						14 => "E",
+						15 => "F",
+						_ => string.Empty
+					};
+
+					result = letter + result;
+				}
+				else
+				{
+					result = remainder.ToString() + result;
+				}
+				//counter++;
+				//if (counter % 4 == 0)
+				//{
+				//	result = " " + result;
+				//}
+			} while (number > 0);
+			return result;
+		}
+	}
+
 	// 1032 Podzielność
 	public static void PP0601B_Podzielnosc()
 	{
@@ -683,13 +843,67 @@ public static class PolishEasy
 		}
 	}
 
+	// 1056 Tabelki liczb
+	public static void PP0602B_Tabelki_liczb()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			var dimensions = Console.ReadLine().Split(' ');
+			int rows = int.Parse(dimensions[0]);
+			int columns = int.Parse(dimensions[1]);
+			string[,] numbers = new string[rows, columns];
+			for (int j = 0; j < rows; j++)
+			{
+				var input = Console.ReadLine().Split(' ');
+				for (int k = 0; k < columns; k++)
+				{
+					numbers[j, k] = input[k];
+				}
+			}
+			int lasCol = columns - 1;
+			int lastRow = rows - 1;
+			// first row
+			for (int j = 0; j < lasCol; j++)
+			{
+				(numbers[0, j], numbers[0, j + 1]) = (numbers[0, j + 1], numbers[0, j]);
+			}
+			// last column
+			for (int j = 0; j < lastRow; j++)
+			{
+				(numbers[j, lasCol], numbers[j + 1, lasCol]) = (numbers[j + 1, lasCol], numbers[j, lasCol]);
+			}
+			// last row
+			for (int j = lasCol; j > 0; j--)
+			{
+				(numbers[lastRow, j], numbers[lastRow, j - 1]) = (numbers[lastRow, j - 1], numbers[lastRow, j]);
+			}
+			// first column
+			for (int j = lastRow; j > 1; j--)
+			{
+				(numbers[j, 0], numbers[j - 1, 0]) = (numbers[j - 1, 0], numbers[j, 0]);
+			}
+			for (int j = 0; j < rows; j++)
+			{
+				for (int k = 0; k < columns; k++)
+				{
+					Console.Write(numbers[j, k]);
+					if (k != lasCol)
+					{
+						Console.Write(" ");
+					}
+				}
+				Console.WriteLine();
+			}
+		}
+	}
+
 	// 1102 Średnia arytmetyczna
 	public static void PP0604A_Srednia_arytmetyczna()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
 		for (int i = 0; i < numberOfTests; i++)
 		{
-
 			//var inputs = Console.ReadLine().Trim().Substring(2).Split(' ').Select(int.Parse).ToArray();
 			var inputs = Console.ReadLine().Split(' ');
 			List<int> numbers = new();
@@ -712,6 +926,12 @@ public static class PolishEasy
 		}
 	}
 
+	// 1125 Ostatnia cyfra - BR
+	public static void OSTBR_Ostatnia_cyfra_BR()
+	{
+		// ,----------[++++++++++>[-]<[->+<],----------]>.
+	}
+
 	// 1139 Nowa działka
 	public static void MWPZ06X_Nowa_dzialka()
 	{
@@ -720,6 +940,20 @@ public static class PolishEasy
 		{
 			int length = int.Parse(Console.ReadLine());
 			Console.WriteLine(length * length);
+		}
+	}
+
+	// 1142 Ciążowy specjalista
+	public static void MWPZ06A_Ciazowy_specjalista()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			var input = Console.ReadLine().Split(' ');
+			double x = double.Parse(input[0]);
+			double y = double.Parse(input[1]);
+			double z = double.Parse(input[2]);
+			Console.WriteLine(Math.Round((x + y - z * y) / (z - 1) * (-12)));
 		}
 	}
 
@@ -741,6 +975,96 @@ public static class PolishEasy
 				Console.WriteLine(candies % children == 0 ? "NIE" : "TAK");
 			}
 		}
+	}
+
+	// 1149 Konkurs pseudomatematyczny
+	public static void MWPZ06H_Konkurs_pseudomatematyczny()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			int count = int.Parse(Console.ReadLine());
+			var numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
+			numbers.Sort();
+			int max = numbers.Max();
+			Console.WriteLine((string.Join(" ", numbers.FindAll(x => x == max)) + " " + string.Join(" ", numbers.FindAll(x => x != max))).Trim());
+		}
+	}
+
+	// 1211 Niekolejne
+	public static void NIEKOLEJ_Niekolejne()
+	{
+		// dla 1 000 000 - 0.09s 17308KB
+		//int number = int.Parse(Console.ReadLine());
+		//if (number == 0)
+		//{
+		//	Console.WriteLine("0");
+		//}
+		//else if (number < 3)
+		//{
+		//	Console.WriteLine("NIE");
+		//}
+		//else
+		//{
+		//	for (int i = 1; i <= number; i += 2)
+		//	{
+		//		Console.Write($"{i} ");
+		//	}
+		//	for (int i = 0; i <= number; i += 2)
+		//	{
+		//		Console.Write($"{i} ");
+		//	}
+		//}
+
+		// dla 1 000 000 - 0.25s 52844KB
+		int number = int.Parse(Console.ReadLine());
+		if (number == 0)
+		{
+			Console.WriteLine("0");
+		}
+		else if (number < 3)
+		{
+			Console.WriteLine("NIE");
+		}
+		else
+		{
+			System.Text.StringBuilder sb = new();
+			for (int i = 1; i <= number; i += 2)
+			{
+				sb.Append(i).Append(' ');
+			}
+			for (int i = 0; i <= number; i += 2)
+			{
+				sb.Append(i).Append(' ');
+			}
+			//sb.Remove(sb.Length - 1, 1);
+			Console.WriteLine(sb);
+		}
+
+		// dla 1 000 000 - 0.44s 66312KB
+		//int number = int.Parse(Console.ReadLine());
+		//if (number == 0)
+		//{
+		//	Console.WriteLine("0");
+		//}
+		//else if (number < 3)
+		//{
+		//	Console.WriteLine("NIE");
+		//}
+		//else
+		//{
+		//	System.Text.StringBuilder sb = new System.Text.StringBuilder();
+		//	for (int i = 1; i <= number; i += 2)
+		//	{
+		//		sb.Append(i + " ");
+		//	}
+		//	for (int i = 0; i <= number; i += 2)
+		//	{
+		//		sb.Append(i + " ");
+		//	}
+		//	sb.Remove(sb.Length - 1, 1);
+		//	Console.WriteLine(sb);
+		//}
 	}
 
 	// 1228 Rownanie liniowe
@@ -981,6 +1305,16 @@ public static class PolishEasy
 		Console.WriteLine(result);
 	}
 
+	// 1596 Wiek segmentolka
+	public static void WSEGA_Wiek_segmentolka()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			Console.WriteLine(Console.ReadLine().Split().Select(int.Parse).ToArray().Sum() - 1);
+		}
+	}
+
 	// 1828 Dodawanie liczb całkowitych
 	public static void KC001_Dodawanie_liczb_całkowitych()
 	{
@@ -1034,6 +1368,31 @@ public static class PolishEasy
 		}
 	}
 
+	// 1909 Sumy wielokrotne
+	// nieokreślona ilość danych wejściowych
+	public static void KC008_Sumy_wielokrotne()
+	{
+		long sum = 0;
+		while (true)
+		{
+			string input = Console.ReadLine();
+			if (string.IsNullOrWhiteSpace(input))
+			{
+				Console.WriteLine(sum);
+				break;
+			}
+			//var number = input.Split(' ').Select(int.Parse).Sum();
+			long number = 0;
+			var inputs = input.Split(' ');
+			for (int j = 0; j < inputs.Length; j++)
+			{
+				number += int.Parse(inputs[j]);
+			}
+			sum += number;
+			Console.WriteLine(number);
+		}
+	}
+
 	// 1910 Odwracanie wyrazów
 	// nieokreślona ilość danych wejściowych
 	public static void KC009_Odwracanie_wyrazow()
@@ -1046,6 +1405,21 @@ public static class PolishEasy
 				break;
 			}
 			Console.WriteLine(string.Join("", input.Reverse()));
+		}
+	}
+
+	// 2181 Wycinanie literek
+	// nieokreślona ilość danych wejściowych
+	public static void PROGC05_Wycinanie_literek()
+	{
+		while (true)
+		{
+			string input = Console.ReadLine();
+			if (string.IsNullOrWhiteSpace(input))
+			{
+				break;
+			}
+			Console.WriteLine(input.Substring(2).Replace(input[0].ToString(), ""));
 		}
 	}
 
