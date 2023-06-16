@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace SPOJ.Lib;
+﻿namespace SPOJ.Lib;
 
 public static class Tutorial
 {

@@ -1,4 +1,6 @@
-﻿namespace SPOJ.Lib;
+﻿using System.Text;
+
+namespace SPOJ.Lib;
 
 public static class PolishEasy
 {
@@ -486,6 +488,288 @@ public static class PolishEasy
 		{
 			int remainder = a % b;
 			return remainder == 0 ? b : NWD(b, remainder);
+		}
+	}
+
+	//806 Wiatraczki - 3/3 testy zaliczone - 0.05s 26084kB, 0.07s 29580kB, 0.05s 26072kB
+	//nieokreślona ilość danych wejściowych
+	public static void FANGEN_Wiatraczki_1()
+	{
+		while (true)
+		{
+			int input = int.Parse(Console.ReadLine());
+			if (input == 0)
+			{
+				break;
+			}
+			System.Text.StringBuilder sb = new();
+			if (input > 0)
+			{
+				for (int i = 0; i < input; i++)
+				{
+					for (int j = 0; j < i + 1; j++)
+					{
+						sb.Append('*');
+					}
+					for (int j = input - i - 1; j > 0; j--)
+					{
+						sb.Append('.');
+					}
+					for (int j = i; j < input; j++)
+					{
+						sb.Append('*');
+					}
+					for (int j = i; j > 0; j--)
+					{
+						sb.Append('.');
+					}
+					sb.Append("\r\n");
+				}
+				for (int i = 0; i < input; i++)
+				{
+					for (int j = input - i - 1; j > 0; j--)
+					{
+						sb.Append('.');
+					}
+					for (int j = 0; j < i + 1; j++)
+					{
+						sb.Append('*');
+					}
+					for (int j = i; j > 0; j--)
+					{
+						sb.Append('.');
+					}
+					for (int j = i; j < input; j++)
+					{
+						sb.Append('*');
+					}
+					sb.Append("\r\n");
+				}
+			}
+			else
+			{
+				input = Math.Abs(input);
+				for (int i = 0; i < input; i++)
+				{
+					for (int j = i; j > 0; j--)
+					{
+						sb.Append('.');
+					}
+					for (int j = i; j < input; j++)
+					{
+						sb.Append('*');
+					}
+					for (int j = input - i - 1; j > 0; j--)
+					{
+						sb.Append('.');
+					}
+					for (int j = 0; j < i + 1; j++)
+					{
+						sb.Append('*');
+					}
+					sb.Append("\r\n");
+				}
+				for (int i = 0; i < input; i++)
+				{
+					for (int j = i; j < input; j++)
+					{
+						sb.Append('*');
+					}
+					for (int j = i; j > 0; j--)
+					{
+						sb.Append('.');
+					}
+					for (int j = 0; j < i + 1; j++)
+					{
+						sb.Append('*');
+					}
+					for (int j = input - i - 1; j > 0; j--)
+					{
+						sb.Append('.');
+					}
+					sb.Append("\r\n");
+				}
+			}
+			Console.WriteLine(sb);
+		}
+	}
+
+	// 806 Wiatraczki - 3/3 testy zaliczone - 0.07s 26996kB, 0.10s 32492kB, 0.07s 26924kB
+	// nieokreślona ilość danych wejściowych
+	public static void FANGEN_Wiatraczki_2()
+	{
+		while (true)
+		{
+			int input = int.Parse(Console.ReadLine());
+			if (input == 0)
+			{
+				break;
+			}
+			int arraySize = Math.Abs(input);
+			StringBuilder[] pattern = new StringBuilder[arraySize];
+			if (input > 0)
+			{
+				for (int i = 0; i < arraySize; i++)
+				{
+					pattern[i] = new StringBuilder();
+					for (int j = 0; j < i + 1; j++)
+					{
+						pattern[i].Append('*');
+					}
+					for (int j = i + 1; j < arraySize; j++)
+					{
+						pattern[i].Append('.');
+					}
+				}
+			}
+			else
+			{
+				for (int i = 0; i < arraySize; i++)
+				{
+					pattern[i] = new StringBuilder();
+					for (int j = 0; j < i; j++)
+					{
+						pattern[i].Append('.');
+					}
+					for (int j = i; j < arraySize; j++)
+					{
+						pattern[i].Append('*');
+					}
+				}
+			}
+			StringBuilder result = new();
+			for (int i = 0; i < arraySize; i++)
+			{
+				result.Append(pattern[i]);
+				result.Append(pattern[arraySize - 1 - i]);
+				result.Append('\n');
+			}
+			result.Append(result.ToString().Trim().Reverse().ToArray());
+			Console.WriteLine(result);
+			Console.WriteLine();
+		}
+	}
+
+	// TODO - zrobić podobną wersję, tylko od razu wypełniona np kropkami, pozniej tylko wpisać gwiazdki
+	// 806 Wiatraczki - 3/3 testy zaliczone - 0.06s 27020kB, 0.07s 32300kB, 0.06s 27060kB
+	// nieokreślona ilość danych wejściowych
+	public static void FANGEN_Wiatraczki_3()
+	{
+		while (true)
+		{
+			int input = int.Parse(Console.ReadLine());
+			if (input == 0)
+			{
+				break;
+			}
+			StringBuilder sb = new();
+			bool isAsterisk = false;
+			int breakValue = 0;
+			if (input > 0)
+			{
+				for (int i = 1; i <= input; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						isAsterisk = !isAsterisk;
+						char tmpChar = isAsterisk ? '*' : '.';
+						breakValue = isAsterisk ? j == 0 ? i : input + 1 - i : input - breakValue;
+						for (int k = 0; k < breakValue; k++)
+						{
+							sb.Append(tmpChar);
+						}
+					}
+					sb.Append('\n');
+				}
+			}
+			else
+			{
+				input = Math.Abs(input);
+				for (int i = 1; i <= input; i++)
+				{
+					for (int j = 0; j < 4; j++)
+					{
+						char tmpChar = isAsterisk ? '*' : '.';
+						breakValue = isAsterisk ? input - breakValue : j == 0 ? i - 1 : input - i;
+						for (int k = 0; k < breakValue; k++)
+						{
+							sb.Append(tmpChar);
+						}
+						isAsterisk = !isAsterisk;
+					}
+					sb.Append('\n');
+				}
+			}
+			sb.Append(sb.ToString().Trim().Reverse().ToArray());
+			Console.WriteLine(sb);
+			Console.WriteLine();
+		}
+	}
+
+	// 806 Wiatraczki - 2/3 testy zaliczone
+	// nieokreślona ilość danych wejściowych
+	public static void FANGEN_Wiatraczki_4()
+	{
+		while (true)
+		{
+			int input = int.Parse(Console.ReadLine());
+			if (input == 0)
+			{
+				break;
+			}
+			int arraySize = Math.Abs(input) * 2;
+			char[,] pattern = new char[arraySize, arraySize];
+			if (input > 0)
+			{
+				for (int i = 0; i < input; i++)
+				{
+					for (int j = 0; j < i + 1; j++)
+					{
+						pattern[i, j] = '*';
+					}
+					for (int j = i + 1; j < input; j++)
+					{
+						pattern[i, j] = '.';
+					}
+				}
+			}
+			else
+			{
+				input = Math.Abs(input);
+				for (int i = 0; i < input; i++)
+				{
+					for (int j = 0; j < i; j++)
+					{
+						pattern[i, j] = '.';
+					}
+					for (int j = i; j < input; j++)
+					{
+						pattern[i, j] = '*';
+					}
+				}
+			}
+			for (int i = 0; i < input; i++)
+			{
+				for (int j = input; j < arraySize; j++)
+				{
+					pattern[i, j] = pattern[input - i - 1, j - input];
+				}
+			}
+			for (int i = input; i < arraySize; i++)
+			{
+				for (int j = 0; j < arraySize; j++)
+				{
+					pattern[i, j] = pattern[arraySize - 1 - i, arraySize - 1 - j];
+				}
+			}
+			for (int i = 0; i < arraySize; i++)
+			{
+				for (int j = 0; j < arraySize; j++)
+				{
+					Console.Write(pattern[i, j]);
+				}
+				Console.WriteLine();
+			}
 		}
 	}
 
