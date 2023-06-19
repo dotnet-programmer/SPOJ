@@ -173,6 +173,7 @@ public static class Basics
 		}
 
 		#region first version
+
 		//int numberOfTests = int.Parse(Console.ReadLine());
 		//for (int i = 0; i < numberOfTests; i++)
 		//{
@@ -214,7 +215,8 @@ public static class Basics
 		//	}
 		//	Console.WriteLine();
 		//}
-		#endregion
+
+		#endregion first version
 	}
 
 	// 17102 Fun with Sequences
@@ -228,6 +230,7 @@ public static class Basics
 		Console.WriteLine(string.Join(" ", set1));
 
 		#region first version
+
 		//int numberOfFirstSet = int.Parse(Console.ReadLine());
 		//var input = Console.ReadLine().Split(' ');
 		//HashSet<int> set1 = new HashSet<int>(numberOfFirstSet);
@@ -244,7 +247,8 @@ public static class Basics
 		//}
 		//set1.ExceptWith(set2);
 		//Console.WriteLine(string.Join(" ", set1));
-		#endregion
+
+		#endregion first version
 	}
 
 	// 17103 Fun with Sequences (Act 2)
@@ -258,6 +262,7 @@ public static class Basics
 		Console.WriteLine(string.Join(" ", set1));
 
 		#region first version
+
 		//int numberOfFirstSet = int.Parse(Console.ReadLine());
 		//var input = Console.ReadLine().Split(' ');
 		//HashSet<int> set1 = new HashSet<int>(numberOfFirstSet);
@@ -274,7 +279,8 @@ public static class Basics
 		//}
 		//set1.IntersectWith(set2);
 		//Console.WriteLine(string.Join(" ", set1));
-		#endregion
+
+		#endregion first version
 	}
 
 	// 17104 Fun with Sequences (Act 3)
@@ -512,6 +518,42 @@ public static class Basics
 			}
 			Console.WriteLine($"{lowerLeft.X} {lowerLeft.Y} {upperRight.X} {upperRight.Y}");
 			Console.ReadLine();
+		}
+	}
+
+	// TODO - not work - why?
+	// 27609 Simple Average
+	public static void AVRG_Simple_Average()
+	{
+		long sum = 0;
+		for (int i = 0; i < 6; i++)
+		{
+			sum += long.Parse(Console.ReadLine());
+		}
+		Console.WriteLine(sum / 6);
+	}
+
+	// 34596 Compare two numbers
+	public static void FUCT_IF_COMPARE_Compare_two_numbers()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			var input = Console.ReadLine().Split(' ');
+			int number1 = int.Parse(input[0]);
+			int number2 = int.Parse(input[1]);
+			if (number1 > number2)
+			{
+				Console.WriteLine($"{number1} is greater than {number2}");
+			}
+			else if (number1 < number2)
+			{
+				Console.WriteLine($"{number1} is smaller than {number2}");
+			}
+			else
+			{
+				Console.WriteLine($"n is equal m: {number2}");
+			}
 		}
 	}
 }

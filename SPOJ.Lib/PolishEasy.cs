@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace SPOJ.Lib;
+﻿namespace SPOJ.Lib;
 
 public static class PolishEasy
 {
@@ -49,7 +47,6 @@ public static class PolishEasy
 			}
 			Console.WriteLine($"{tensDigit} {unitDigit}");
 		}
-
 		static int Factorial(int number)
 		{
 			int result = 1;
@@ -69,10 +66,8 @@ public static class PolishEasy
 		for (int i = 0; i < numberOfTests; i++)
 		{
 			var numbers = Console.ReadLine().Split(' ');
-
 			int powerBase = int.Parse(numbers[0]);
 			int power = int.Parse(numbers[1]);
-
 			int lastDigitInPowerBase = powerBase % 10;
 			int powerCycle = power % 4;
 
@@ -82,11 +77,11 @@ public static class PolishEasy
 			}
 			else if (lastDigitInPowerBase == 2)
 			{
-				Console.WriteLine(powerCycle switch { 0 => 6, 1 => 2, 2 => 4, 3 => 8 });
+				Console.WriteLine(powerCycle switch { 0 => 6, 1 => 2, 2 => 4, 3 => 8, _ => throw new NotImplementedException() });
 			}
 			else if (lastDigitInPowerBase == 3)
 			{
-				Console.WriteLine(powerCycle switch { 0 => 1, 1 => 3, 2 => 9, 3 => 7 });
+				Console.WriteLine(powerCycle switch { 0 => 1, 1 => 3, 2 => 9, 3 => 7, _ => throw new NotImplementedException() });
 			}
 			else if (lastDigitInPowerBase == 4)
 			{
@@ -94,11 +89,11 @@ public static class PolishEasy
 			}
 			else if (lastDigitInPowerBase == 7)
 			{
-				Console.WriteLine(powerCycle switch { 0 => 1, 1 => 7, 2 => 9, 3 => 3 });
+				Console.WriteLine(powerCycle switch { 0 => 1, 1 => 7, 2 => 9, 3 => 3, _ => throw new NotImplementedException() });
 			}
 			else if (lastDigitInPowerBase == 8)
 			{
-				Console.WriteLine(powerCycle switch { 0 => 6, 1 => 8, 2 => 4, 3 => 2 });
+				Console.WriteLine(powerCycle switch { 0 => 6, 1 => 8, 2 => 4, 3 => 2, _ => throw new NotImplementedException() });
 			}
 			else if (lastDigitInPowerBase == 9)
 			{
@@ -146,10 +141,7 @@ public static class PolishEasy
 		int numberOfTests = int.Parse(Console.ReadLine());
 		for (int i = 0; i < numberOfTests; i++)
 		{
-			var numbers = Console.ReadLine()
-				.Split(' ')
-				.Select(int.Parse)
-				.ToList();
+			var numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
 			int result = (numbers[0] * numbers[1]) / (NWD(numbers[0], numbers[1]));
 			Console.WriteLine(result);
 		}
@@ -167,10 +159,7 @@ public static class PolishEasy
 		for (int i = 0; i < numberOfTests; i++)
 		{
 			_ = Console.ReadLine();
-			Console.WriteLine(Console.ReadLine()
-				.Split(' ')
-				.Select(int.Parse)
-				.Sum());
+			Console.WriteLine(Console.ReadLine().Split(' ').Select(int.Parse).Sum());
 		}
 	}
 
@@ -190,17 +179,6 @@ public static class PolishEasy
 			Console.WriteLine(input + ' ' + count);
 		}
 		static bool IsPalindrome(string text) => text == string.Join("", text.Reverse());
-		//static bool IsPalindrome(string text)
-		//{
-		//	for (int i = 0, j = text.Length - 1; i < j; i++, j--)
-		//	{
-		//		if (text[i] != text[j])
-		//		{
-		//			return false;
-		//		}
-		//	}
-		//	return true;
-		//}
 	}
 
 	// 601 NWD
@@ -214,7 +192,6 @@ public static class PolishEasy
 			int number2 = int.Parse(numbers[1]);
 			Console.WriteLine(NWD(number1, number2));
 		}
-
 		static int NWD(int a, int b)
 		{
 			int remainder = a % b;
@@ -228,11 +205,7 @@ public static class PolishEasy
 		int numberOfTests = int.Parse(Console.ReadLine());
 		for (int i = 0; i < numberOfTests; i++)
 		{
-			var numbers = Console.ReadLine()
-				.Substring(2)
-				.Split(' ')
-				.Reverse();
-			Console.WriteLine(string.Join(' ', numbers));
+			Console.WriteLine(string.Join(' ', Console.ReadLine()[2..].Split(' ').Reverse()));
 		}
 	}
 
@@ -293,7 +266,7 @@ public static class PolishEasy
 						value = value[1].ToString();
 					}
 				}
-				stringBuilder.Insert(0, value + " ");
+				stringBuilder.Insert(0, value + ' ');
 			}
 			Console.WriteLine(stringBuilder.ToString().Trim());
 		}
@@ -306,10 +279,7 @@ public static class PolishEasy
 		int numberOfTests = int.Parse(Console.ReadLine());
 		for (int i = 0; i < numberOfTests; i++)
 		{
-			var numbers = Console.ReadLine()
-				.Split(' ')
-				.Select(int.Parse)
-				.ToArray();
+			var numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
 			int guests = numbers[0];
 			int cookiesInBox = numbers[1];
 			int totalCookies = 0;
@@ -365,7 +335,7 @@ public static class PolishEasy
 			_distance = Math.Sqrt(_x * _x + _y * _y);
 		}
 
-		public int CompareTo(Point? other) => this._distance > other._distance ? 1 : this._distance < other._distance ? -1 : 0;
+		public int CompareTo(Point other) => this._distance > other._distance ? 1 : this._distance < other._distance ? -1 : 0;
 
 		public override string ToString() => $"{_name} {_x} {_y}";
 	}
@@ -381,24 +351,22 @@ public static class PolishEasy
 			int count = int.Parse(Console.ReadLine());
 			for (int j = 0; j < count; j++)
 			{
-				var numbers = Console.ReadLine()
-					.Split(' ')
-					.Select(int.Parse)
-					.ToArray();
-
-				switch (numbers[0])
+				var numbers = Console.ReadLine().Split(' ');
+				int direction = int.Parse(numbers[0]);
+				int distance = int.Parse(numbers[1]);
+				switch (direction)
 				{
 					case 0:
-						y += numbers[1];
+						y += distance;
 						break;
 					case 1:
-						y -= numbers[1];
+						y -= distance;
 						break;
 					case 2:
-						x -= numbers[1];
+						x -= distance;
 						break;
 					case 3:
-						x += numbers[1];
+						x += distance;
 						break;
 				}
 			}
@@ -430,7 +398,6 @@ public static class PolishEasy
 		{
 			Console.WriteLine(Collatz(int.Parse(Console.ReadLine())));
 		}
-
 		static int Collatz(int number, int count = 0)
 		{
 			if (number == 1)
@@ -469,21 +436,8 @@ public static class PolishEasy
 			var numbers = Console.ReadLine().Split(' ');
 			int player1 = int.Parse(numbers[0]);
 			int player2 = int.Parse(numbers[1]);
-			//while (player1 != player2)
-			//{
-			//	if (player1 < player2)
-			//	{
-			//		player2 -= player1;
-			//	}
-			//	else
-			//	{
-			//		player1 -= player2;
-			//	}
-			//}
-			//Console.WriteLine(player1 << 1);
 			Console.WriteLine(NWD(player1, player2) << 1);
 		}
-
 		static int NWD(int a, int b)
 		{
 			int remainder = a % b;
@@ -491,8 +445,8 @@ public static class PolishEasy
 		}
 	}
 
-	//806 Wiatraczki - 3/3 testy zaliczone - 0.05s 26084kB, 0.07s 29580kB, 0.05s 26072kB
-	//nieokreślona ilość danych wejściowych
+	// 806 Wiatraczki - 3/3 tests - 0.05s 26084kB, 0.07s 29580kB, 0.05s 26072kB
+	// unspecified amount of input data
 	public static void FANGEN_Wiatraczki_1()
 	{
 		while (true)
@@ -594,8 +548,8 @@ public static class PolishEasy
 		}
 	}
 
-	// 806 Wiatraczki - 3/3 testy zaliczone - 0.07s 26996kB, 0.10s 32492kB, 0.07s 26924kB
-	// nieokreślona ilość danych wejściowych
+	// 806 Wiatraczki - 3/3 tests - 0.07s 26996kB, 0.10s 32492kB, 0.07s 26924kB
+	// unspecified amount of input data
 	public static void FANGEN_Wiatraczki_2()
 	{
 		while (true)
@@ -606,12 +560,12 @@ public static class PolishEasy
 				break;
 			}
 			int arraySize = Math.Abs(input);
-			StringBuilder[] pattern = new StringBuilder[arraySize];
+			System.Text.StringBuilder[] pattern = new System.Text.StringBuilder[arraySize];
 			if (input > 0)
 			{
 				for (int i = 0; i < arraySize; i++)
 				{
-					pattern[i] = new StringBuilder();
+					pattern[i] = new System.Text.StringBuilder();
 					for (int j = 0; j < i + 1; j++)
 					{
 						pattern[i].Append('*');
@@ -626,7 +580,7 @@ public static class PolishEasy
 			{
 				for (int i = 0; i < arraySize; i++)
 				{
-					pattern[i] = new StringBuilder();
+					pattern[i] = new System.Text.StringBuilder();
 					for (int j = 0; j < i; j++)
 					{
 						pattern[i].Append('.');
@@ -637,7 +591,7 @@ public static class PolishEasy
 					}
 				}
 			}
-			StringBuilder result = new();
+			System.Text.StringBuilder result = new();
 			for (int i = 0; i < arraySize; i++)
 			{
 				result.Append(pattern[i]);
@@ -650,9 +604,8 @@ public static class PolishEasy
 		}
 	}
 
-	// TODO - zrobić podobną wersję, tylko od razu wypełniona np kropkami, pozniej tylko wpisać gwiazdki
-	// 806 Wiatraczki - 3/3 testy zaliczone - 0.06s 27020kB, 0.07s 32300kB, 0.06s 27060kB
-	// nieokreślona ilość danych wejściowych
+	// 806 Wiatraczki - 3/3 tests - 0.06s 27020kB, 0.07s 32300kB, 0.06s 27060kB
+	// unspecified amount of input data
 	public static void FANGEN_Wiatraczki_3()
 	{
 		while (true)
@@ -662,7 +615,7 @@ public static class PolishEasy
 			{
 				break;
 			}
-			StringBuilder sb = new();
+			System.Text.StringBuilder sb = new();
 			bool isAsterisk = false;
 			int breakValue = 0;
 			if (input > 0)
@@ -706,8 +659,8 @@ public static class PolishEasy
 		}
 	}
 
-	// 806 Wiatraczki - 2/3 testy zaliczone
-	// nieokreślona ilość danych wejściowych
+	// 806 Wiatraczki - 2/3 tests
+	// unspecified amount of input data
 	public static void FANGEN_Wiatraczki_4()
 	{
 		while (true)
@@ -806,12 +759,12 @@ public static class PolishEasy
 			}
 			return (int)result;
 		}
-		// recursion, too long execution
+		// recursion - too slow
 		//static int NewtonSymbol(int n, int k) => k == 0 || k == n ? 1 : NewtonSymbol(n - 1, k - 1) + NewtonSymbol(n - 1, k);
 	}
 
 	// 968 Suma
-	// nieokreślona ilość danych wejściowych
+	// unspecified amount of input data
 	public static void SUMA_Suma()
 	{
 		int result = 0;
@@ -851,7 +804,7 @@ public static class PolishEasy
 	public static void TABLICA_Tablica() => Console.WriteLine(string.Join(' ', Console.ReadLine().Split(' ').Reverse()));
 
 	// 978 Stos
-	// nieokreślona ilość danych wejściowych
+	// unspecified amount of input data
 	public static void STOS_Stos()
 	{
 		string[] stack = new string[10];
@@ -893,7 +846,7 @@ public static class PolishEasy
 	}
 
 	// 997 Kalkulator
-	// nieokreślona ilość danych wejściowych
+	// unspecified amount of input data
 	public static void CALC_Kalkulator()
 	{
 		while (true)
@@ -913,14 +866,15 @@ public static class PolishEasy
 				"-" => number1 - number2,
 				"*" => number1 * number2,
 				"/" => number1 / number2,
-				"%" => number1 % number2
+				"%" => number1 % number2,
+				_ => throw new NotImplementedException()
 			};
 			Console.WriteLine(result);
 		}
 	}
 
 	// 998 Kalkulator 2
-	// nieokreślona ilość danych wejściowych
+	// unspecified amount of input data
 	public static void CALC2_Kalkulator2()
 	{
 		int[] register = new int[10];
@@ -947,7 +901,8 @@ public static class PolishEasy
 					"-" => register[number1] - register[number2],
 					"*" => register[number1] * register[number2],
 					"/" => register[number1] / register[number2],
-					"%" => register[number1] % register[number2]
+					"%" => register[number1] % register[number2],
+					_ => throw new NotImplementedException()
 				};
 				Console.WriteLine(result);
 			}
@@ -1108,7 +1063,7 @@ public static class PolishEasy
 		for (int i = 0; i < numberOfTests; i++)
 		{
 			numbers.Clear();
-			var inputs = Console.ReadLine().Substring(2).Split(' ');
+			var inputs = Console.ReadLine()[2..].Split(' ');
 			for (int j = 0; j < inputs.Length; j++)
 			{
 				if ((j + 1) % 2 == 0)
@@ -1250,14 +1205,7 @@ public static class PolishEasy
 			var numbers = Console.ReadLine().Split(' ');
 			int children = int.Parse(numbers[0]) - 1;
 			int candies = int.Parse(numbers[1]);
-			if (children == 0)
-			{
-				Console.WriteLine("TAK");
-			}
-			else
-			{
-				Console.WriteLine(candies % children == 0 ? "NIE" : "TAK");
-			}
+			Console.WriteLine(children == 0 ? "TAK" : candies % children == 0 ? "NIE" : "TAK");
 		}
 	}
 
@@ -1278,29 +1226,6 @@ public static class PolishEasy
 	// 1211 Niekolejne
 	public static void NIEKOLEJ_Niekolejne()
 	{
-		// dla 1 000 000 - 0.09s 17308KB
-		//int number = int.Parse(Console.ReadLine());
-		//if (number == 0)
-		//{
-		//	Console.WriteLine("0");
-		//}
-		//else if (number < 3)
-		//{
-		//	Console.WriteLine("NIE");
-		//}
-		//else
-		//{
-		//	for (int i = 1; i <= number; i += 2)
-		//	{
-		//		Console.Write($"{i} ");
-		//	}
-		//	for (int i = 0; i <= number; i += 2)
-		//	{
-		//		Console.Write($"{i} ");
-		//	}
-		//}
-
-		// dla 1 000 000 - 0.25s 52844KB
 		int number = int.Parse(Console.ReadLine());
 		if (number == 0)
 		{
@@ -1321,34 +1246,9 @@ public static class PolishEasy
 			{
 				sb.Append(i).Append(' ');
 			}
-			//sb.Remove(sb.Length - 1, 1);
+			sb.Remove(sb.Length - 1, 1);
 			Console.WriteLine(sb);
 		}
-
-		// dla 1 000 000 - 0.44s 66312KB
-		//int number = int.Parse(Console.ReadLine());
-		//if (number == 0)
-		//{
-		//	Console.WriteLine("0");
-		//}
-		//else if (number < 3)
-		//{
-		//	Console.WriteLine("NIE");
-		//}
-		//else
-		//{
-		//	System.Text.StringBuilder sb = new System.Text.StringBuilder();
-		//	for (int i = 1; i <= number; i += 2)
-		//	{
-		//		sb.Append(i + " ");
-		//	}
-		//	for (int i = 0; i <= number; i += 2)
-		//	{
-		//		sb.Append(i + " ");
-		//	}
-		//	sb.Remove(sb.Length - 1, 1);
-		//	Console.WriteLine(sb);
-		//}
 	}
 
 	// 1228 Rownanie liniowe
@@ -1391,14 +1291,7 @@ public static class PolishEasy
 			int yb = input[3];
 			int xc = input[4];
 			int yc = input[5];
-			if ((xb - xa) * (yc - ya) - (yb - ya) * (xc - xa) == 0)
-			{
-				Console.WriteLine("TAK");
-			}
-			else
-			{
-				Console.WriteLine("NIE");
-			}
+			Console.WriteLine(((xb - xa) * (yc - ya) - (yb - ya) * (xc - xa) == 0) ? "TAK" : "NIE");
 		}
 	}
 
@@ -1460,14 +1353,7 @@ public static class PolishEasy
 					sum += Convert.ToInt32(pesel[j]) * 9;
 				}
 			}
-			if (sum != 0)
-			{
-				Console.WriteLine(sum % 10 == 0 ? "D" : "N");
-			}
-			else
-			{
-				Console.WriteLine("N");
-			}
+			Console.WriteLine(sum == 0 ? "N" : sum % 10 == 0 ? "D" : "N");
 		}
 	}
 
@@ -1483,13 +1369,13 @@ public static class PolishEasy
 			{
 				numbers[k] = numbers[k + 1];
 			}
-			numbers[numbers.Length - 1] = tmpValue;
+			numbers[^1] = tmpValue;
 		}
 		Console.WriteLine(string.Join(' ', numbers));
 	}
 
 	// 1276 Spacje
-	// nieokreślona ilość danych wejściowych
+	// unspecified amount of input data
 	public static void JSPACE_Spacje()
 	{
 		while (true)
@@ -1525,7 +1411,7 @@ public static class PolishEasy
 	}
 
 	// 1289 Tagi HTML
-	// nieokreślona ilość danych wejściowych
+	// unspecified amount of input data
 	public static void JHTMLLET_Tagi_HTML()
 	{
 		while (true)
@@ -1553,8 +1439,30 @@ public static class PolishEasy
 		}
 	}
 
+	// 1299 Stefan
+	public static void FZI_STEF_Stefan()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		long maximumProfit = 0;
+		long sum = 0;
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			int profit = int.Parse(Console.ReadLine());
+			sum += profit;
+			if (sum > maximumProfit)
+			{
+				maximumProfit = sum;
+			}
+			if (sum < 0)
+			{
+				sum = 0;
+			}
+		}
+		Console.WriteLine(maximumProfit);
+	}
+
 	// 1300 Szyfr Cezara
-	// nieokreślona ilość danych wejściowych
+	// unspecified amount of input data
 	public static void JSZYCER_Szyfr_Cezara()
 	{
 		string input;
@@ -1578,15 +1486,73 @@ public static class PolishEasy
 		} while (!string.IsNullOrWhiteSpace(input));
 	}
 
+	// 1310 Liczba na słowo
+	public static void JLITOSL_Liczba_na_slowo()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			string[] numbers = { "", "jeden", "dwa", "trzy", "cztery", "piec", "szesc", "siedem", "osiem", "dziewiec", "dziesiec", "jedenascie", "dwanascie", "trzynascie", "czternascie", "pietnascie", "szesnascie", "siedemnascie", "osiemnascie", "dziewietnascie" };
+			string[] tens = { "", "dziesiec", "dwadziescia", "trzydziesci", "czterdziesci", "piecdziesiat", "szescdziesiat", "siedemdziesiat", "osiemdziesiat", "dziewiecdziesiat" };
+			string[] hundreds = { "", "sto", "dwiescie", "trzysta", "czterysta", "piecset", "szescset", "siedemset", "osiemset", "dziewiecset" };
+			string[] shortcuts = { "", "tys.", "mln.", "mld.", "bln." };
+
+			System.Text.StringBuilder result = new();
+			long number = long.Parse(Console.ReadLine());
+			int count = 0;
+			while (number > 0)
+			{
+				System.Text.StringBuilder tmpResult = new();
+				int remainder = (int)(number % 1000);
+				number /= 1000;
+
+				if (remainder > 0)
+				{
+					int hundred = remainder / 100;
+					if (hundred > 0)
+					{
+						tmpResult.Append(hundreds[hundred]).Append(' ');
+						remainder %= 100;
+					}
+					if (remainder > 0)
+					{
+						if (remainder < 20)
+						{
+							tmpResult.Append(numbers[remainder]).Append(' ');
+						}
+						else
+						{
+							int ten = remainder / 10;
+							remainder %= 10;
+							if (ten > 0)
+							{
+								tmpResult.Append(tens[ten]).Append(' ');
+							}
+							if (remainder > 0)
+							{
+								tmpResult.Append(numbers[remainder]).Append(' ');
+							}
+						}
+					}
+
+					if (count > 0)
+					{
+						tmpResult.Append(shortcuts[count]).Append(' ');
+					}
+				}
+
+				result.Insert(0, tmpResult);
+				count++;
+			}
+			Console.WriteLine(result.ToString().Trim());
+		}
+	}
+
 	// 1502 Samolot
 	public static void POTSAM_Samolot()
 	{
-		var numbers = Console.ReadLine()
-			.Split(' ')
-			.Select(int.Parse)
-			.ToList();
-		int result = numbers[0] * numbers[1] + numbers[2] * numbers[3];
-		Console.WriteLine(result);
+		var numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
+		Console.WriteLine(numbers[0] * numbers[1] + numbers[2] * numbers[3]);
 	}
 
 	// 1596 Wiek segmentolka
@@ -1611,7 +1577,7 @@ public static class PolishEasy
 	}
 
 	// 1830 Nierówność trójkąta
-	// nieokreślona ilość danych wejściowych
+	// unspecified amount of input data
 	public static void KC003_Nierownosc_trojkata()
 	{
 		while (true)
@@ -1628,7 +1594,7 @@ public static class PolishEasy
 	}
 
 	// 1844 Zliczanie wystąpień
-	// nieokreślona ilość danych wejściowych
+	// unspecified amount of input data
 	public static void KC004_Zliczanie_wystapien()
 	{
 		while (true)
@@ -1653,7 +1619,7 @@ public static class PolishEasy
 	}
 
 	// 1909 Sumy wielokrotne
-	// nieokreślona ilość danych wejściowych
+	// unspecified amount of input data
 	public static void KC008_Sumy_wielokrotne()
 	{
 		long sum = 0;
@@ -1678,7 +1644,7 @@ public static class PolishEasy
 	}
 
 	// 1910 Odwracanie wyrazów
-	// nieokreślona ilość danych wejściowych
+	// unspecified amount of input data
 	public static void KC009_Odwracanie_wyrazow()
 	{
 		while (true)
@@ -1693,7 +1659,7 @@ public static class PolishEasy
 	}
 
 	// 2181 Wycinanie literek
-	// nieokreślona ilość danych wejściowych
+	// unspecified amount of input data
 	public static void PROGC05_Wycinanie_literek()
 	{
 		while (true)
@@ -1703,7 +1669,7 @@ public static class PolishEasy
 			{
 				break;
 			}
-			Console.WriteLine(input.Substring(2).Replace(input[0].ToString(), ""));
+			Console.WriteLine(input[2..].Replace(input[0].ToString(), ""));
 		}
 	}
 
