@@ -1,9 +1,31 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace SPOJ.Lib;
 
 public static class Basics
 {
+	// 2135	SPOJ Custom Test
+	public static void BACTERIA_SPOJ_Custom_Test() => Console.WriteLine("1234");
+
+	// 12026 Test 1
+	public static void TESTINT_Test_1() => Console.WriteLine(int.Parse(Console.ReadLine()) + int.Parse(Console.ReadLine()));
+
+	// 12156 Half of the half
+	public static void STRHH_Half_of_the_half()
+	{
+		int number = int.Parse(Console.ReadLine());
+		for (int i = 0; i < number; i++)
+		{
+			string text = Console.ReadLine();
+			for (int j = 0; j < text.Length / 2; j += 2)
+			{
+				Console.Write(text[j]);
+			}
+			Console.WriteLine();
+		}
+	}
+
 	// 12176 Character Patterns (Act 1)
 	public static void CPTTRN1_Character_Patterns_Act_1()
 	{
@@ -173,7 +195,6 @@ public static class Basics
 		}
 
 		#region first version
-
 		//int numberOfTests = int.Parse(Console.ReadLine());
 		//for (int i = 0; i < numberOfTests; i++)
 		//{
@@ -215,237 +236,7 @@ public static class Basics
 		//	}
 		//	Console.WriteLine();
 		//}
-
 		#endregion first version
-	}
-
-	// 17102 Fun with Sequences
-	public static void SMPSEQ3_Fun_with_Sequences_Act_1()
-	{
-		_ = Console.ReadLine();
-		var set1 = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
-		_ = Console.ReadLine();
-		var set2 = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
-		set1.ExceptWith(set2);
-		Console.WriteLine(string.Join(" ", set1));
-
-		#region first version
-
-		//int numberOfFirstSet = int.Parse(Console.ReadLine());
-		//var input = Console.ReadLine().Split(' ');
-		//HashSet<int> set1 = new HashSet<int>(numberOfFirstSet);
-		//for (int i = 0; i < numberOfFirstSet; i++)
-		//{
-		//	set1.Add(int.Parse(input[i]));
-		//}
-		//int numberOfSecondSet = int.Parse(Console.ReadLine());
-		//input = Console.ReadLine().Split(' ');
-		//HashSet<int> set2 = new HashSet<int>(numberOfSecondSet);
-		//for (int i = 0; i < numberOfSecondSet; i++)
-		//{
-		//	set2.Add(int.Parse(input[i]));
-		//}
-		//set1.ExceptWith(set2);
-		//Console.WriteLine(string.Join(" ", set1));
-
-		#endregion first version
-	}
-
-	// 17103 Fun with Sequences (Act 2)
-	public static void SMPSEQ4_Fun_with_Sequences_Act_2()
-	{
-		_ = Console.ReadLine();
-		var set1 = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
-		_ = Console.ReadLine();
-		var set2 = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
-		set1.IntersectWith(set2);
-		Console.WriteLine(string.Join(" ", set1));
-
-		#region first version
-
-		//int numberOfFirstSet = int.Parse(Console.ReadLine());
-		//var input = Console.ReadLine().Split(' ');
-		//HashSet<int> set1 = new HashSet<int>(numberOfFirstSet);
-		//for (int i = 0; i < numberOfFirstSet; i++)
-		//{
-		//	set1.Add(int.Parse(input[i]));
-		//}
-		//int numberOfSecondSet = int.Parse(Console.ReadLine());
-		//input = Console.ReadLine().Split(' ');
-		//HashSet<int> set2 = new HashSet<int>(numberOfSecondSet);
-		//for (int i = 0; i < numberOfSecondSet; i++)
-		//{
-		//	set2.Add(int.Parse(input[i]));
-		//}
-		//set1.IntersectWith(set2);
-		//Console.WriteLine(string.Join(" ", set1));
-
-		#endregion first version
-	}
-
-	// 17104 Fun with Sequences (Act 3)
-	public static void SMPSEQ5_Fun_with_Sequences_Act_3()
-	{
-		int numberOfFirstSet = int.Parse(Console.ReadLine());
-		var input = Console.ReadLine().Split(' ');
-		List<int> set1 = new(numberOfFirstSet);
-		for (int i = 0; i < numberOfFirstSet; i++)
-		{
-			set1.Add(int.Parse(input[i]));
-		}
-		int numberOfSecondSet = int.Parse(Console.ReadLine());
-		input = Console.ReadLine().Split(' ');
-		List<int> set2 = new(numberOfSecondSet);
-		for (int i = 0; i < numberOfSecondSet; i++)
-		{
-			set2.Add(int.Parse(input[i]));
-		}
-		List<int> result = new();
-		int minCount = numberOfFirstSet <= numberOfSecondSet ? numberOfFirstSet : numberOfSecondSet;
-		for (int i = 0; i < minCount; i++)
-		{
-			if (set1[i] == set2[i])
-			{
-				result.Add(i + 1);
-			}
-		}
-		Console.WriteLine(string.Join(" ", result));
-	}
-
-	// 12026 Test 1
-	public static void TESTINT_Test_1() => Console.WriteLine(int.Parse(Console.ReadLine()) + int.Parse(Console.ReadLine()));
-
-	// 12156 Half of the half
-	public static void STRHH_Half_of_the_half()
-	{
-		int number = int.Parse(Console.ReadLine());
-		for (int i = 0; i < number; i++)
-		{
-			string text = Console.ReadLine();
-			for (int j = 0; j < text.Length / 2; j += 2)
-			{
-				Console.Write(text[j]);
-			}
-			Console.WriteLine();
-		}
-	}
-
-	// 15711 Wow
-	public static void SMPWOW_Wow()
-	{
-		int number = int.Parse(Console.ReadLine());
-		Console.Write("W");
-		for (int i = 0; i < number; i++)
-		{
-			Console.Write("o");
-		}
-		Console.Write("w");
-	}
-
-	// 2135	SPOJ Custom Test
-	public static void BACTERIA_SPOJ_Custom_Test() => Console.WriteLine("1234");
-
-	// 15708 Divisibility
-	public static void SMPDIV_Divisibility()
-	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
-		{
-			var input = Console.ReadLine().Split(' ');
-			int number = int.Parse(input[0]);
-			int divider1 = int.Parse(input[1]);
-			int divider2 = int.Parse(input[2]);
-			string text = string.Empty;
-			for (int j = 0; j < number; j++)
-			{
-				if (j % divider1 == 0 && j % divider2 != 0)
-				{
-					text += j + " ";
-				}
-			}
-			Console.WriteLine(text.Trim());
-		}
-	}
-
-	// 17921 XOR
-	public static void BSCXOR_XOR()
-	{
-		var input = Console.ReadLine().Split(' ');
-		Console.WriteLine(int.Parse(input[0]) ^ int.Parse(input[1]));
-	}
-
-	// 15710 Iterated sums
-	public static void SMPSUM_Iterated_sums()
-	{
-		var input = Console.ReadLine().Split(' ');
-		int number1 = int.Parse(input[0]);
-		int number2 = int.Parse(input[1]);
-		int sum = 0;
-		for (int i = number1; i <= number2; i++)
-		{
-			sum += i * i;
-		}
-		Console.WriteLine(sum);
-	}
-
-	// 23919 Sum of two numbers
-	public static void CHITEST1_Sum_of_two_numbers()
-	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
-		{
-			var input = Console.ReadLine().Split(' ');
-			double number1 = double.Parse(input[0]);
-			double number2 = double.Parse(input[1]);
-			Console.WriteLine(number1 + number2);
-		}
-	}
-
-	// 29154 SUM OF DIGITS
-	public static void ALCATRAZ1_SUM_OF_DIGITS()
-	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
-		{
-			int sum = 0;
-			string bigNumber = Console.ReadLine();
-			for (int j = 0; j < bigNumber.Length; j++)
-			{
-				sum += int.Parse(bigNumber[j].ToString());
-			}
-			Console.WriteLine(sum);
-		}
-	}
-
-	// 15709 Two Circles
-	public static void SMPCIR_Two_Circles()
-	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
-		{
-			var input = Console.ReadLine().Split(' ');
-			int xo1 = int.Parse(input[0]);
-			int yo1 = int.Parse(input[1]);
-			int r1 = int.Parse(input[2]);
-			int xo2 = int.Parse(input[3]);
-			int yo2 = int.Parse(input[4]);
-			int r2 = int.Parse(input[5]);
-
-			double distanceBetweenCenter1 = Math.Sqrt(Math.Pow(xo2 - xo1, 2) + Math.Pow(yo2 - yo1, 2));
-			double distanceBetweenCenter2 = Math.Sqrt(Math.Pow(xo1 - xo2, 2) + Math.Pow(yo1 - yo2, 2));
-			if (distanceBetweenCenter1 < (r1 - r2) || distanceBetweenCenter2 < (r2 - r1))
-			{
-				Console.WriteLine("I");
-			}
-			else if (distanceBetweenCenter1 == (r1 - r2) || distanceBetweenCenter2 == (r2 - r1))
-			{
-				Console.WriteLine("E");
-			}
-			else
-			{
-				Console.WriteLine("O");
-			}
-		}
 	}
 
 	// 12205 Minimum Bounding Rectangle
@@ -521,6 +312,240 @@ public static class Basics
 		}
 	}
 
+	// TODO - 12206 Hidden Password
+	public static void HS12HDPW_Hidden_Password()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	// 15708 Divisibility
+	public static void SMPDIV_Divisibility()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			var input = Console.ReadLine().Split(' ');
+			int number = int.Parse(input[0]);
+			int divider1 = int.Parse(input[1]);
+			int divider2 = int.Parse(input[2]);
+			string text = string.Empty;
+			for (int j = 0; j < number; j++)
+			{
+				if (j % divider1 == 0 && j % divider2 != 0)
+				{
+					text += j + " ";
+				}
+			}
+			Console.WriteLine(text.Trim());
+		}
+	}
+
+	// 15709 Two Circles
+	public static void SMPCIR_Two_Circles()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			var input = Console.ReadLine().Split(' ');
+			int xo1 = int.Parse(input[0]);
+			int yo1 = int.Parse(input[1]);
+			int r1 = int.Parse(input[2]);
+			int xo2 = int.Parse(input[3]);
+			int yo2 = int.Parse(input[4]);
+			int r2 = int.Parse(input[5]);
+
+			double distanceBetweenCenter1 = Math.Sqrt(Math.Pow(xo2 - xo1, 2) + Math.Pow(yo2 - yo1, 2));
+			double distanceBetweenCenter2 = Math.Sqrt(Math.Pow(xo1 - xo2, 2) + Math.Pow(yo1 - yo2, 2));
+			if (distanceBetweenCenter1 < (r1 - r2) || distanceBetweenCenter2 < (r2 - r1))
+			{
+				Console.WriteLine("I");
+			}
+			else if (distanceBetweenCenter1 == (r1 - r2) || distanceBetweenCenter2 == (r2 - r1))
+			{
+				Console.WriteLine("E");
+			}
+			else
+			{
+				Console.WriteLine("O");
+			}
+		}
+	}
+
+	// 15710 Iterated sums
+	public static void SMPSUM_Iterated_sums()
+	{
+		var input = Console.ReadLine().Split(' ');
+		int number1 = int.Parse(input[0]);
+		int number2 = int.Parse(input[1]);
+		int sum = 0;
+		for (int i = number1; i <= number2; i++)
+		{
+			sum += i * i;
+		}
+		Console.WriteLine(sum);
+	}
+
+	// 15711 Wow
+	public static void SMPWOW_Wow()
+	{
+		int number = int.Parse(Console.ReadLine());
+		Console.Write("W");
+		for (int i = 0; i < number; i++)
+		{
+			Console.Write("o");
+		}
+		Console.Write("w");
+	}
+
+	// 17102 Fun with Sequences
+	public static void SMPSEQ3_Fun_with_Sequences_Act_1()
+	{
+		_ = Console.ReadLine();
+		var set1 = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
+		_ = Console.ReadLine();
+		var set2 = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
+		set1.ExceptWith(set2);
+		Console.WriteLine(string.Join(" ", set1));
+
+		#region first version
+		//int numberOfFirstSet = int.Parse(Console.ReadLine());
+		//var input = Console.ReadLine().Split(' ');
+		//HashSet<int> set1 = new HashSet<int>(numberOfFirstSet);
+		//for (int i = 0; i < numberOfFirstSet; i++)
+		//{
+		//	set1.Add(int.Parse(input[i]));
+		//}
+		//int numberOfSecondSet = int.Parse(Console.ReadLine());
+		//input = Console.ReadLine().Split(' ');
+		//HashSet<int> set2 = new HashSet<int>(numberOfSecondSet);
+		//for (int i = 0; i < numberOfSecondSet; i++)
+		//{
+		//	set2.Add(int.Parse(input[i]));
+		//}
+		//set1.ExceptWith(set2);
+		//Console.WriteLine(string.Join(" ", set1));
+		#endregion first version
+	}
+
+	// 17103 Fun with Sequences (Act 2)
+	public static void SMPSEQ4_Fun_with_Sequences_Act_2()
+	{
+		_ = Console.ReadLine();
+		var set1 = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
+		_ = Console.ReadLine();
+		var set2 = Console.ReadLine().Split(' ').Select(int.Parse).ToHashSet();
+		set1.IntersectWith(set2);
+		Console.WriteLine(string.Join(" ", set1));
+
+		#region first version
+		//int numberOfFirstSet = int.Parse(Console.ReadLine());
+		//var input = Console.ReadLine().Split(' ');
+		//HashSet<int> set1 = new HashSet<int>(numberOfFirstSet);
+		//for (int i = 0; i < numberOfFirstSet; i++)
+		//{
+		//	set1.Add(int.Parse(input[i]));
+		//}
+		//int numberOfSecondSet = int.Parse(Console.ReadLine());
+		//input = Console.ReadLine().Split(' ');
+		//HashSet<int> set2 = new HashSet<int>(numberOfSecondSet);
+		//for (int i = 0; i < numberOfSecondSet; i++)
+		//{
+		//	set2.Add(int.Parse(input[i]));
+		//}
+		//set1.IntersectWith(set2);
+		//Console.WriteLine(string.Join(" ", set1));
+		#endregion first version
+	}
+
+	// 17104 Fun with Sequences (Act 3)
+	public static void SMPSEQ5_Fun_with_Sequences_Act_3()
+	{
+		int numberOfFirstSet = int.Parse(Console.ReadLine());
+		var input = Console.ReadLine().Split(' ');
+		List<int> set1 = new(numberOfFirstSet);
+		for (int i = 0; i < numberOfFirstSet; i++)
+		{
+			set1.Add(int.Parse(input[i]));
+		}
+		int numberOfSecondSet = int.Parse(Console.ReadLine());
+		input = Console.ReadLine().Split(' ');
+		List<int> set2 = new(numberOfSecondSet);
+		for (int i = 0; i < numberOfSecondSet; i++)
+		{
+			set2.Add(int.Parse(input[i]));
+		}
+		List<int> result = new();
+		int minCount = numberOfFirstSet <= numberOfSecondSet ? numberOfFirstSet : numberOfSecondSet;
+		for (int i = 0; i < minCount; i++)
+		{
+			if (set1[i] == set2[i])
+			{
+				result.Add(i + 1);
+			}
+		}
+		Console.WriteLine(string.Join(" ", result));
+	}
+
+	// TODO - 17126 Fun with Sequences (Act 4)
+	public static void SMPSEQ6_Fun_with_Sequences_Act_4()
+	{
+
+	}
+
+	// TODO - 17481 Fun with Sequences (Act 5)
+	public static void SMPSEQ7_Fun_with_Sequences_Act_5()
+	{
+
+	}
+
+	// 17921 XOR
+	public static void BSCXOR_XOR()
+	{
+		var input = Console.ReadLine().Split(' ');
+		Console.WriteLine(int.Parse(input[0]) ^ int.Parse(input[1]));
+	}
+
+	// TODO - 18011 Fun with Sequences (Act 6)
+	public static void SMPSEQ8_Fun_with_Sequences_Act_6()
+	{
+
+	}
+
+	// TODO - 18012 Fun with Sequences (Act 7) 
+	public static void SMPSEQ9_Fun_with_Sequences_Act_7()
+	{
+
+	}
+
+	// TODO - 18139 Substitution cipher
+	public static void SMPCPH1_Substitution_cipher()
+	{
+
+	}
+
+	// 23919 Sum of two numbers
+	public static void CHITEST1_Sum_of_two_numbers()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			var input = Console.ReadLine().Split(' ');
+			double number1 = double.Parse(input[0]);
+			double number2 = double.Parse(input[1]);
+			Console.WriteLine(number1 + number2);
+		}
+	}
+
+	// TODO - 25312 Duronto Eagle 
+	public static void DRNTEAGL_Duronto_Eagle()
+	{
+
+	}
+
 	// TODO - not work - why?
 	// 27609 Simple Average
 	public static void AVRG_Simple_Average()
@@ -531,6 +556,22 @@ public static class Basics
 			sum += long.Parse(Console.ReadLine());
 		}
 		Console.WriteLine(sum / 6);
+	}
+
+	// 29154 SUM OF DIGITS
+	public static void ALCATRAZ1_SUM_OF_DIGITS()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			int sum = 0;
+			string bigNumber = Console.ReadLine();
+			for (int j = 0; j < bigNumber.Length; j++)
+			{
+				sum += int.Parse(bigNumber[j].ToString());
+			}
+			Console.WriteLine(sum);
+		}
 	}
 
 	// 34596 Compare two numbers
