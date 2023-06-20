@@ -2,7 +2,7 @@
 
 public static class Tutorial
 {
-	// 74 Divisor Summation
+	// TODO - 74 Divisor Summation
 	// Used: sieve of eratosthenes, binary exponentiation, sum of divisors formula (after prime factorization).
 	public static void DIVSUM_Divisor_Summation()
 	{
@@ -95,36 +95,6 @@ public static class Tutorial
 		}
 	}
 
-	private class GFG2
-	{
-		// Function to return a^n
-		private static int powerOptimised(int a, int n)
-		{
-			// Stores readonly answer
-			int ans = 1;
-			while (n > 0)
-			{
-				int last_bit = (n & 1);
-				// Check if current LSB is set
-				if (last_bit > 0)
-				{
-					ans = ans * a;
-				}
-				a = a * a;
-				// Right shift
-				n = n >> 1;
-			}
-			return ans;
-		}
-
-		// Driver Code
-		public static void Main(string[] args)
-		{
-			int a = 3, n = 5;
-			Console.Write(powerOptimised(a, n));
-		}
-	}
-
 	// 4138 Harry and big doughnuts
 	public static void DOUGHNUT_Harry_and_big_doughnuts()
 	{
@@ -137,5 +107,5 @@ public static class Tutorial
 	}
 
 	// 11226 Hello World!
-	public static void PRF00_Hello_world() => Console.WriteLine("Hello world! I love C :)");
+	public static void PRF00_Hello_world() => Console.WriteLine("Hello World!");
 }
