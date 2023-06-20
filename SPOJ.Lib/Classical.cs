@@ -18,9 +18,9 @@ public static class Classical
 		for (int i = 0; i < numberOfTests; i++)
 		{
 			var input = Console.ReadLine().Split(' ');
-			int number1 = int.Parse(RemoveZeros(string.Join("", input[0].Reverse())));
-			int number2 = int.Parse(RemoveZeros(string.Join("", input[1].Reverse())));
-			Console.WriteLine(RemoveZeros(string.Join("", (number1 + number2).ToString().Reverse())));
+			int number1 = int.Parse(RemoveZeros(string.Concat(input[0].Reverse())));
+			int number2 = int.Parse(RemoveZeros(string.Concat(input[1].Reverse())));
+			Console.WriteLine(RemoveZeros(string.Concat((number1 + number2).ToString().Reverse())));
 		}
 		static string RemoveZeros(string value)
 		{
