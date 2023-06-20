@@ -1658,6 +1658,69 @@ public static class PolishEasy
 		}
 	}
 
+	// 1911 Zliczanie liczb i wyrazów
+	// unspecified amount of input data
+	public static void KC010_Zliczanie_liczb_i_wyrazow()
+	{
+		while (true)
+		{
+			int digits = 0;
+			int words = 0;
+			string input = Console.ReadLine();
+			if (string.IsNullOrWhiteSpace(input))
+			{
+				break;
+			}
+			var values = input.Split(' ').Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
+			for (int i = 0; i < values.Length; i++)
+			{
+				if (char.IsDigit(values[i][0]))
+				{
+					digits++;
+				}
+				else
+				{
+					words++;
+				}
+			}
+			Console.WriteLine($"{digits} {words}");
+		}
+
+		#region first version with string
+		//int digits = 0;
+		//int words = 0;
+		//string input = Console.ReadLine();
+		//if (string.IsNullOrWhiteSpace(input))
+		//{
+		//	break;
+		//}
+		//input += "\n";
+		//for (int i = 0; i < input.Length; i++)
+		//{
+		//	if (char.IsDigit(input[i]))
+		//	{
+		//		digits++;
+		//		while (!char.IsWhiteSpace(input[i]))
+		//		{
+		//			i++;
+		//		}
+		//	}
+		//	else if (char.IsLetter(input[i]))
+		//	{
+		//		words++;
+		//		while (!char.IsWhiteSpace(input[i]))
+		//		{
+		//			i++;
+		//		}
+		//	}
+		//	if (input[i] == '\n')
+		//	{
+		//		Console.WriteLine($"{digits} {words}");
+		//	}
+		//}
+		#endregion first version with string
+	}
+
 	// 2181 Wycinanie literek
 	// unspecified amount of input data
 	public static void PROGC05_Wycinanie_literek()
