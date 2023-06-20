@@ -55,7 +55,7 @@ public static class Tutorial
 				}
 			}
 			// Add all prime numbers to new list
-			List<int> primes = new List<int>();
+			List<int> primes = new();
 			for (int i = 2; i <= n; i++)
 			{
 				if (prime[i] == true)
@@ -68,7 +68,7 @@ public static class Tutorial
 
 		static Dictionary<int, int> PrimeFactorization(int n, int upperBound, List<int> primes)
 		{
-			Dictionary<int, int> primeFactors = new Dictionary<int, int>();
+			Dictionary<int, int> primeFactors = new();
 			int primeIndex = 0;
 			while (n > 1 && primes[primeIndex] <= upperBound)
 			{
@@ -103,6 +103,17 @@ public static class Tutorial
 		{
 			var inputs = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
 			Console.WriteLine(inputs[0] * inputs[2] <= inputs[1] ? "yes" : "no");
+		}
+	}
+
+	// 5872 Anagram
+	public static void ANAG_Anagram()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			var input = Console.ReadLine().Split(' ');
+			Console.WriteLine(input[0].Length == input[1].Length && string.Concat(input[0].OrderBy(x => x)) == string.Concat(input[1].OrderBy(x => x)) ? "YES" : "NO");
 		}
 	}
 
