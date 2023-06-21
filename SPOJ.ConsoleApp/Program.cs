@@ -33,7 +33,11 @@ Action[] _polishEasy = typeof(PolishEasy).GetMethods(BindingFlags.Public | Bindi
 	.Select(x => x.CreateDelegate<Action>())
 	.ToArray();
 
-string[] menuItems = new[] { "Basics", "Tutorial", "Classical", "Challenge", "Partial", "Riddle", "Polish Easy" };
+Action[] _polishMedium = typeof(PolishMedium).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
+	.Select(x => x.CreateDelegate<Action>())
+	.ToArray();
+
+string[] menuItems = new[] { "Basics", "Tutorial", "Classical", "Challenge", "Partial", "Riddle", "Polish Easy", "Polish Medium" };
 
 while (true)
 {
@@ -62,6 +66,9 @@ while (true)
 			break;
 		case '7':
 			MainSPOJ.DoWork(_polishEasy);
+			break;
+		case '8':
+			MainSPOJ.DoWork(_polishMedium);
 			break;
 		default:
 			return;
