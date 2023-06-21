@@ -2,7 +2,7 @@
 
 public static class Classical
 {
-	// 1 Life, the Universe, and Everything
+	// 1 Life, the Universe, and Everything - https://www.spoj.com/problems/TEST
 	public static void TEST_Life_the_Universe_and_Everything()
 	{
 		while (int.TryParse(Console.ReadLine(), out int x) && x != 42)
@@ -11,7 +11,7 @@ public static class Classical
 		}
 	}
 
-	// 42 Adding Reversed Numbers
+	// 42 Adding Reversed Numbers - https://www.spoj.com/problems/ADDREV
 	public static void ADDREV_Adding_Reversed_Numbers()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());

@@ -2,7 +2,7 @@
 
 public static class PolishEasy
 {
-	// 438 Liczby Pierwsze
+	// 438 Liczby Pierwsze - https://pl.spoj.com/problems/PRIME_T/
 	public static void PRIME_T_Liczby_Pierwsze()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -29,7 +29,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 496 Dwie cyfry silni
+	// 496 Dwie cyfry silni - https://pl.spoj.com/problems/FCTRL3/
 	public static void FCTRL3_Dwie_cyfry_silni()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -58,7 +58,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 499 Czy umiesz potęgować
+	// 499 Czy umiesz potęgować - https://pl.spoj.com/problems/PA05_POT/
 	// source: https://zapytaj.onet.pl/Category/006,003/2,21355595,Jak_wyznaczac_ostatnia_cyfre_potegi_liczby_naturalnej_o_bardzo_duzym_wykladniku.html
 	public static void PA05_POT__Czy_umiesz_potęgowac()
 	{
@@ -102,7 +102,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 506 Flamaster
+	// 506 Flamaster - https://pl.spoj.com/problems/FLAMASTE/
 	public static void FLAMASTE_Flamaster()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -135,7 +135,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 522 Przedszkolanka
+	// 522 Przedszkolanka - https://pl.spoj.com/problems/PRZEDSZK/
 	public static void PRZEDSZK_Przedszkolanka()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -152,7 +152,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 549 Proste dodawanie
+	// 549 Proste dodawanie - https://pl.spoj.com/problems/RNO_DOD/
 	public static void RNO_DOD_Proste_dodawanie()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -163,7 +163,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 568 Zabawne Dodawanie Piotrusia
+	// 568 Zabawne Dodawanie Piotrusia - https://pl.spoj.com/problems/BFN1/
 	public static void BFN1_Zabawne_Dodawanie_Piotrusia()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -181,7 +181,7 @@ public static class PolishEasy
 		static bool IsPalindrome(string text) => text == string.Join("", text.Reverse());
 	}
 
-	// 601 NWD
+	// 601 NWD - https://pl.spoj.com/problems/PP0501A/
 	public static void PP0501A_NWD()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -199,7 +199,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 606 Tablice
+	// 606 Tablice - https://pl.spoj.com/problems/PP0502B/
 	public static void PP0502B_Tablice()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -209,7 +209,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 609 Pole pewnego koła
+	// 609 Pole pewnego koła - https://pl.spoj.com/problems/ETI06F1/
 	public static void ETI06F1_Pole_pewnego_kola()
 	{
 		var numbers = Console.ReadLine().Split(' ');
@@ -221,7 +221,7 @@ public static class PolishEasy
 		Console.WriteLine(area.ToString("f2"));
 	}
 
-	// 617 StringMerge
+	// 617 StringMerge - https://pl.spoj.com/problems/PP0504B/
 	public static void PP0504B_StringMerge()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -239,7 +239,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 619 Reprezentacja liczb typu float
+	// 619 Reprezentacja liczb typu float - https://pl.spoj.com/problems/PP0504D
 	public static void PP0504D_Reprezentacja_liczb_typu_float()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -272,7 +272,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 626 Obżartuchy
+	// 626 Obżartuchy - https://pl.spoj.com/problems/GLUTTON
 	public static void GLUTTON_Obżartuchy()
 	{
 		const int secondsInDay = 24 * 60 * 60;
@@ -297,7 +297,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 663 Sort 1
+	// 663 Sort 1 - https://pl.spoj.com/problems/PP0506A
 	public static void PP0506A_Sort_1()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -340,7 +340,7 @@ public static class PolishEasy
 		public override string ToString() => $"{_name} {_x} {_y}";
 	}
 
-	// 675 SkarbFinder
+	// 675 SkarbFinder - https://pl.spoj.com/problems/SKARBFI
 	public static void SKARBFI_SkarbFinder()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -390,7 +390,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 708 Problem Collatza
+	// 708 Problem Collatza - https://pl.spoj.com/problems/PTCLTZ
 	public static void PTCLTZ_Problem_Collatza()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -409,7 +409,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 723 ROL
+	// 723 ROL - https://pl.spoj.com/problems/PTROL
 	public static void PTROL_ROL()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -424,10 +424,10 @@ public static class PolishEasy
 		}
 	}
 
-	// 769 Zadanie próbne
+	// 769 Zadanie próbne - https://pl.spoj.com/problems/PTEST
 	public static void PTEST_Zadanie_probne() => Console.WriteLine(int.Parse(Console.ReadLine()) + int.Parse(Console.ReadLine()));
 
-	// 804 Gra Euklidesa
+	// 804 Gra Euklidesa - https://pl.spoj.com/problems/EUCGAME
 	public static void EUCGAME_Gra_Euklidesa()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -445,7 +445,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 806 Wiatraczki - 3/3 tests - 0.05s 26084kB, 0.07s 29580kB, 0.05s 26072kB
+	// 806 Wiatraczki - https://pl.spoj.com/problems/FANGEN
 	// unspecified amount of input data
 	public static void FANGEN_Wiatraczki_1()
 	{
@@ -548,8 +548,6 @@ public static class PolishEasy
 		}
 	}
 
-	// 806 Wiatraczki - 3/3 tests - 0.07s 26996kB, 0.10s 32492kB, 0.07s 26924kB
-	// unspecified amount of input data
 	public static void FANGEN_Wiatraczki_2()
 	{
 		while (true)
@@ -604,8 +602,6 @@ public static class PolishEasy
 		}
 	}
 
-	// 806 Wiatraczki - 3/3 tests - 0.06s 27020kB, 0.07s 32300kB, 0.06s 27060kB
-	// unspecified amount of input data
 	public static void FANGEN_Wiatraczki_3()
 	{
 		while (true)
@@ -659,8 +655,6 @@ public static class PolishEasy
 		}
 	}
 
-	// 806 Wiatraczki - 2/3 tests
-	// unspecified amount of input data
 	public static void FANGEN_Wiatraczki_4()
 	{
 		while (true)
@@ -726,7 +720,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 833 Dwumiany
+	// 833 Dwumiany - https://pl.spoj.com/problems/BINOMS
 	// source: https://pl.wikipedia.org/wiki/Symbol_Newtona
 	public static void BINOMS_Dwumiany()
 	{
@@ -763,7 +757,7 @@ public static class PolishEasy
 		//static int NewtonSymbol(int n, int k) => k == 0 || k == n ? 1 : NewtonSymbol(n - 1, k - 1) + NewtonSymbol(n - 1, k);
 	}
 
-	// 968 Suma
+	// 968 Suma - https://pl.spoj.com/problems/SUMA
 	// unspecified amount of input data
 	public static void SUMA_Suma()
 	{
@@ -781,7 +775,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 969 Równanie kwadratowe
+	// 969 Równanie kwadratowe - https://pl.spoj.com/problems/ROWNANIE
 	public static void ROWNANIE_Rownanie_kwadratowe()
 	{
 		while (true)
@@ -800,10 +794,10 @@ public static class PolishEasy
 		}
 	}
 
-	// 977 Tablica
+	// 977 Tablica - https://pl.spoj.com/problems/TABLICA
 	public static void TABLICA_Tablica() => Console.WriteLine(string.Join(' ', Console.ReadLine().Split(' ').Reverse()));
 
-	// 978 Stos
+	// 978 Stos - https://pl.spoj.com/problems/STOS
 	// unspecified amount of input data
 	public static void STOS_Stos()
 	{
@@ -845,7 +839,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 997 Kalkulator
+	// 997 Kalkulator - https://pl.spoj.com/problems/CALC
 	// unspecified amount of input data
 	public static void CALC_Kalkulator()
 	{
@@ -873,7 +867,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 998 Kalkulator 2
+	// 998 Kalkulator 2 - https://pl.spoj.com/problems/CALC2
 	// unspecified amount of input data
 	public static void CALC2_Kalkulator2()
 	{
@@ -909,7 +903,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1011 Połowa
+	// 1011 Połowa - https://pl.spoj.com/problems/POL
 	public static void POL_Polowa()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -920,7 +914,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1016 Predkość średnia
+	// 1016 Predkość średnia - https://pl.spoj.com/problems/VSR
 	public static void VSR_Predkosc_srednia()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -934,7 +928,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1019 Systemy pozycyjne
+	// 1019 Systemy pozycyjne - https://pl.spoj.com/problems/SYS
 	public static void SYS_Systemy_pozycyjne()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -981,7 +975,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1032 Podzielność
+	// 1032 Podzielność - https://pl.spoj.com/problems/PP0601B
 	public static void PP0601B_Podzielnosc()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1001,7 +995,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1035 Test 3
+	// 1035 Test 3 - https://pl.spoj.com/problems/PP0601A2
 	public static void PP0601A2_Test_3()
 	{
 		string previous = "42";
@@ -1018,7 +1012,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1042 Transponowanie macierzy
+	// 1042 Transponowanie macierzy - https://pl.spoj.com/problems/TRN
 	public static void TRN_Transponowanie_macierzy()
 	{
 		var input = Console.ReadLine().Split(' ');
@@ -1055,7 +1049,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1055 Parzyste nieparzyste
+	// 1055 Parzyste nieparzyste - https://pl.spoj.com/problems/PP0602A
 	public static void PP0602A_Parzyste_nieparzyste()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1082,7 +1076,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1056 Tabelki liczb
+	// 1056 Tabelki liczb - https://pl.spoj.com/problems/PP0602B
 	public static void PP0602B_Tabelki_liczb()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1137,7 +1131,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1102 Średnia arytmetyczna
+	// 1102 Średnia arytmetyczna - https://pl.spoj.com/problems/PP0604A
 	public static void PP0604A_Srednia_arytmetyczna()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1165,13 +1159,13 @@ public static class PolishEasy
 		}
 	}
 
-	// 1125 Ostatnia cyfra - BR
+	// 1125 Ostatnia cyfra - BR - https://pl.spoj.com/problems/OSTBR
 	public static void OSTBR_Ostatnia_cyfra_BR()
 	{
 		// ,----------[++++++++++>[-]<[->+<],----------]>.
 	}
 
-	// 1139 Nowa działka
+	// 1139 Nowa działka - https://pl.spoj.com/problems/MWPZ06X
 	public static void MWPZ06X_Nowa_dzialka()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1182,7 +1176,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1142 Ciążowy specjalista
+	// 1142 Ciążowy specjalista - https://pl.spoj.com/problems/MWPZ06A
 	public static void MWPZ06A_Ciazowy_specjalista()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1196,7 +1190,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1145 Imieniny
+	// 1145 Imieniny - https://pl.spoj.com/problems/MWPZ06D
 	public static void MWPZ06D_Imieniny()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1209,7 +1203,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1149 Konkurs pseudomatematyczny
+	// 1149 Konkurs pseudomatematyczny - https://pl.spoj.com/problems/MWPZ06H
 	public static void MWPZ06H_Konkurs_pseudomatematyczny()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1223,7 +1217,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1211 Niekolejne
+	// 1211 Niekolejne - https://pl.spoj.com/problems/NIEKOLEJ
 	public static void NIEKOLEJ_Niekolejne()
 	{
 		int number = int.Parse(Console.ReadLine());
@@ -1251,7 +1245,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1228 Rownanie liniowe
+	// 1228 Rownanie liniowe - https://pl.spoj.com/problems/JROWLIN
 	public static void JROWLIN_Rownanie_liniowe()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1277,7 +1271,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1240 Współliniowość punktów
+	// 1240 Współliniowość punktów - https://pl.spoj.com/problems/JWSPLIN
 	// source: https://zpe.gov.pl/a/przeczytaj/DNhNXmlX4
 	public static void JWSPLIN_Wspolliniowosc_punktow()
 	{
@@ -1295,7 +1289,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1242 Zliczacz liter
+	// 1242 Zliczacz liter - https://pl.spoj.com/problems/JZLICZ
 	public static void JZLICZ_Zliczacz_liter()
 	{
 		SortedDictionary<char, int> smallLetters = new();
@@ -1326,7 +1320,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1261 Pesel
+	// 1261 Pesel - https://pl.spoj.com/problems/JPESEL
 	public static void JPESEL_Pesel()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1357,7 +1351,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1262 ROL (k)
+	// 1262 ROL (k) - https://pl.spoj.com/problems/PP0602D
 	public static void PP0602D_ROL_k()
 	{
 		var input = Console.ReadLine().Split(' ');
@@ -1374,7 +1368,7 @@ public static class PolishEasy
 		Console.WriteLine(string.Join(' ', numbers));
 	}
 
-	// 1276 Spacje
+	// 1276 Spacje - https://pl.spoj.com/problems/JSPACE
 	// unspecified amount of input data
 	public static void JSPACE_Spacje()
 	{
@@ -1410,7 +1404,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1289 Tagi HTML
+	// 1289 Tagi HTML - https://pl.spoj.com/problems/JHTMLLET
 	// unspecified amount of input data
 	public static void JHTMLLET_Tagi_HTML()
 	{
@@ -1439,7 +1433,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1299 Stefan
+	// 1299 Stefan - https://pl.spoj.com/problems/FZI_STEF
 	public static void FZI_STEF_Stefan()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1461,7 +1455,7 @@ public static class PolishEasy
 		Console.WriteLine(maximumProfit);
 	}
 
-	// 1300 Szyfr Cezara
+	// 1300 Szyfr Cezara - https://pl.spoj.com/problems/JSZYCER
 	// unspecified amount of input data
 	public static void JSZYCER_Szyfr_Cezara()
 	{
@@ -1486,7 +1480,7 @@ public static class PolishEasy
 		} while (!string.IsNullOrWhiteSpace(input));
 	}
 
-	// 1310 Liczba na słowo
+	// 1310 Liczba na słowo - https://pl.spoj.com/problems/JLITOSL
 	public static void JLITOSL_Liczba_na_slowo()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1548,14 +1542,14 @@ public static class PolishEasy
 		}
 	}
 
-	// 1502 Samolot
+	// 1502 Samolot - https://pl.spoj.com/problems/POTSAM
 	public static void POTSAM_Samolot()
 	{
 		var numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
 		Console.WriteLine(numbers[0] * numbers[1] + numbers[2] * numbers[3]);
 	}
 
-	// 1596 Wiek segmentolka
+	// 1596 Wiek segmentolka - https://pl.spoj.com/problems/WSEGA
 	public static void WSEGA_Wiek_segmentolka()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -1565,7 +1559,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1828 Dodawanie liczb całkowitych
+	// 1828 Dodawanie liczb całkowitych - https://pl.spoj.com/problems/KC001
 	public static void KC001_Dodawanie_liczb_całkowitych()
 	{
 		int result = 0;
@@ -1576,7 +1570,7 @@ public static class PolishEasy
 		Console.WriteLine(result);
 	}
 
-	// 1830 Nierówność trójkąta
+	// 1830 Nierówność trójkąta - https://pl.spoj.com/problems/KC003
 	// unspecified amount of input data
 	public static void KC003_Nierownosc_trojkata()
 	{
@@ -1593,7 +1587,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1844 Zliczanie wystąpień
+	// 1844 Zliczanie wystąpień - https://pl.spoj.com/problems/KC004
 	// unspecified amount of input data
 	public static void KC004_Zliczanie_wystapien()
 	{
@@ -1618,7 +1612,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1909 Sumy wielokrotne
+	// 1909 Sumy wielokrotne - https://pl.spoj.com/problems/KC008
 	// unspecified amount of input data
 	public static void KC008_Sumy_wielokrotne()
 	{
@@ -1643,7 +1637,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1910 Odwracanie wyrazów
+	// 1910 Odwracanie wyrazów - https://pl.spoj.com/problems/KC009
 	// unspecified amount of input data
 	public static void KC009_Odwracanie_wyrazow()
 	{
@@ -1658,7 +1652,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1911 Zliczanie liczb i wyrazów
+	// 1911 Zliczanie liczb i wyrazów - https://pl.spoj.com/problems/KC010
 	// unspecified amount of input data
 	public static void KC010_Zliczanie_liczb_i_wyrazow()
 	{
@@ -1721,7 +1715,7 @@ public static class PolishEasy
 		#endregion first version with string
 	}
 
-	// 2181 Wycinanie literek
+	// 2181 Wycinanie literek - https://pl.spoj.com/problems/PROGC05
 	// unspecified amount of input data
 	public static void PROGC05_Wycinanie_literek()
 	{
@@ -1736,7 +1730,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 4138 Harry and big doughnuts
+	// 4138 Harry and big doughnuts - https://pl.spoj.com/problems/DOUGHNUT
 	public static void DOUGHNUT_Harry_and_big_doughnuts()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());

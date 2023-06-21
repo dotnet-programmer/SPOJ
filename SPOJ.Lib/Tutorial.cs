@@ -2,7 +2,7 @@
 
 public static class Tutorial
 {
-	// TODO - 74 Divisor Summation
+	// TODO - 74 Divisor Summation - https://www.spoj.com/problems/DIVSUM
 	// Used: sieve of eratosthenes, binary exponentiation, sum of divisors formula (after prime factorization).
 	public static void DIVSUM_Divisor_Summation()
 	{
@@ -95,7 +95,7 @@ public static class Tutorial
 		}
 	}
 
-	// 4138 Harry and big doughnuts
+	// 4138 Harry and big doughnuts - https://www.spoj.com/problems/DOUGHNUT
 	public static void DOUGHNUT_Harry_and_big_doughnuts()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -106,7 +106,7 @@ public static class Tutorial
 		}
 	}
 
-	// 5872 Anagram
+	// 5872 Anagram - https://www.spoj.com/problems/ANAG
 	public static void ANAG_Anagram()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
@@ -117,6 +117,6 @@ public static class Tutorial
 		}
 	}
 
-	// 11226 Hello World!
+	// 11226 Hello World! - https://www.spoj.com/problems/HELLO
 	public static void PRF00_Hello_world() => Console.WriteLine("Hello World!");
 }
