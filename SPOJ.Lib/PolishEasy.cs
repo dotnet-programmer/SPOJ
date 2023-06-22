@@ -1715,6 +1715,80 @@ public static class PolishEasy
 		#endregion first version with string
 	}
 
+	// 1941 Porównywanie dużych liczb - https://pl.spoj.com/problems/KC015/
+	// unspecified amount of input data
+	public static void KC015_Porownywanie_duzych_liczb()
+	{
+		while (true)
+		{
+			string input = Console.ReadLine();
+			if (string.IsNullOrWhiteSpace(input))
+			{
+				break;
+			}
+			var values = input.Split(' ');
+			string number1 = values[0];
+			string number2 = values[2];
+			string result = string.Empty;
+			switch (values[1])
+			{
+				case "==":
+					result = number1 == number2 ? "1" : "0";
+					break;
+				case "!=":
+					result = number1 != number2 ? "1" : "0";
+					break;
+				case "<=":
+					if (number1.Length < number2.Length)
+					{
+						result = "1";
+					}
+					else if (number1.Length > number2.Length)
+					{
+						result = "0";
+					}
+					else
+					{
+						result = "1";
+						for (int i = 0; i < number1.Length; i++)
+						{
+							if (number1[i] > number2[i])
+							{
+								result = "0";
+								break;
+							}
+						}
+					}
+					break;
+				case ">=":
+					if (number1.Length > number2.Length)
+					{
+						result = "1";
+					}
+					else if (number1.Length < number2.Length)
+					{
+						result = "0";
+					}
+					else
+					{
+						result = "1";
+						for (int i = 0; i < number1.Length; i++)
+						{
+							if (number1[i] < number2[i])
+							{
+								result = "0";
+								break;
+							}
+						}
+					}
+					break;
+				default:
+					break;
+			}
+			Console.WriteLine(result);
+		}
+	}
+
 	// 2181 Wycinanie literek - https://pl.spoj.com/problems/PROGC05
 	// unspecified amount of input data
 	public static void PROGC05_Wycinanie_literek()
