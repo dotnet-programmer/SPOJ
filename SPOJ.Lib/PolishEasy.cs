@@ -1789,6 +1789,23 @@ public static class PolishEasy
 		}
 	}
 
+	// 1978 Zliczanie linii
+	// unspecified amount of input data
+	public static void PROGC01_Zliczanie_linii()
+	{
+		int count = 0;
+		while (true)
+		{
+			string input = Console.ReadLine();
+			if (input == null)
+			{
+				break;
+			}
+			count++;
+		}
+		Console.WriteLine(count);
+	}
+
 	// 2181 Wycinanie literek - https://pl.spoj.com/problems/PROGC05
 	// unspecified amount of input data
 	public static void PROGC05_Wycinanie_literek()
