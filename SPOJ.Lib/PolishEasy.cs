@@ -1806,6 +1806,37 @@ public static class PolishEasy
 		Console.WriteLine(count);
 	}
 
+	// 2016 Zliczanie wystąpień (kody ASCII) - https://pl.spoj.com/problems/PROGC02/
+	// unspecified amount of input data
+	public static void PROGC02_Zliczanie_wystąpien_kody_ASCII()
+	{
+		SortedDictionary<int, int> chars = new();
+		while (true)
+		{
+			var input = Console.Read();
+			if (input == -1)
+			{
+				break;
+			}
+			char asdf = (char)input;
+			string test = asdf.ToString();
+			byte[] bytes = IsUnicode(test) ? System.Text.Encoding.UTF8.GetBytes(test) : System.Text.Encoding.Default.GetBytes(test);
+			foreach (var item in bytes)
+			{
+				chars[item] = chars.ContainsKey(item) ? chars[item] + 1 : 1;
+			}
+		}
+		foreach (var key in chars)
+		{
+			Console.WriteLine($"{key.Key} {key.Value}");
+		}
+		static bool IsUnicode(string input)
+		{
+			const int maxAnsiCode = 255;
+			return input.Any(c => c > maxAnsiCode);
+		}
+	}
+
 	// 2181 Wycinanie literek - https://pl.spoj.com/problems/PROGC05
 	// unspecified amount of input data
 	public static void PROGC05_Wycinanie_literek()
