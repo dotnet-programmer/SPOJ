@@ -1,4 +1,6 @@
-﻿namespace SPOJ.Lib;
+﻿using System.Drawing;
+
+namespace SPOJ.Lib;
 
 public static class PolishEasy
 {
@@ -303,12 +305,12 @@ public static class PolishEasy
 		int numberOfTests = int.Parse(Console.ReadLine());
 		for (int i = 0; i < numberOfTests; i++)
 		{
-			List<Point> points = new();
+			List<MyPoint> points = new();
 			int numberOfPoints = int.Parse(Console.ReadLine());
 			for (int j = 0; j < numberOfPoints; j++)
 			{
 				var input = Console.ReadLine().Split(' ');
-				points.Add(new Point(input[0], int.Parse(input[1]), int.Parse(input[2])));
+				points.Add(new MyPoint(input[0], int.Parse(input[1]), int.Parse(input[2])));
 			}
 			points.Sort();
 			foreach (var item in points)
@@ -320,14 +322,14 @@ public static class PolishEasy
 		}
 	}
 
-	public class Point : IComparable<Point>
+	public class MyPoint : IComparable<MyPoint>
 	{
 		private readonly string _name;
 		private readonly int _x;
 		private readonly int _y;
 		private readonly double _distance;
 
-		public Point(string name, int x, int y)
+		public MyPoint(string name, int x, int y)
 		{
 			_name = name;
 			_x = x;
@@ -335,7 +337,7 @@ public static class PolishEasy
 			_distance = Math.Sqrt(_x * _x + _y * _y);
 		}
 
-		public int CompareTo(Point other) => this._distance > other._distance ? 1 : this._distance < other._distance ? -1 : 0;
+		public int CompareTo(MyPoint other) => this._distance > other._distance ? 1 : this._distance < other._distance ? -1 : 0;
 
 		public override string ToString() => $"{_name} {_x} {_y}";
 	}
@@ -1789,7 +1791,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 1978 Zliczanie linii
+	// 1978 Zliczanie linii - https://pl.spoj.com/problems/PROGC01/
 	// unspecified amount of input data
 	public static void PROGC01_Zliczanie_linii()
 	{
@@ -1835,6 +1837,29 @@ public static class PolishEasy
 			const int maxAnsiCode = 255;
 			return input.Any(c => c > maxAnsiCode);
 		}
+	}
+
+	// 2045 Pola Prostokątów - https://pl.spoj.com/problems/SIL/
+	// using System; using System.Linq; using System.Drawing; using System.Collections.Generic;
+	public static void SIL_Pola_Prostokatow()
+	{
+		int commonArea = 0;
+		Rectangle rectangle1 = GetRectangle();
+		Rectangle rectangle2 = GetRectangle();
+		if (rectangle1.IntersectsWith(rectangle2))
+		{
+			var tmpRectangle = Rectangle.Intersect(rectangle1, rectangle2);
+			commonArea = tmpRectangle.Width * tmpRectangle.Height;
+		}
+		Console.WriteLine(rectangle1.Width * rectangle1.Height + rectangle2.Width * rectangle2.Height - commonArea);
+	}
+	private static Rectangle GetRectangle()
+	{
+		var input = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+		Point topLeft = new Point(input[0], input[1]);
+		Point botomRight = new Point(input[2], input[3]);
+		Size size = new Size(botomRight.X - topLeft.X, botomRight.Y - topLeft.Y);
+		return new Rectangle(topLeft, size);
 	}
 
 	// 2181 Wycinanie literek - https://pl.spoj.com/problems/PROGC05
