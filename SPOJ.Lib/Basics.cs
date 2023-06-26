@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace SPOJ.Lib;
 
@@ -312,13 +311,31 @@ public static class Basics
 		}
 	}
 
-	// TODO - 12206 Hidden Password - https://www.spoj.com/problems/HS12HDPW
+	// 12206 Hidden Password - https://www.spoj.com/problems/HS12HDPW
 	public static void HS12HDPW_Hidden_Password()
 	{
 		int numberOfTests = int.Parse(Console.ReadLine());
 		for (int i = 0; i < numberOfTests; i++)
 		{
-			throw new NotImplementedException();
+			Console.ReadLine();
+			var touples = Console.ReadLine().Split(' ');
+			var text = Console.ReadLine();
+			Console.ReadLine();
+			string result = string.Empty;
+			foreach (var touple in touples)
+			{
+				string numberA = string.Empty;
+				string numberB = string.Empty;
+				for (int j = 0; j < touple.Length; j++)
+				{
+					var binary = string.Concat(Convert.ToString(touple[j], 2).PadLeft(8, '0').Reverse());
+					numberA += binary[j];
+					numberB += binary[(j + 3) % 6];
+				}
+				result += text[Convert.ToInt32(string.Concat(numberA.Reverse()), 2)];
+				result += text[Convert.ToInt32(string.Concat(numberB.Reverse()), 2)];
+			}
+			Console.WriteLine(result);
 		}
 	}
 
@@ -547,7 +564,7 @@ public static class Basics
 			int planet = 0;
 			double max = 0;
 			int numberOfPlanets = int.Parse(Console.ReadLine());
-			for(int j = 1; j <= numberOfPlanets; j++)
+			for (int j = 1; j <= numberOfPlanets; j++)
 			{
 				var coordinates = Console.ReadLine().Split(' ');
 				int x = int.Parse(coordinates[0]);
