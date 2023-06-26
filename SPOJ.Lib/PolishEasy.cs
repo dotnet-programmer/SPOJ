@@ -1856,9 +1856,9 @@ public static class PolishEasy
 	private static Rectangle GetRectangle()
 	{
 		var input = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-		Point topLeft = new Point(input[0], input[1]);
-		Point botomRight = new Point(input[2], input[3]);
-		Size size = new Size(botomRight.X - topLeft.X, botomRight.Y - topLeft.Y);
+		Point topLeft = new(input[0], input[1]);
+		Point botomRight = new(input[2], input[3]);
+		Size size = new(botomRight.X - topLeft.X, botomRight.Y - topLeft.Y);
 		return new Rectangle(topLeft, size);
 	}
 
@@ -1883,8 +1883,22 @@ public static class PolishEasy
 		int numberOfTests = int.Parse(Console.ReadLine());
 		for (int i = 0; i < numberOfTests; i++)
 		{
-			var inputs = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
-			Console.WriteLine(inputs[0] * inputs[2] <= inputs[1] ? "yes" : "no");
+			var input = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
+			Console.WriteLine(input[0] * input[2] <= input[1] ? "yes" : "no");
+		}
+	}
+
+	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
+	public static void MWP3_3D_Dzielenie_pizzy()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTests; i++)
+		{
+			var input = Console.ReadLine().Split(' ');
+			int numberOfPeople = int.Parse(input[1]);
+			int numberOfCuts = numberOfPeople % 2 == 0 ? numberOfPeople / 2 : numberOfPeople;
+			int numberOfSegments = numberOfCuts * 2;
+			Console.WriteLine($"{(Math.PI * int.Parse(input[0]) / numberOfSegments):F3} {numberOfCuts}");
 		}
 	}
 }
