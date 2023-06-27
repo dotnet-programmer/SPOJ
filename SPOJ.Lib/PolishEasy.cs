@@ -1853,6 +1853,7 @@ public static class PolishEasy
 		}
 		Console.WriteLine(rectangle1.Width * rectangle1.Height + rectangle2.Width * rectangle2.Height - commonArea);
 	}
+
 	private static Rectangle GetRectangle()
 	{
 		var input = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
@@ -1874,6 +1875,33 @@ public static class PolishEasy
 				break;
 			}
 			Console.WriteLine(input[2..].Replace(input[0].ToString(), ""));
+		}
+	}
+
+	// 2217 Statystyka pozycyjna - https://pl.spoj.com/problems/KC022/
+	// unspecified amount of input data
+	public static void KC022_Statystyka_pozycyjna()
+	{
+		while (true)
+		{
+			string input = Console.ReadLine();
+			if (string.IsNullOrWhiteSpace(input))
+			{
+				break;
+			}
+			var numbers = input.Split(' ').Select(int.Parse).ToList();
+			int position = numbers[0];
+			numbers.RemoveAt(0);
+			numbers = numbers.Distinct().ToList();
+			if (position <= numbers.Count)
+			{
+				numbers = numbers.OrderByDescending(x => x).ToList();
+				Console.WriteLine(numbers[position - 1]);
+			}
+			else
+			{
+				Console.WriteLine("-");
+			}
 		}
 	}
 
