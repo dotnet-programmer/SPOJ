@@ -1905,6 +1905,60 @@ public static class PolishEasy
 		}
 	}
 
+	// 3366 Sprawdzanie sudoku - https://pl.spoj.com/problems/SUDOKUC/
+	public static void SUDOKUC_Sprawdzanie_sudoku()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int t = 0; t < numberOfTests; t++)
+		{
+			bool isCorrectSolution = true;
+			List<string>[] bigGrid = new List<string>[9];
+			List<string>[] smallGrids = new List<string>[9];
+			for (int i = 0; i < 9; i++)
+			{
+				bigGrid[i] = Console.ReadLine().Split(' ').ToList();
+				if (isCorrectSolution && bigGrid[i].Max(int.Parse) > 9)
+				{
+					isCorrectSolution = false;
+				}
+				smallGrids[i] = new List<string>(9);
+			}
+			if (t < numberOfTests - 1)
+			{
+				Console.ReadLine();
+			}
+			if (!isCorrectSolution)
+			{
+				Console.WriteLine("NIE");
+				continue;
+			}
+			//make smallGrids
+			int skip = 0;
+			for (int i = 0; i < 9; i++)
+			{
+				if (i > 0 && i % 3 == 0)
+				{
+					skip += 3;
+				}
+				for (int j = 0; j < 3; j++)
+				{
+					smallGrids[i].AddRange(bigGrid[i % 3 * 3 + j].GetRange(skip, 3));
+				}
+			}
+			// check values
+			for (int i = 0; i < 9; i++)
+			{
+				if (!IsProperValue(bigGrid[i]) || !IsProperValue(bigGrid.Select(x => x[i]).ToList()) || !IsProperValue(smallGrids[i]))
+				{
+					isCorrectSolution = false;
+					break;
+				}
+			}
+			Console.WriteLine(isCorrectSolution ? "TAK" : "NIE");
+		}
+		static bool IsProperValue(List<string> collection) => collection.Distinct().Count() == 9;
+	}
+
 	// 4138 Harry and big doughnuts - https://pl.spoj.com/problems/DOUGHNUT
 	public static void DOUGHNUT_Harry_and_big_doughnuts()
 	{
