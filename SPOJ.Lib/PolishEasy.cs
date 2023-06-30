@@ -1983,6 +1983,29 @@ public static class PolishEasy
 		}
 	}
 
+	// 4799 Zastępowanie trójznaków - https://pl.spoj.com/problems/WI_TRIGR/
+	// unspecified amount of input data
+	public static void WI_TRIGR_Zastępowanie_trojznakow()
+	{
+		while (true)
+		{
+			string input = Console.ReadLine();
+			if (string.IsNullOrWhiteSpace(input))
+			{
+				break;
+			}
+			Dictionary<string, string> chars = new() { ["??="] = "#", ["??/"] = "\\", ["??'"] = "^", ["??("] = "[", ["??)"] = "]", ["??!"] = "|", ["??<"] = "{", ["??>"] = "}", ["??-"] = "~", };
+			foreach (var item in chars)
+			{
+				if (input.Contains(item.Key))
+				{
+					input = input.Replace(item.Key, item.Value);
+				}
+			}
+			Console.WriteLine(input);
+		}
+	}
+
 	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
 	public static void MWP3_3D_Dzielenie_pizzy()
 	{
