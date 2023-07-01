@@ -1614,6 +1614,66 @@ public static class PolishEasy
 		}
 	}
 
+	// 1853 Formularz - https://pl.spoj.com/problems/KC005/
+	// unspecified amount of input data
+	public static void KC005_Formularz()
+	{
+		while (true)
+		{
+			string input = Console.ReadLine();
+			if (string.IsNullOrWhiteSpace(input))
+			{
+				break;
+			}
+			var tmpInput = input.Split(';');
+
+			if (!CheckNameOrSurname(tmpInput[0].Split(':')[1].Trim()))
+			{
+				Console.WriteLine("0");
+				continue;
+			}
+
+			if (!CheckNameOrSurname(tmpInput[1].Split(':')[1].Trim()))
+			{
+				Console.WriteLine("1");
+				continue;
+			}
+
+			if (!CheckDate(tmpInput[2].Split(':')[1].Trim()))
+			{
+				Console.WriteLine("2");
+				continue;
+			}
+
+			Console.WriteLine("3");
+		}
+		static bool CheckNameOrSurname(string name)
+		{
+			if (!char.IsUpper(name[0]))
+			{
+				return false;
+			}
+
+			for (int i = 1; i < name.Length; i++)
+			{
+				if (!char.IsLower(name[i]))
+				{
+					return false;
+				}
+			}
+
+			return true;
+		}
+		static bool CheckDate(string date)
+		{
+			var tmpDate = date.Split('-');
+
+			return (int.TryParse(tmpDate[0], out int year) && year >= 1900 && year <= 2000)
+				&& (int.TryParse(tmpDate[1], out int month) && month >= 1 && month <= 12)
+				&& (int.TryParse(tmpDate[2], out int day) && day >= 1 && day <= 31);
+		}
+	}
+
 	// 1909 Sumy wielokrotne - https://pl.spoj.com/problems/KC008
 	// unspecified amount of input data
 	public static void KC008_Sumy_wielokrotne()
