@@ -1978,6 +1978,21 @@ public static class PolishEasy
 		Console.WriteLine(sum);
 	}
 
+	// 3326 Warunek w tablicy - https://pl.spoj.com/problems/PASTAB2/
+	public static void PASTAB2_Warunek_w_tablicy()
+	{
+		int count = int.Parse(Console.ReadLine());
+		List<int> numbers = new(count);
+		while (count > 0)
+		{
+			numbers.Add(int.Parse(Console.ReadLine()));
+			count--;
+		}
+		var input = Console.ReadLine().Split(' ');
+		int number = int.Parse(input[1]);
+		Console.WriteLine(input[0] == "<" ? string.Join('\n', numbers.Where(x => x < number)) : string.Join('\n', numbers.Where(x => x > number)));
+	}
+
 	// 3366 Sprawdzanie sudoku - https://pl.spoj.com/problems/SUDOKUC/
 	public static void SUDOKUC_Sprawdzanie_sudoku()
 	{
