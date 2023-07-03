@@ -1993,6 +1993,41 @@ public static class PolishEasy
 		Console.WriteLine(input[0] == "<" ? string.Join('\n', numbers.Where(x => x < number)) : string.Join('\n', numbers.Where(x => x > number)));
 	}
 
+	// 3328 Histogram z liczb - https://pl.spoj.com/problems/PASTAB4/
+	// unspecified amount of input data
+	public static void PASTAB4_Histogram_z_liczb()
+	{
+		const int width = 30;
+		const int minRange = -10;
+		const int maxRange = 10;
+		Dictionary<string, int> numbers = new();
+		for (int i = minRange; i <= maxRange; i++)
+		{
+			numbers.Add(i.ToString(), 0);
+		}
+		while (true)
+		{
+			string input = Console.ReadLine();
+			if (string.IsNullOrWhiteSpace(input))
+			{
+				break;
+			}
+			numbers[input]++;
+		}
+		int max = numbers.Max(x => x.Value);
+		System.Text.StringBuilder sb = new();
+		foreach (var item in numbers)
+		{
+			sb.AppendFormat("{0,4}", item.Key);
+			sb.Append(":|");
+			int count = (int)Math.Round(width * item.Value / (double)max);
+			sb.Append('*', count);
+			sb.Append(' ', width - count);
+			sb.Append("|\n");
+		}
+		Console.WriteLine(sb);
+	}
+
 	// 3366 Sprawdzanie sudoku - https://pl.spoj.com/problems/SUDOKUC/
 	public static void SUDOKUC_Sprawdzanie_sudoku()
 	{
