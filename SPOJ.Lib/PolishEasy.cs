@@ -2150,6 +2150,46 @@ public static class PolishEasy
 		static bool IsProperValue(List<string> collection) => collection.Distinct().Count() == 9;
 	}
 
+	// 3456 Szyfrowanie ROT13 - https://pl.spoj.com/problems/PASCHAR5/
+	// unspecified amount of input data
+	public static void PASCHAR5_Szyfrowanie_ROT13()
+	{
+		while (true)
+		{
+			var input = Console.Read();
+			if (input == -1)
+			{
+				break;
+			}
+			char newChar = (char)input;
+			if (char.IsUpper(newChar))
+			{
+				newChar = (char)(newChar + 13);
+				if (newChar > 'Z')
+				{
+					newChar = (char)('A' + (newChar - 'Z' - 1));
+				}
+			}
+			else if (char.IsLower(newChar))
+			{
+				newChar = (char)(newChar + 13);
+				if (newChar > 'z')
+				{
+					newChar = (char)('a' + (newChar - 'z' - 1));
+				}
+			}
+			else if (char.IsDigit(newChar))
+			{
+				newChar = (char)(newChar + 5);
+				if (newChar > '9')
+				{
+					newChar = (char)('0' + (newChar - '9' - 1));
+				}
+			}
+			Console.Write(newChar);
+		}
+	}
+
 	// 4138 Harry and big doughnuts - https://pl.spoj.com/problems/DOUGHNUT
 	public static void DOUGHNUT_Harry_and_big_doughnuts()
 	{
