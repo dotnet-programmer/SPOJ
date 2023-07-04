@@ -2197,6 +2197,84 @@ public static class PolishEasy
 		}
 	}
 
+	// 4254 Pieczątki dzieci - https://pl.spoj.com/problems/CHSTAMPS/
+	public static void CHSTAMPS_Pieczatki_dzieci()
+	{
+		var input = Console.ReadLine().Split(' ');
+		long number = long.Parse(input[0]);
+		int fives = int.Parse(input[1]);
+		number++;
+		Console.WriteLine(PrepareNumber(number, fives));
+
+		static string PrepareNumber(long number, int howManyFives)
+		{
+			string textNumber = number.ToString();
+
+			// the number has fewer or the same number of digits as the number of fives
+			if (textNumber.Length <= howManyFives)
+			{
+				System.Text.StringBuilder result = new();
+				for (int i = 0; i < howManyFives; i++)
+				{
+					result.Append('5');
+				}
+				if (number > long.Parse(result.ToString()))
+				{
+					result.Insert(0, '1');
+				}
+				return result.ToString();
+			}
+
+			// the number has more digits than the number of fives
+			else
+			{
+				var charList = textNumber.ToList();
+
+				// adding 5 to the next positions of the number, when it's 9 it changes to 0 and increases the number on the left by 1
+				while (charList.Count(x => x == '5') != howManyFives)
+				{
+					for (int i = charList.Count - 1; i >= 0; i--)
+					{
+						if (charList[i] is '0' or '1' or '2' or '3' or '4')
+						{
+							charList[i] = '5';
+							break;
+						}
+						else if (charList[i] is '6' or '7' or '8' or '9')
+						{
+							charList[i] = '0';
+							bool haveToAddOne = true;
+
+							while (haveToAddOne)
+							{
+								i--;
+								if (i >= 0)
+								{
+									if (charList[i] == '9')
+									{
+										charList[i] = '0';
+									}
+									else
+									{
+										charList[i]++;
+										haveToAddOne = false;
+									}
+								}
+								else
+								{
+									charList.Insert(0, '1');
+									haveToAddOne = false;
+								}
+							}
+							break;
+						}
+					}
+				}
+				return string.Concat(charList);
+			}
+		}
+	}
+
 	// 4799 Zastępowanie trójznaków - https://pl.spoj.com/problems/WI_TRIGR/
 	// unspecified amount of input data
 	public static void WI_TRIGR_Zastępowanie_trojznakow()
