@@ -1940,6 +1940,7 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void PROGC02_Zliczanie_wystąpien_kody_ASCII()
 	{
+		const int maxAnsiCode = 255;
 		SortedDictionary<int, int> chars = new();
 		while (true)
 		{
@@ -1948,9 +1949,8 @@ public static class PolishEasy
 			{
 				break;
 			}
-			char asdf = (char)input;
-			string test = asdf.ToString();
-			byte[] bytes = IsUnicode(test) ? System.Text.Encoding.UTF8.GetBytes(test) : System.Text.Encoding.Default.GetBytes(test);
+			string charToCheck = ((char)input).ToString();
+			byte[] bytes = IsUnicode(charToCheck) ? System.Text.Encoding.UTF8.GetBytes(charToCheck) : System.Text.Encoding.Default.GetBytes(charToCheck);
 			foreach (var item in bytes)
 			{
 				chars[item] = chars.ContainsKey(item) ? chars[item] + 1 : 1;
@@ -1960,11 +1960,7 @@ public static class PolishEasy
 		{
 			Console.WriteLine($"{key.Key} {key.Value}");
 		}
-		static bool IsUnicode(string input)
-		{
-			const int maxAnsiCode = 255;
-			return input.Any(c => c > maxAnsiCode);
-		}
+		static bool IsUnicode(string input) => input.Any(c => c > maxAnsiCode);
 	}
 
 	// 2045 Pola Prostokątów - https://pl.spoj.com/problems/SIL/
