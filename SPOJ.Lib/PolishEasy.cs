@@ -1674,6 +1674,74 @@ public static class PolishEasy
 		}
 	}
 
+	// 1854 Godzina chaosu - https://pl.spoj.com/problems/CHAOS/
+	public static void CHAOS_Godzina_chaosu()
+	{
+		int count = int.Parse(Console.ReadLine());
+		while (count > 0)
+		{
+			var input = Console.ReadLine().Split(':');
+			int hour = int.Parse(input[0]);
+			int minute = int.Parse(input[1]);
+			do
+			{
+				IncreaseTime(ref hour, ref minute);
+			} while (!IsPalindrom(hour, minute));
+			Console.WriteLine(TimeToString(hour, minute));
+			count--;
+		}
+		static bool IsPalindrom(int hour, int minute)
+		{
+			if (hour == 0)
+			{
+				if (minute < 10)
+				{
+					return true;
+				}
+				else
+				{
+					string textMinute = minute.ToString();
+					if (textMinute[0] == textMinute[1])
+					{
+						return true;
+					}
+				}
+			}
+			else if (hour < 10)
+			{
+				if (hour == minute % 10)
+				{
+					return true;
+				}
+			}
+			else
+			{
+				string textHour = ValueToString(hour);
+				string textMinute = ValueToString(minute);
+				if (textHour[0] == textMinute[1] && textHour[1] == textMinute[0])
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		static void IncreaseTime(ref int hour, ref int minute)
+		{
+			minute++;
+			if (minute == 60)
+			{
+				minute = 0;
+				hour++;
+			}
+			if (hour == 24)
+			{
+				hour = 0;
+			}
+		}
+		static string ValueToString(int value) => value < 10 ? $"0{value}" : value.ToString();
+		static string TimeToString(int hour, int minute) => $"{ValueToString(hour)}:{ValueToString(minute)}";
+	}
+
 	// 1909 Sumy wielokrotne - https://pl.spoj.com/problems/KC008
 	// unspecified amount of input data
 	public static void KC008_Sumy_wielokrotne()
