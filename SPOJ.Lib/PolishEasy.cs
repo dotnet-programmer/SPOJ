@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace SPOJ.Lib;
+﻿namespace SPOJ.Lib;
 
 public static class PolishEasy
 {
@@ -1968,23 +1966,23 @@ public static class PolishEasy
 	public static void SIL_Pola_Prostokatow()
 	{
 		int commonArea = 0;
-		Rectangle rectangle1 = GetRectangle();
-		Rectangle rectangle2 = GetRectangle();
+		System.Drawing.Rectangle rectangle1 = GetRectangle();
+		System.Drawing.Rectangle rectangle2 = GetRectangle();
 		if (rectangle1.IntersectsWith(rectangle2))
 		{
-			var tmpRectangle = Rectangle.Intersect(rectangle1, rectangle2);
+			var tmpRectangle = System.Drawing.Rectangle.Intersect(rectangle1, rectangle2);
 			commonArea = tmpRectangle.Width * tmpRectangle.Height;
 		}
 		Console.WriteLine(rectangle1.Width * rectangle1.Height + rectangle2.Width * rectangle2.Height - commonArea);
 	}
 
-	private static Rectangle GetRectangle()
+	private static System.Drawing.Rectangle GetRectangle()
 	{
 		var input = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-		Point topLeft = new(input[0], input[1]);
-		Point botomRight = new(input[2], input[3]);
-		Size size = new(botomRight.X - topLeft.X, botomRight.Y - topLeft.Y);
-		return new Rectangle(topLeft, size);
+		System.Drawing.Point topLeft = new(input[0], input[1]);
+		System.Drawing.Point bottomRight = new(input[2], input[3]);
+		System.Drawing.Size size = new(bottomRight.X - topLeft.X, bottomRight.Y - topLeft.Y);
+		return new System.Drawing.Rectangle(topLeft, size);
 	}
 
 	// 2181 Wycinanie literek - https://pl.spoj.com/problems/PROGC05
@@ -2273,6 +2271,41 @@ public static class PolishEasy
 				return string.Concat(charList);
 			}
 		}
+	}
+
+	// 4344 Tanie hotele - https://pl.spoj.com/problems/HOT/
+	public static void HOT_Tanie_hotele()
+	{
+		//# include <iostream>
+		//# include <climits>
+		//		using namespace std;
+		//int main()
+		//{
+		//	int hotels[1003][2]{ };
+		//	const int maxDistance = 800;
+		//	int roadLength, hotelsCount;
+		//	cin >> roadLength >> hotelsCount;
+		//	for (int i = 1; i <= hotelsCount; i++)
+		//	{
+		//		cin >> hotels[i][0] >> hotels[i][1];
+		//	}
+		//	hotelsCount++;
+		//	hotels[hotelsCount][0] = roadLength;
+		//	hotels[hotelsCount][1] = 0;
+		//	for (int i = 1; i <= hotelsCount; i++)
+		//	{
+		//		unsigned int cheapestRoute = INT_MAX;
+		//		for (int j = i - 1; j >= 0 && hotels[i][0] - hotels[j][0] <= maxDistance; j--)
+		//		{
+		//			if (cheapestRoute > hotels[i][1] + hotels[j][1])
+		//			{
+		//				cheapestRoute = hotels[i][1] + hotels[j][1];
+		//			}
+		//		}
+		//		hotels[i][1] = cheapestRoute;
+		//	}
+		//	cout << hotels[hotelsCount][1] << endl;
+		//}
 	}
 
 	// 4799 Zastępowanie trójznaków - https://pl.spoj.com/problems/WI_TRIGR/
