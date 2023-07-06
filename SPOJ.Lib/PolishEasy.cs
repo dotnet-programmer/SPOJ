@@ -232,8 +232,7 @@ public static class PolishEasy
 			System.Text.StringBuilder result = new();
 			for (int j = 0; j < minLength; j++)
 			{
-				result.Append(inputs[0][j]);
-				result.Append(inputs[1][j]);
+				result.Append(inputs[0][j]).Append(inputs[1][j]);
 			}
 			Console.WriteLine(result);
 		}
@@ -477,7 +476,7 @@ public static class PolishEasy
 					{
 						sb.Append('.');
 					}
-					sb.Append("\r\n");
+					sb.Append(Environment.NewLine);
 				}
 				for (int i = 0; i < input; i++)
 				{
@@ -497,7 +496,7 @@ public static class PolishEasy
 					{
 						sb.Append('*');
 					}
-					sb.Append("\r\n");
+					sb.Append(Environment.NewLine);
 				}
 			}
 			else
@@ -521,7 +520,7 @@ public static class PolishEasy
 					{
 						sb.Append('*');
 					}
-					sb.Append("\r\n");
+					sb.Append(Environment.NewLine);
 				}
 				for (int i = 0; i < input; i++)
 				{
@@ -541,7 +540,7 @@ public static class PolishEasy
 					{
 						sb.Append('.');
 					}
-					sb.Append("\r\n");
+					sb.Append(Environment.NewLine);
 				}
 			}
 			Console.WriteLine(sb);
@@ -592,9 +591,7 @@ public static class PolishEasy
 			System.Text.StringBuilder result = new();
 			for (int i = 0; i < arraySize; i++)
 			{
-				result.Append(pattern[i]);
-				result.Append(pattern[arraySize - 1 - i]);
-				result.Append('\n');
+				result.Append(pattern[i]).Append(pattern[arraySize - 1 - i]).Append(Environment.NewLine);
 			}
 			result.Append(result.ToString().Trim().Reverse().ToArray());
 			Console.WriteLine(result);
@@ -628,7 +625,7 @@ public static class PolishEasy
 							sb.Append(tmpChar);
 						}
 					}
-					sb.Append('\n');
+					sb.Append(Environment.NewLine);
 				}
 			}
 			else
@@ -646,7 +643,7 @@ public static class PolishEasy
 						}
 						isAsterisk = !isAsterisk;
 					}
-					sb.Append('\n');
+					sb.Append(Environment.NewLine);
 				}
 			}
 			sb.Append(sb.ToString().Trim().Reverse().ToArray());
@@ -1816,7 +1813,7 @@ public static class PolishEasy
 		//{
 		//	break;
 		//}
-		//input += "\n";
+		//input += Environment.NewLine;
 		//for (int i = 0; i < input.Length; i++)
 		//{
 		//	if (char.IsDigit(input[i]))
@@ -1835,7 +1832,7 @@ public static class PolishEasy
 		//			i++;
 		//		}
 		//	}
-		//	if (input[i] == '\n')
+		//	if (input[i] == Environment.NewLine)
 		//	{
 		//		Console.WriteLine($"{digits} {words}");
 		//	}
@@ -2052,7 +2049,7 @@ public static class PolishEasy
 		}
 		var input = Console.ReadLine().Split(' ');
 		int number = int.Parse(input[1]);
-		Console.WriteLine(input[0] == "<" ? string.Join('\n', numbers.Where(x => x < number)) : string.Join('\n', numbers.Where(x => x > number)));
+		Console.WriteLine(input[0] == "<" ? string.Join(Environment.NewLine, numbers.Where(x => x < number)) : string.Join(Environment.NewLine, numbers.Where(x => x > number)));
 	}
 
 	// 3328 Histogram z liczb - https://pl.spoj.com/problems/PASTAB4/
@@ -2080,12 +2077,8 @@ public static class PolishEasy
 		System.Text.StringBuilder sb = new();
 		foreach (var item in numbers)
 		{
-			sb.AppendFormat("{0,4}", item.Key);
-			sb.Append(":|");
 			int count = (int)Math.Round(width * item.Value / (double)max);
-			sb.Append('*', count);
-			sb.Append(' ', width - count);
-			sb.Append("|\n");
+			sb.AppendFormat("{0,4}", item.Key).Append(":|").Append('*', count).Append(' ', width - count).Append('|').Append(Environment.NewLine);
 		}
 		Console.WriteLine(sb);
 	}
@@ -2274,6 +2267,7 @@ public static class PolishEasy
 	}
 
 	// 4344 Tanie hotele - https://pl.spoj.com/problems/HOT/
+	// source - https://github.com/JakubOgrodnikPL/Cpp_145_PL_SPOJ_4344_Tanie_hotele/blob/main/main.cpp
 	public static void HOT_Tanie_hotele()
 	{
 		//# include <iostream>
@@ -2306,6 +2300,32 @@ public static class PolishEasy
 		//	}
 		//	cout << hotels[hotelsCount][1] << endl;
 		//}
+	}
+
+	// 4629 PTwPZ Kalkulator - https://pl.spoj.com/problems/PTWPZ083/
+	public static void PTWPZ083_PTwPZ_Kalkulator()
+	{
+		int numberOfTests = int.Parse(Console.ReadLine());
+		for (int t = 0; t < numberOfTests; t++)
+		{
+			var input = Console.ReadLine();
+			int sum = int.Parse(input[0].ToString());
+			for (int i = 1; i < input.Length; i++)
+			{
+				char operation = input[i];
+				i++;
+				int nextNumber = int.Parse(input[i].ToString());
+				if (operation == '+')
+				{
+					sum += nextNumber;
+				}
+				else
+				{
+					sum -= nextNumber;
+				}
+			}
+			Console.WriteLine(sum);
+		}
 	}
 
 	// 4799 Zastępowanie trójznaków - https://pl.spoj.com/problems/WI_TRIGR/
