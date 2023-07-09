@@ -2328,6 +2328,69 @@ public static class PolishEasy
 		}
 	}
 
+	// 4647 PTwPZ Telefony - https://pl.spoj.com/problems/PTWPZ073/
+	public static void PTWPZ073_PTwPZ_Telefony()
+	{
+		Dictionary<string, string> letters = new() { ["ABC"] = "2", ["DEF"] = "3", ["GHI"] = "4", ["JKL"] = "5", ["MNO"] = "6", ["PQRS"] = "7", ["TUV"] = "8", ["WXYZ"] = "9", };
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		{
+			foreach (var input in Console.ReadLine())
+			{
+				foreach (var letter in letters)
+				{
+					if (letter.Key.Contains(input))
+					{
+						Console.Write(letter.Value);
+						break;
+					}
+				}
+			}
+			Console.WriteLine();
+		}
+
+		#region version without dictionary
+		//for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		//{
+		//	foreach (var item in Console.ReadLine())
+		//	{
+		//		if ("ABC".Contains(item))
+		//		{
+		//			Console.Write("2");
+		//		}
+		//		else if ("DEF".Contains(item))
+		//		{
+		//			Console.Write("3");
+		//		}
+		//		else if ("GHI".Contains(item))
+		//		{
+		//			Console.Write("4");
+		//		}
+		//		else if ("JKL".Contains(item))
+		//		{
+		//			Console.Write("5");
+		//		}
+		//		else if ("MNO".Contains(item))
+		//		{
+		//			Console.Write("6");
+		//		}
+		//		else if ("PQRS".Contains(item))
+		//		{
+		//			Console.Write("7");
+		//		}
+		//		else if ("TUV".Contains(item))
+		//		{
+		//			Console.Write("8");
+		//		}
+		//		else if ("WXYZ".Contains(item))
+		//		{
+		//			Console.Write("9");
+		//		}
+		//	}
+		//	Console.WriteLine();
+		//}
+		#endregion version without dictionary
+	}
+
 	// 4799 Zastępowanie trójznaków - https://pl.spoj.com/problems/WI_TRIGR/
 	// unspecified amount of input data
 	public static void WI_TRIGR_Zastępowanie_trojznakow()
