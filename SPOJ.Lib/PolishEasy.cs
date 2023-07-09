@@ -5,8 +5,7 @@ public static class PolishEasy
 	// 438 Liczby Pierwsze - https://pl.spoj.com/problems/PRIME_T/
 	public static void PRIME_T_Liczby_Pierwsze()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			bool isPrime = true;
 			int number = int.Parse(Console.ReadLine());
@@ -16,9 +15,9 @@ public static class PolishEasy
 			}
 			else
 			{
-				for (int j = 2; j < number; j++)
+				for (int i = 2; i < number; i++)
 				{
-					if (number % j == 0)
+					if (number % i == 0)
 					{
 						isPrime = false;
 						break;
@@ -32,8 +31,7 @@ public static class PolishEasy
 	// 496 Dwie cyfry silni - https://pl.spoj.com/problems/FCTRL3/
 	public static void FCTRL3_Dwie_cyfry_silni()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			int unitDigit = 0;
 			int tensDigit = 0;
@@ -50,9 +48,9 @@ public static class PolishEasy
 		static int Factorial(int number)
 		{
 			int result = 1;
-			for (int j = 1; j <= number; j++)
+			for (int i = 1; i <= number; i++)
 			{
-				result *= j;
+				result *= i;
 			}
 			return result;
 		}
@@ -62,8 +60,7 @@ public static class PolishEasy
 	// source: https://zapytaj.onet.pl/Category/006,003/2,21355595,Jak_wyznaczac_ostatnia_cyfre_potegi_liczby_naturalnej_o_bardzo_duzym_wykladniku.html
 	public static void PA05_POT__Czy_umiesz_potęgowac()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var numbers = Console.ReadLine().Split(' ');
 			int powerBase = int.Parse(numbers[0]);
@@ -105,18 +102,17 @@ public static class PolishEasy
 	// 506 Flamaster - https://pl.spoj.com/problems/FLAMASTE/
 	public static void FLAMASTE_Flamaster()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var input = Console.ReadLine();
-			for (int j = 0; j < input.Length; j++)
+			for (int i = 0; i < input.Length; i++)
 			{
 				int countChars = 1;
-				var tmpChar = input[j];
-				while (j < input.Length - 1 && input[j + 1] == tmpChar)
+				var tmpChar = input[i];
+				while (i < input.Length - 1 && input[i + 1] == tmpChar)
 				{
 					countChars++;
-					j++;
+					i++;
 				}
 				if (countChars <= 2)
 				{
@@ -138,8 +134,7 @@ public static class PolishEasy
 	// 522 Przedszkolanka - https://pl.spoj.com/problems/PRZEDSZK/
 	public static void PRZEDSZK_Przedszkolanka()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
 			int result = (numbers[0] * numbers[1]) / (NWD(numbers[0], numbers[1]));
@@ -155,8 +150,7 @@ public static class PolishEasy
 	// 549 Proste dodawanie - https://pl.spoj.com/problems/RNO_DOD/
 	public static void RNO_DOD_Proste_dodawanie()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			_ = Console.ReadLine();
 			Console.WriteLine(Console.ReadLine().Split(' ').Select(int.Parse).Sum());
@@ -166,8 +160,7 @@ public static class PolishEasy
 	// 568 Zabawne Dodawanie Piotrusia - https://pl.spoj.com/problems/BFN1/
 	public static void BFN1_Zabawne_Dodawanie_Piotrusia()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			string input = Console.ReadLine();
 			int count = 0;
@@ -184,8 +177,7 @@ public static class PolishEasy
 	// 601 NWD - https://pl.spoj.com/problems/PP0501A/
 	public static void PP0501A_NWD()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var numbers = Console.ReadLine().Split(' ');
 			int number1 = int.Parse(numbers[0]);
@@ -202,8 +194,7 @@ public static class PolishEasy
 	// 606 Tablice - https://pl.spoj.com/problems/PP0502B/
 	public static void PP0502B_Tablice()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			Console.WriteLine(string.Join(' ', Console.ReadLine()[2..].Split(' ').Reverse()));
 		}
@@ -224,15 +215,14 @@ public static class PolishEasy
 	// 617 StringMerge - https://pl.spoj.com/problems/PP0504B/
 	public static void PP0504B_StringMerge()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var inputs = Console.ReadLine().Split(' ');
 			int minLength = inputs.Min(x => x.Length);
 			System.Text.StringBuilder result = new();
-			for (int j = 0; j < minLength; j++)
+			for (int i = 0; i < minLength; i++)
 			{
-				result.Append(inputs[0][j]).Append(inputs[1][j]);
+				result.Append(inputs[0][i]).Append(inputs[1][i]);
 			}
 			Console.WriteLine(result);
 		}
@@ -241,8 +231,7 @@ public static class PolishEasy
 	// 619 Reprezentacja liczb typu float - https://pl.spoj.com/problems/PP0504D
 	public static void PP0504D_Reprezentacja_liczb_typu_float()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			printFloat(float.Parse(Console.ReadLine()));
 		}
@@ -275,14 +264,13 @@ public static class PolishEasy
 	public static void GLUTTON_Obżartuchy()
 	{
 		const int secondsInDay = 24 * 60 * 60;
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
 			int guests = numbers[0];
 			int cookiesInBox = numbers[1];
 			int totalCookies = 0;
-			for (int j = 0; j < guests; j++)
+			for (int i = 0; i < guests; i++)
 			{
 				int timeForEat = int.Parse(Console.ReadLine());
 				totalCookies += secondsInDay / timeForEat;
@@ -299,12 +287,11 @@ public static class PolishEasy
 	// 663 Sort 1 - https://pl.spoj.com/problems/PP0506A
 	public static void PP0506A_Sort_1()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			List<MyPoint> points = new();
 			int numberOfPoints = int.Parse(Console.ReadLine());
-			for (int j = 0; j < numberOfPoints; j++)
+			for (int i = 0; i < numberOfPoints; i++)
 			{
 				var input = Console.ReadLine().Split(' ');
 				points.Add(new MyPoint(input[0], int.Parse(input[1]), int.Parse(input[2])));
@@ -342,13 +329,12 @@ public static class PolishEasy
 	// 675 SkarbFinder - https://pl.spoj.com/problems/SKARBFI
 	public static void SKARBFI_SkarbFinder()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			int x = 0;
 			int y = 0;
 			int count = int.Parse(Console.ReadLine());
-			for (int j = 0; j < count; j++)
+			for (int i = 0; i < count; i++)
 			{
 				var numbers = Console.ReadLine().Split(' ');
 				int direction = int.Parse(numbers[0]);
@@ -392,8 +378,7 @@ public static class PolishEasy
 	// 708 Problem Collatza - https://pl.spoj.com/problems/PTCLTZ
 	public static void PTCLTZ_Problem_Collatza()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			Console.WriteLine(Collatz(int.Parse(Console.ReadLine())));
 		}
@@ -411,13 +396,12 @@ public static class PolishEasy
 	// 723 ROL - https://pl.spoj.com/problems/PTROL
 	public static void PTROL_ROL()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var numbers = Console.ReadLine().Split(' ');
-			for (int j = 2; j < numbers.Length; j++)
+			for (int i = 2; i < numbers.Length; i++)
 			{
-				Console.Write(numbers[j] + " ");
+				Console.Write(numbers[i] + " ");
 			}
 			Console.WriteLine(numbers[1]);
 		}
@@ -429,8 +413,7 @@ public static class PolishEasy
 	// 804 Gra Euklidesa - https://pl.spoj.com/problems/EUCGAME
 	public static void EUCGAME_Gra_Euklidesa()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var numbers = Console.ReadLine().Split(' ');
 			int player1 = int.Parse(numbers[0]);
@@ -721,8 +704,7 @@ public static class PolishEasy
 	// source: https://pl.wikipedia.org/wiki/Symbol_Newtona
 	public static void BINOMS_Dwumiany()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var input = Console.ReadLine().Split(' ');
 			int n = int.Parse(input[0]);
@@ -903,8 +885,7 @@ public static class PolishEasy
 	// 1011 Połowa - https://pl.spoj.com/problems/POL
 	public static void POL_Polowa()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var input = Console.ReadLine();
 			Console.WriteLine(input.Substring(0, input.Length / 2));
@@ -914,8 +895,7 @@ public static class PolishEasy
 	// 1016 Predkość średnia - https://pl.spoj.com/problems/VSR
 	public static void VSR_Predkosc_srednia()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var numbers = Console.ReadLine().Split(' ');
 			int v1 = int.Parse(numbers[0]);
@@ -928,8 +908,7 @@ public static class PolishEasy
 	// 1019 Systemy pozycyjne - https://pl.spoj.com/problems/SYS
 	public static void SYS_Systemy_pozycyjne()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			int input = int.Parse(Console.ReadLine());
 			Console.WriteLine(ConvertToHexOrEleventhSystem(input, 16) + " " + ConvertToHexOrEleventhSystem(input, 11));
@@ -975,17 +954,16 @@ public static class PolishEasy
 	// 1032 Podzielność - https://pl.spoj.com/problems/PP0601B
 	public static void PP0601B_Podzielnosc()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
 		List<int> dividers = new();
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			dividers.Clear();
 			var numbers = Console.ReadLine().Split(' ');
-			for (int j = 0; j < int.Parse(numbers[0]); j++)
+			for (int i = 0; i < int.Parse(numbers[0]); i++)
 			{
-				if (j % int.Parse(numbers[1]) == 0 && j % int.Parse(numbers[2]) != 0)
+				if (i % int.Parse(numbers[1]) == 0 && i % int.Parse(numbers[2]) != 0)
 				{
-					dividers.Add(j);
+					dividers.Add(i);
 				}
 			}
 			Console.WriteLine(string.Join(' ', dividers));
@@ -1016,28 +994,28 @@ public static class PolishEasy
 		var rows = int.Parse(input[0]);
 		var columns = int.Parse(input[1]);
 		string[,] numbers = new string[rows, columns];
-		for (int j = 0; j < rows; j++)
+		for (int i = 0; i < rows; i++)
 		{
 			var row = Console.ReadLine().Split(' ');
-			for (int k = 0; k < columns; k++)
+			for (int j = 0; j < columns; j++)
 			{
-				numbers[j, k] = row[k];
+				numbers[i, j] = row[j];
 			}
 		}
 		var resultMatrix = new string[columns, rows];
-		for (int j = 0; j < rows; j++)
+		for (int i = 0; i < rows; i++)
 		{
-			for (int k = 0; k < columns; k++)
+			for (int j = 0; j < columns; j++)
 			{
-				resultMatrix[k, j] = numbers[j, k];
+				resultMatrix[j, i] = numbers[i, j];
 			}
 		}
-		for (int j = 0; j < resultMatrix.GetLength(0); j++)
+		for (int i = 0; i < resultMatrix.GetLength(0); i++)
 		{
-			for (int k = 0; k < resultMatrix.GetLength(1); k++)
+			for (int j = 0; j < resultMatrix.GetLength(1); j++)
 			{
-				Console.Write(resultMatrix[j, k]);
-				if (k < resultMatrix.GetLength(1) - 1)
+				Console.Write(resultMatrix[i, j]);
+				if (j < resultMatrix.GetLength(1) - 1)
 				{
 					Console.Write(" ");
 				}
@@ -1049,24 +1027,23 @@ public static class PolishEasy
 	// 1055 Parzyste nieparzyste - https://pl.spoj.com/problems/PP0602A
 	public static void PP0602A_Parzyste_nieparzyste()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
 		List<string> numbers = new();
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			numbers.Clear();
 			var inputs = Console.ReadLine()[2..].Split(' ');
-			for (int j = 0; j < inputs.Length; j++)
+			for (int i = 0; i < inputs.Length; i++)
 			{
-				if ((j + 1) % 2 == 0)
+				if ((i + 1) % 2 == 0)
 				{
-					numbers.Add(inputs[j]);
+					numbers.Add(inputs[i]);
 				}
 			}
-			for (int j = 0; j < inputs.Length; j++)
+			for (int i = 0; i < inputs.Length; i++)
 			{
-				if ((j + 1) % 2 != 0)
+				if ((i + 1) % 2 != 0)
 				{
-					numbers.Add(inputs[j]);
+					numbers.Add(inputs[i]);
 				}
 			}
 			Console.WriteLine(string.Join(' ', numbers));
@@ -1076,49 +1053,48 @@ public static class PolishEasy
 	// 1056 Tabelki liczb - https://pl.spoj.com/problems/PP0602B
 	public static void PP0602B_Tabelki_liczb()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var dimensions = Console.ReadLine().Split(' ');
 			int rows = int.Parse(dimensions[0]);
 			int columns = int.Parse(dimensions[1]);
 			string[,] numbers = new string[rows, columns];
-			for (int j = 0; j < rows; j++)
+			for (int i = 0; i < rows; i++)
 			{
 				var input = Console.ReadLine().Split(' ');
-				for (int k = 0; k < columns; k++)
+				for (int j = 0; j < columns; j++)
 				{
-					numbers[j, k] = input[k];
+					numbers[i, j] = input[j];
 				}
 			}
 			int lasCol = columns - 1;
 			int lastRow = rows - 1;
 			// first row
-			for (int j = 0; j < lasCol; j++)
+			for (int i = 0; i < lasCol; i++)
 			{
-				(numbers[0, j], numbers[0, j + 1]) = (numbers[0, j + 1], numbers[0, j]);
+				(numbers[0, i], numbers[0, i + 1]) = (numbers[0, i + 1], numbers[0, i]);
 			}
 			// last column
-			for (int j = 0; j < lastRow; j++)
+			for (int i = 0; i < lastRow; i++)
 			{
-				(numbers[j, lasCol], numbers[j + 1, lasCol]) = (numbers[j + 1, lasCol], numbers[j, lasCol]);
+				(numbers[i, lasCol], numbers[i + 1, lasCol]) = (numbers[i + 1, lasCol], numbers[i, lasCol]);
 			}
 			// last row
-			for (int j = lasCol; j > 0; j--)
+			for (int i = lasCol; i > 0; i--)
 			{
-				(numbers[lastRow, j], numbers[lastRow, j - 1]) = (numbers[lastRow, j - 1], numbers[lastRow, j]);
+				(numbers[lastRow, i], numbers[lastRow, i - 1]) = (numbers[lastRow, i - 1], numbers[lastRow, i]);
 			}
 			// first column
-			for (int j = lastRow; j > 1; j--)
+			for (int i = lastRow; i > 1; i--)
 			{
-				(numbers[j, 0], numbers[j - 1, 0]) = (numbers[j - 1, 0], numbers[j, 0]);
+				(numbers[i, 0], numbers[i - 1, 0]) = (numbers[i - 1, 0], numbers[i, 0]);
 			}
-			for (int j = 0; j < rows; j++)
+			for (int i = 0; i < rows; i++)
 			{
-				for (int k = 0; k < columns; k++)
+				for (int j = 0; j < columns; j++)
 				{
-					Console.Write(numbers[j, k]);
-					if (k != lasCol)
+					Console.Write(numbers[i, j]);
+					if (j != lasCol)
 					{
 						Console.Write(" ");
 					}
@@ -1131,25 +1107,24 @@ public static class PolishEasy
 	// 1102 Średnia arytmetyczna - https://pl.spoj.com/problems/PP0604A
 	public static void PP0604A_Srednia_arytmetyczna()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			//var inputs = Console.ReadLine().Trim().Substring(2).Split(' ').Select(int.Parse).ToArray();
 			var inputs = Console.ReadLine().Split(' ');
 			List<int> numbers = new();
-			for (int j = 1; j < inputs.Length; j++)
+			for (int i = 1; i < inputs.Length; i++)
 			{
-				numbers.Add(int.Parse(inputs[j]));
+				numbers.Add(int.Parse(inputs[i]));
 			}
 			double avg = numbers.Average();
 			int value = numbers[0];
 			double closestValue = Math.Abs(avg - value);
-			for (int j = 1; j < numbers.Count; j++)
+			for (int i = 1; i < numbers.Count; i++)
 			{
-				if (Math.Abs(avg - numbers[j]) < closestValue)
+				if (Math.Abs(avg - numbers[i]) < closestValue)
 				{
-					closestValue = Math.Abs(avg - numbers[j]);
-					value = numbers[j];
+					closestValue = Math.Abs(avg - numbers[i]);
+					value = numbers[i];
 				}
 			}
 			Console.WriteLine(value);
@@ -1165,8 +1140,7 @@ public static class PolishEasy
 	// 1139 Nowa działka - https://pl.spoj.com/problems/MWPZ06X
 	public static void MWPZ06X_Nowa_dzialka()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			int length = int.Parse(Console.ReadLine());
 			Console.WriteLine(length * length);
@@ -1176,8 +1150,7 @@ public static class PolishEasy
 	// 1142 Ciążowy specjalista - https://pl.spoj.com/problems/MWPZ06A
 	public static void MWPZ06A_Ciazowy_specjalista()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var input = Console.ReadLine().Split(' ');
 			double x = double.Parse(input[0]);
@@ -1190,8 +1163,7 @@ public static class PolishEasy
 	// 1145 Imieniny - https://pl.spoj.com/problems/MWPZ06D
 	public static void MWPZ06D_Imieniny()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var numbers = Console.ReadLine().Split(' ');
 			int children = int.Parse(numbers[0]) - 1;
@@ -1203,8 +1175,7 @@ public static class PolishEasy
 	// 1149 Konkurs pseudomatematyczny - https://pl.spoj.com/problems/MWPZ06H
 	public static void MWPZ06H_Konkurs_pseudomatematyczny()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			int count = int.Parse(Console.ReadLine());
 			var numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
@@ -1245,8 +1216,7 @@ public static class PolishEasy
 	// 1228 Rownanie liniowe - https://pl.spoj.com/problems/JROWLIN
 	public static void JROWLIN_Rownanie_liniowe()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var numbers = Console.ReadLine().Split(' ');
 			double a = double.Parse(numbers[0]);
@@ -1272,8 +1242,7 @@ public static class PolishEasy
 	// source: https://zpe.gov.pl/a/przeczytaj/DNhNXmlX4
 	public static void JWSPLIN_Wspolliniowosc_punktow()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var input = Console.ReadLine().Split('\t').Select(int.Parse).ToArray();
 			int xa = input[0];
@@ -1291,19 +1260,18 @@ public static class PolishEasy
 	{
 		SortedDictionary<char, int> smallLetters = new();
 		SortedDictionary<char, int> bigLetters = new();
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			string input = Console.ReadLine().Replace(" ", "");
-			for (int j = 0; j < input.Length; j++)
+			for (int i = 0; i < input.Length; i++)
 			{
-				if (input[j] <= 'Z')
+				if (input[i] <= 'Z')
 				{
-					bigLetters[input[j]] = bigLetters.ContainsKey(input[j]) ? bigLetters[input[j]] + 1 : 1;
+					bigLetters[input[i]] = bigLetters.ContainsKey(input[i]) ? bigLetters[input[i]] + 1 : 1;
 				}
 				else
 				{
-					smallLetters[input[j]] = smallLetters.ContainsKey(input[j]) ? smallLetters[input[j]] + 1 : 1;
+					smallLetters[input[i]] = smallLetters.ContainsKey(input[i]) ? smallLetters[input[i]] + 1 : 1;
 				}
 			}
 		}
@@ -1320,28 +1288,27 @@ public static class PolishEasy
 	// 1261 Pesel - https://pl.spoj.com/problems/JPESEL
 	public static void JPESEL_Pesel()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var pesel = Console.ReadLine();
 			int sum = 0;
-			for (int j = 0; j < pesel.Length; j++)
+			for (int i = 0; i < pesel.Length; i++)
 			{
-				if (j is 0 or 4 or 8 or 10)
+				if (i is 0 or 4 or 8 or 10)
 				{
-					sum += Convert.ToInt32(pesel[j]) * 1;
+					sum += Convert.ToInt32(pesel[i]) * 1;
 				}
-				else if (j is 1 or 5 or 9)
+				else if (i is 1 or 5 or 9)
 				{
-					sum += Convert.ToInt32(pesel[j]) * 3;
+					sum += Convert.ToInt32(pesel[i]) * 3;
 				}
-				else if (j is 2 or 6)
+				else if (i is 2 or 6)
 				{
-					sum += Convert.ToInt32(pesel[j]) * 7;
+					sum += Convert.ToInt32(pesel[i]) * 7;
 				}
-				else if (j is 3 or 7)
+				else if (i is 3 or 7)
 				{
-					sum += Convert.ToInt32(pesel[j]) * 9;
+					sum += Convert.ToInt32(pesel[i]) * 9;
 				}
 			}
 			Console.WriteLine(sum == 0 ? "N" : sum % 10 == 0 ? "D" : "N");
@@ -1353,12 +1320,12 @@ public static class PolishEasy
 	{
 		var input = Console.ReadLine().Split(' ');
 		var numbers = Console.ReadLine().Split(' ');
-		for (int j = 0; j < int.Parse(input[1]); j++)
+		for (int i = 0; i < int.Parse(input[1]); i++)
 		{
 			string tmpValue = numbers[0];
-			for (int k = 0; k < numbers.Length - 1; k++)
+			for (int j = 0; j < numbers.Length - 1; j++)
 			{
-				numbers[k] = numbers[k + 1];
+				numbers[j] = numbers[j + 1];
 			}
 			numbers[^1] = tmpValue;
 		}
@@ -1377,9 +1344,9 @@ public static class PolishEasy
 			{
 				break;
 			}
-			for (int j = 0; j < input.Length; j++)
+			for (int i = 0; i < input.Length; i++)
 			{
-				char inputChar = input[j];
+				char inputChar = input[i];
 				if (inputChar == ' ')
 				{
 					isNextUpper = true;
@@ -1389,7 +1356,7 @@ public static class PolishEasy
 					if (isNextUpper)
 					{
 						isNextUpper = false;
-						Console.Write(char.ToUpper(input[j]));
+						Console.Write(char.ToUpper(input[i]));
 					}
 					else
 					{
@@ -1413,9 +1380,9 @@ public static class PolishEasy
 				break;
 			}
 			bool isHtml = false;
-			for (int j = 0; j < input.Length; j++)
+			for (int i = 0; i < input.Length; i++)
 			{
-				char inputChar = input[j];
+				char inputChar = input[i];
 				if (inputChar == '<')
 				{
 					isHtml = true;
@@ -1460,9 +1427,9 @@ public static class PolishEasy
 		do
 		{
 			input = Console.ReadLine();
-			for (int j = 0; j < input.Length; j++)
+			for (int i = 0; i < input.Length; i++)
 			{
-				char newChar = input[j];
+				char newChar = input[i];
 				if (newChar != ' ')
 				{
 					newChar = (char)(newChar + 3);
@@ -1480,8 +1447,7 @@ public static class PolishEasy
 	// 1310 Liczba na słowo - https://pl.spoj.com/problems/JLITOSL
 	public static void JLITOSL_Liczba_na_slowo()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			string[] numbers = { "", "jeden", "dwa", "trzy", "cztery", "piec", "szesc", "siedem", "osiem", "dziewiec", "dziesiec", "jedenascie", "dwanascie", "trzynascie", "czternascie", "pietnascie", "szesnascie", "siedemnascie", "osiemnascie", "dziewietnascie" };
 			string[] tens = { "", "dziesiec", "dwadziescia", "trzydziesci", "czterdziesci", "piecdziesiat", "szescdziesiat", "siedemdziesiat", "osiemdziesiat", "dziewiecdziesiat" };
@@ -1549,8 +1515,7 @@ public static class PolishEasy
 	// 1596 Wiek segmentolka - https://pl.spoj.com/problems/WSEGA
 	public static void WSEGA_Wiek_segmentolka()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			Console.WriteLine(Console.ReadLine().Split().Select(int.Parse).ToArray().Sum() - 1);
 		}
@@ -2180,8 +2145,7 @@ public static class PolishEasy
 	// 4138 Harry and big doughnuts - https://pl.spoj.com/problems/DOUGHNUT
 	public static void DOUGHNUT_Harry_and_big_doughnuts()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var input = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
 			Console.WriteLine(input[0] * input[2] <= input[1] ? "yes" : "no");
@@ -2305,8 +2269,7 @@ public static class PolishEasy
 	// 4629 PTwPZ Kalkulator - https://pl.spoj.com/problems/PTWPZ083/
 	public static void PTWPZ083_PTwPZ_Kalkulator()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int t = 0; t < numberOfTests; t++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var input = Console.ReadLine();
 			int sum = int.Parse(input[0].ToString());
@@ -2417,8 +2380,7 @@ public static class PolishEasy
 	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
 	public static void MWP3_3D_Dzielenie_pizzy()
 	{
-		int numberOfTests = int.Parse(Console.ReadLine());
-		for (int i = 0; i < numberOfTests; i++)
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var input = Console.ReadLine().Split(' ');
 			int numberOfPeople = int.Parse(input[1]);
