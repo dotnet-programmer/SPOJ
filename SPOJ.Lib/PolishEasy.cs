@@ -2354,6 +2354,114 @@ public static class PolishEasy
 		#endregion version without dictionary
 	}
 
+	// 4797 Skracanie identyfikatorów - https://pl.spoj.com/problems/WI_IDEN/
+	public static void WI_IDEN_Skracanie_identyfikatorow()
+	{
+		int maxLength = int.Parse(Console.ReadLine());
+		string name = Console.ReadLine();
+
+		if (name.Length <= maxLength)
+		{
+			Console.WriteLine(name);
+			return;
+		}
+
+		// remove characters that are not letters and numbers
+		int count = name.Count(x => x == '_'); // !char.IsLetterOrDigit()
+		if (name.Length - count >= maxLength)
+		{
+			name = name.Replace("_", "");
+		}
+		else
+		{
+			while (count-- > 0)
+			{
+				name = name.Remove(name.LastIndexOf('_'), 1);
+			}
+			Console.WriteLine(name);
+			return;
+		}
+
+		// remove numbers
+		count = name.Count(x => char.IsDigit(x));
+		if (name.Length - count >= maxLength)
+		{
+			name = string.Concat(name.Where(x => !char.IsDigit(x)));
+		}
+		else
+		{
+			for (int i = name.Length - 1; i >= 0; i--)
+			{
+				if (char.IsNumber(name[i]))
+				{
+					name = name.Remove(name.LastIndexOf(name[i]), 1);
+					count--;
+					if (count == 0)
+					{
+						break;
+					}
+				}
+				Console.WriteLine(name);
+				return;
+			}
+		}
+
+		// remove vowels
+		char[] vowels = { 'a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U', 'y', 'Y' };
+		count = 0;
+		for (int i = 0; i < vowels.Length; i++)
+		{
+			if (name.Contains(vowels[i]))
+			{
+				count += name.Count(x => x == vowels[i]);
+			}
+		}
+		count--;
+		string substringWithVowel = string.Empty;
+		string substringToRemoveVowels = string.Empty;
+		for (int i = 0; i < name.Length; i++)
+		{
+			if (vowels.Contains(name[i]))
+			{
+				substringWithVowel = name.Substring(0, i + 1);
+				substringToRemoveVowels = name.Substring(i + 1);
+				break;
+			}
+		}
+		if (name.Length - count >= maxLength)
+		{
+			for (int i = 0; i < vowels.Length; i++)
+			{
+				substringToRemoveVowels = substringToRemoveVowels.Replace(vowels[i].ToString(), "");
+			}
+			name = substringWithVowel + substringToRemoveVowels;
+		}
+		else
+		{
+			for (int i = 1; i < substringToRemoveVowels.Length; i++)
+			{
+				if (vowels.Contains(name[i]))
+				{
+					substringToRemoveVowels = substringToRemoveVowels.Remove(i, 1);
+					count--;
+					if (count == 0)
+					{
+						break;
+					}
+				}
+				Console.WriteLine(substringWithVowel + substringToRemoveVowels);
+				return;
+			}
+		}
+
+		// remove chars from end
+		while (name.Length > maxLength)
+		{
+			name = name.Remove(name.Length - 1, 1);
+		}
+		Console.WriteLine(name);
+	}
+
 	// 4799 Zastępowanie trójznaków - https://pl.spoj.com/problems/WI_TRIGR/
 	// unspecified amount of input data
 	public static void WI_TRIGR_Zastępowanie_trojznakow()
