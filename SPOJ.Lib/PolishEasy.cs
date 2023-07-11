@@ -2266,6 +2266,185 @@ public static class PolishEasy
 		//}
 	}
 
+	// 4619 PTwPZ KWIX - https://pl.spoj.com/problems/PTWPZ093/
+	// unspecified amount of input data
+	public static void PTWPZ093_PTwPZ_KWIX()
+	{
+		const string tab = "    ";
+		int tabCount = 0;
+		System.Text.StringBuilder result = new();
+		while (true)
+		{
+			string text = Console.ReadLine();
+			if (string.IsNullOrWhiteSpace(text))
+			{
+				break;
+			}
+
+			int index = 0;
+			bool isAttributeValue = false;
+			while (text.Length > 0)
+			{
+				if (char.IsLetterOrDigit(text[index]))
+				{
+					index++;
+				}
+				else if (index > 0)
+				{
+					if (text[index] == '=')
+					{
+						AddTabs(result, tabCount);
+						AddWordAndRemoveFromText(result, ref text, ref index, " = ");
+						isAttributeValue = true;
+					}
+					else if (isAttributeValue)
+					{
+						AddWordAndRemoveFromText(result, ref text, ref index, Environment.NewLine);
+						isAttributeValue = false;
+					}
+					else
+					{
+						AddTabs(result, tabCount);
+						AddWordAndRemoveFromText(result, ref text, ref index, ":" + Environment.NewLine);
+						tabCount++;
+					}
+				}
+				else if (text[index] == '/')
+				{
+					text = text.Remove(index, text.IndexOf('>') - index);
+					tabCount--;
+				}
+				else
+				{
+					text = text.Remove(index, 1);
+				}
+			}
+		}
+		Console.WriteLine(result);
+
+		static void AddTabs(System.Text.StringBuilder sb, int tabCount)
+		{
+			for (int i = 0; i < tabCount; i++)
+			{
+				sb.Append(tab);
+			}
+		}
+
+		static void AddWordAndRemoveFromText(System.Text.StringBuilder sb, ref string text, ref int index, string endLine)
+		{
+			sb.Append(text[0..index]).Append(endLine);
+			text = text[index..];
+			index = 0;
+		}
+
+		#region first version
+		//const string tab = "    ";
+		//int tabCount = 0;
+		//System.Text.StringBuilder result = new();
+		//while (true)
+		//{
+		//	string input = Console.ReadLine();
+		//	if (string.IsNullOrWhiteSpace(input))
+		//	{
+		//		break;
+		//	}
+		//	result.Append(input);
+		//}
+		//var tags = result.ToString().Split('>').ToList();
+		//if (string.IsNullOrWhiteSpace(tags[^1]))
+		//{
+		//	tags.Remove(tags[^1]);
+		//}
+		//result.Clear();
+		//foreach (string tag in tags)
+		//{
+		//	string text = tag[(tag.IndexOf('<') + 1)..];
+		//	int index = 0;
+		//	while (text[index] == ' ')
+		//	{
+		//		index++;
+		//	}
+		//	if (text[index] == '/')
+		//	{
+		//		tabCount--;
+		//		continue;
+		//	}
+		//	// add text indentation
+		//	for (int j = 0; j < tabCount; j++)
+		//	{
+		//		result.Append(tab);
+		//	}
+		//	// take all letters
+		//	while ((index < text.Length) && text[index] is not ' ' and not '/')
+		//	{
+		//		result.Append(text[index]);
+		//		index++;
+		//	}
+		//	result.Append(':').Append(Environment.NewLine);
+		//	tabCount++;
+		//	if (index == text.Length)
+		//	{
+		//		continue;
+		//	}
+		//	while (text[index] == ' ')
+		//	{
+		//		index++;
+		//	}
+		//	if (text[index] == '/')
+		//	{
+		//		tabCount--;
+		//	}
+		//	else
+		//	{
+		//		string attributes = text[index..];
+		//		int attributesCount = attributes.Count(x => x == '=');
+		//		int attributeIndex = 0;
+		//		while (attributesCount > 0)
+		//		{
+		//			// add text indentation
+		//			for (int j = 0; j < tabCount; j++)
+		//			{
+		//				result.Append(tab);
+		//			}
+		//			while (attributes[attributeIndex] is not ' ' and not '=')
+		//			{
+		//				result.Append(attributes[attributeIndex]);
+		//				attributeIndex++;
+		//			}
+		//			while (attributes[attributeIndex] == ' ')
+		//			{
+		//				attributeIndex++;
+		//			}
+		//			result.Append(" = ");
+		//			attributeIndex++;
+		//			while (attributes[attributeIndex] == ' ')
+		//			{
+		//				attributeIndex++;
+		//			}
+		//			attributeIndex++;
+		//			while (attributes[attributeIndex] != '\"')
+		//			{
+		//				result.Append(attributes[attributeIndex]);
+		//				attributeIndex++;
+		//			}
+		//			attributeIndex++;
+		//			result.Append(Environment.NewLine);
+		//			while (attributeIndex < attributes.Length && attributes[attributeIndex] == ' ')
+		//			{
+		//				attributeIndex++;
+		//			}
+		//			if (attributeIndex < attributes.Length && attributes[attributeIndex] == '/')
+		//			{
+		//				tabCount--;
+		//			}
+		//			attributesCount--;
+		//		}
+		//	}
+		//}
+		//Console.WriteLine(result);
+		#endregion first version
+	}
+
 	// 4629 PTwPZ Kalkulator - https://pl.spoj.com/problems/PTWPZ083/
 	public static void PTWPZ083_PTwPZ_Kalkulator()
 	{
@@ -2455,11 +2634,8 @@ public static class PolishEasy
 		}
 
 		// remove chars from end
-		while (name.Length > maxLength)
-		{
-			name = name.Remove(name.Length - 1, 1);
-		}
-		Console.WriteLine(name);
+		int length = name.Length - maxLength;
+		Console.WriteLine(name.Remove(name.Length - length - 1, length));
 	}
 
 	// 4799 Zastępowanie trójznaków - https://pl.spoj.com/problems/WI_TRIGR/
