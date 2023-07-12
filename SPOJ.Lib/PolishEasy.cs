@@ -888,7 +888,7 @@ public static class PolishEasy
 		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var input = Console.ReadLine();
-			Console.WriteLine(input.Substring(0, input.Length / 2));
+			Console.WriteLine(input[..(input.Length / 2)]);
 		}
 	}
 
@@ -2602,8 +2602,8 @@ public static class PolishEasy
 		{
 			if (vowels.Contains(name[i]))
 			{
-				substringWithVowel = name.Substring(0, i + 1);
-				substringToRemoveVowels = name.Substring(i + 1);
+				substringWithVowel = name[..(i + 1)];
+				substringToRemoveVowels = name[(i + 1)..];
 				break;
 			}
 		}
@@ -2659,6 +2659,56 @@ public static class PolishEasy
 			}
 			Console.WriteLine(input);
 		}
+	}
+
+	// 4840 Szyfr Gronsfelda - https://pl.spoj.com/problems/WI_SZYFR/
+	public static void WI_SZYFR_Szyfr_Gronsfelda()
+	{
+		string input = Console.ReadLine();
+		var key = int.Parse(Console.ReadLine()).ToString().Select(x => int.Parse(x.ToString())).ToArray();
+		string message = Console.ReadLine();
+
+		const int charBeforeA = ('A' - 1);
+		const int charAfterZ = ('Z' + 1);
+
+		int keyIndex = 0;
+		System.Text.StringBuilder result = new(message.Length);
+
+		if (input == "SZYFRUJ")
+		{
+			for (int i = 0; i < message.Length; i++)
+			{
+				char newChar = (char)(message[i] + key[keyIndex]);
+				if (newChar > 'Z')
+				{
+					newChar = (char)(charBeforeA + (newChar - 'Z'));
+				}
+				result.Append(newChar);
+				keyIndex++;
+				if (keyIndex % key.Length == 0)
+				{
+					keyIndex = 0;
+				}
+			}
+		}
+		else
+		{
+			for (int i = 0; i < message.Length; i++)
+			{
+				char newChar = (char)(message[i] - key[keyIndex]);
+				if (newChar < 'A')
+				{
+					newChar = (char)(charAfterZ - ('A' - newChar));
+				}
+				result.Append(newChar);
+				keyIndex++;
+				if (keyIndex % key.Length == 0)
+				{
+					keyIndex = 0;
+				}
+			}
+		}
+        Console.WriteLine(result);
 	}
 
 	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
