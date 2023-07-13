@@ -2711,9 +2711,49 @@ public static class PolishEasy
 		Console.WriteLine(result);
 	}
 
-	// 4843 Szkolne dzwonki - https://pl.spoj.com/problems/latwe/sort=0,start=50
+	// 4843 Szkolne dzwonki - https://pl.spoj.com/problems/WI_DZWON/
 	public static void WI_DZWON_Szkolne_dzwonki()
 	{
+		#region version without class
+		//const int LengthOfLesson = 45;
+		//int hours = 0;
+		//int minutes = 0;
+		//System.Text.StringBuilder result = new System.Text.StringBuilder();
+
+		//var inputStartTime = Console.ReadLine().Split(':');
+		//AddHours(ref hours, int.Parse(inputStartTime[0]));
+		//AddMinutes(ref hours, ref minutes, int.Parse(inputStartTime[1]));
+		//AddResult(hours, minutes, result);
+		//while (true)
+		//{
+		//	AddMinutes(ref hours, ref minutes, LengthOfLesson);
+		//	AddResult(hours, minutes, result);
+		//	string lengthOfBreak = Console.ReadLine();
+		//	if (string.IsNullOrWhiteSpace(lengthOfBreak))
+		//	{
+		//		break;
+		//	}
+		//	AddMinutes(ref hours, ref minutes, int.Parse(lengthOfBreak));
+		//	AddResult(hours, minutes, result);
+		//}
+		//result.Remove(result.Length - 1, 1);
+		//Console.WriteLine(result);
+
+		//static void AddHours(ref int actualHour, int addedHour) => actualHour = (actualHour + addedHour) % 24;
+
+		//static void AddMinutes(ref int hours, ref int minutes, int addedMinutes)
+		//{
+		//	int tmpMinutes = minutes + addedMinutes;
+		//	hours = (hours + tmpMinutes / 60) % 24;
+		//	minutes = tmpMinutes % 60;
+		//}
+
+		//static void AddResult(int hours, int minutes, System.Text.StringBuilder result) => result.Append($"{hours:00}:{minutes:00},");
+		#endregion version without class
+
+		// ******************************************************************************************************
+
+		#region version with class
 		const int LengthOfLesson = 45;
 		var inputStartTime = Console.ReadLine().Split(':');
 		Time time = new(int.Parse(inputStartTime[0]), int.Parse(inputStartTime[1]));
@@ -2731,6 +2771,7 @@ public static class PolishEasy
 			result.Append(',' + time.ToString());
 		}
 		Console.WriteLine(result);
+		#endregion version with class
 	}
 
 	private class Time
