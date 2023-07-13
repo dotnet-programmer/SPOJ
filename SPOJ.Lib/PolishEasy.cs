@@ -2708,7 +2708,52 @@ public static class PolishEasy
 				}
 			}
 		}
-        Console.WriteLine(result);
+		Console.WriteLine(result);
+	}
+
+	// 4843 Szkolne dzwonki - https://pl.spoj.com/problems/latwe/sort=0,start=50
+	public static void WI_DZWON_Szkolne_dzwonki()
+	{
+		const int LengthOfLesson = 45;
+		var inputStartTime = Console.ReadLine().Split(':');
+		Time time = new(int.Parse(inputStartTime[0]), int.Parse(inputStartTime[1]));
+		System.Text.StringBuilder result = new(time.ToString());
+		while (true)
+		{
+			time.AddMinutes(LengthOfLesson);
+			result.Append(',' + time.ToString());
+			string lengthOfBreak = Console.ReadLine();
+			if (string.IsNullOrWhiteSpace(lengthOfBreak))
+			{
+				break;
+			}
+			time.AddMinutes(int.Parse(lengthOfBreak));
+			result.Append(',' + time.ToString());
+		}
+		Console.WriteLine(result);
+	}
+
+	private class Time
+	{
+		private int _hours;
+		private int _minutes;
+
+		public Time(int hours, int minutes)
+		{
+			AddHours(hours);
+			AddMinutes(minutes);
+		}
+
+		private void AddHours(int hours) => _hours = (_hours + hours) % 24;
+
+		public void AddMinutes(int minutes)
+		{
+			int tmpMinutes = _minutes + minutes;
+			_hours = (_hours + tmpMinutes / 60) % 24;
+			_minutes = tmpMinutes % 60;
+		}
+
+		public override string ToString() => $"{_hours:00}:{_minutes:00}";
 	}
 
 	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
