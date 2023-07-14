@@ -2797,6 +2797,34 @@ public static class PolishEasy
 		public override string ToString() => $"{_hours:00}:{_minutes:00}";
 	}
 
+	// 5136 XV - https://pl.spoj.com/problems/WZP09_2F/
+	// unspecified amount of input data
+	// x % 5 = 0 when last digit is 0 or 5
+	// x % 3 = 3 when the sum of all digits is divisible by 3
+	public static void WZP09_2F_XV()
+	{
+		while (true)
+		{
+			bool isDivisibleBy15 = false;
+			string input = Console.ReadLine();
+			if (input == "0")
+			{
+				break;
+			}
+			if (input[^1] is '0' or '5')
+			{
+				var digits = input.Select(x => int.Parse(x.ToString())).ToArray();
+				long sum = 0;
+				foreach (var item in digits)
+				{
+					sum += item;
+				}
+				isDivisibleBy15 = sum % 3 == 0;
+			}
+			Console.WriteLine(isDivisibleBy15 ? "TAK" : "NIE");
+		}
+	}
+
 	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
 	public static void MWP3_3D_Dzielenie_pizzy()
 	{
