@@ -2800,7 +2800,7 @@ public static class PolishEasy
 	// 5136 XV - https://pl.spoj.com/problems/WZP09_2F/
 	// unspecified amount of input data
 	// x % 5 = 0 when last digit is 0 or 5
-	// x % 3 = 3 when the sum of all digits is divisible by 3
+	// x % 3 = 0 when the sum of all digits is divisible by 3
 	public static void WZP09_2F_XV()
 	{
 		while (true)
@@ -2822,6 +2822,72 @@ public static class PolishEasy
 				isDivisibleBy15 = sum % 3 == 0;
 			}
 			Console.WriteLine(isDivisibleBy15 ? "TAK" : "NIE");
+		}
+	}
+
+	// 5517 Punkty w okręgu - https://pl.spoj.com/problems/PICIRC/
+	public static void PICIRC_Punkty_w_okregu()
+	{
+		var input = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+		Circle circle = new(input[0], input[1], input[2]);
+		int numberOfPoints = int.Parse(Console.ReadLine());
+		Point pointToCheck = new();
+		while (numberOfPoints > 0)
+		{
+			var point = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+			pointToCheck.X = point[0];
+			pointToCheck.Y = point[1];
+			Console.WriteLine(circle.PrintPointLocation(pointToCheck));
+			numberOfPoints--;
+		}
+
+		#region version without class
+		//var input = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+		//int circleX = input[0];
+		//int circleY = input[1];
+		//int radius = input[2];
+
+		//int numberOfPoints = int.Parse(Console.ReadLine());
+		//while (numberOfPoints > 0)
+		//{
+		//	var pointToCheck = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+		//	var result = Math.Sqrt(Math.Pow((pointToCheck[0] - circleX), 2) + Math.Pow((pointToCheck[1] - circleY), 2));
+		//	Console.WriteLine(result > radius ? "O" : result < radius ? "I" : "E");
+		//	numberOfPoints--;
+		//}
+		#endregion version without class
+	}
+
+	public class Point
+	{
+		public int X { get; set; }
+		public int Y { get; set; }
+
+		public Point()
+		{ }
+
+		public Point(int x, int y)
+		{
+			X = x;
+			Y = y;
+		}
+	}
+
+	public class Circle
+	{
+		private readonly Point _origin;
+		private readonly int _radius;
+
+		public Circle(int x, int y, int radius)
+		{
+			_origin = new Point(x, y);
+			_radius = radius;
+		}
+
+		public string PrintPointLocation(Point pointToCheck)
+		{
+			var result = Math.Sqrt(Math.Pow((pointToCheck.X - _origin.X), 2) + Math.Pow((pointToCheck.Y - _origin.Y), 2));
+			return result > _radius ? "O" : result < _radius ? "I" : "E";
 		}
 	}
 
