@@ -2891,6 +2891,43 @@ public static class PolishEasy
 		}
 	}
 
+	// 5805 Zegar - https://pl.spoj.com/problems/MWP2_1A/
+	public static void MWP2_1A_Zegar()
+	{
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		{
+			int numbers = int.Parse(Console.ReadLine());
+			var numbersOnClock = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
+			Dictionary<int, int> turns = new();
+			for (int i = 0; i < numbers; i++)
+			{
+				int howManyMatches = 0;
+				int numberToComparison = i == 0 ? 1 : (numbers - i + 1);
+				for (int j = 0; j < numbersOnClock.Count; j++)
+				{
+					if (numbersOnClock[j] == numberToComparison)
+					{
+						howManyMatches++;
+					}
+					numberToComparison++;
+					if (numberToComparison % (numbers + 1) == 0)
+					{
+						numberToComparison = 1;
+					}
+				}
+				turns[i] = howManyMatches;
+			}
+			int numberOfTurns = turns.First(x => x.Value == turns.Max(z => z.Value)).Key;
+			while (numberOfTurns > 0)
+			{
+				numbersOnClock.Add(numbersOnClock[0]);
+				numbersOnClock.RemoveAt(0);
+				numberOfTurns--;
+			}
+			Console.WriteLine(string.Join(" ", numbersOnClock).TrimEnd());
+		}
+	}
+
 	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
 	public static void MWP3_3D_Dzielenie_pizzy()
 	{
