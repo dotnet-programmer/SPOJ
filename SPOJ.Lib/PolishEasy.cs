@@ -2928,6 +2928,39 @@ public static class PolishEasy
 		}
 	}
 
+	// 5853 Majątek Billa - https://pl.spoj.com/problems/MWP2_2B/
+	// unspecified amount of input data
+	public static void MWP2_2B_Majatek_Billa()
+	{
+		while (true)
+		{
+			string input = Console.ReadLine();
+			if (input == "0 0 0")
+			{
+				break;
+			}
+			var inputArray = input.Split(' ').Select(int.Parse).ToArray();
+			int powerBase = inputArray[0];
+			int power = inputArray[1];
+			int mod = inputArray[2];
+
+			long result = 1;
+			long x = powerBase % mod;
+
+			for (int i = 1; i <= power; i <<= 1)
+			{
+				x %= mod;
+				if ((power & i) != 0)
+				{
+					result *= x;
+					result %= mod;
+				}
+				x *= x;
+			}
+			Console.WriteLine(result);
+		}
+	}
+
 	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
 	public static void MWP3_3D_Dzielenie_pizzy()
 	{
