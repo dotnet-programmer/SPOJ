@@ -2230,6 +2230,71 @@ public static class PolishEasy
 		}
 	}
 
+	// 4256 Wiele czerwonych kwadratów - https://pl.spoj.com/problems/DCZPROST/
+	public static void DCZPROST_Wiele_czerwonych_kwadratow()
+	{
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		{
+			var input = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+			int bottomLeftX = input[0];
+			int bottomLeftY = input[1];
+			int topRightX = input[2];
+			int topRightY = input[3];
+			int result = 0;
+			int lengthX = topRightX - bottomLeftX;
+			int lengthY = topRightY - bottomLeftY;
+			if (lengthX == lengthY)
+			{
+				if (topRightX % 2 != 0)
+				{
+					topRightX--;
+				}
+				if (topRightY % 2 != 0)
+				{
+					topRightY--;
+				}
+				lengthX = topRightX - bottomLeftX;
+				lengthY = topRightY - bottomLeftY;
+				double halfX = lengthX / 2d;
+				result = (int)(Math.Round(lengthY * halfX + halfX));
+			}
+			else
+			{
+				if (lengthY > lengthX)
+				{
+					(bottomLeftX, bottomLeftY) = (bottomLeftY, bottomLeftX);
+					(topRightX, topRightY) = (topRightY, topRightX);
+				}
+			}
+			//else
+			//	{
+			//		if (topRightX <= (bottomLeftY + 1))
+			//		{
+			//			(bottomLeftX, bottomLeftY) = (bottomLeftY, bottomLeftX);
+			//			(topRightX, topRightY) = (topRightY, topRightX);
+			//		}
+			//		lengthX = topRightX - bottomLeftX;
+			//		lengthY = topRightY - bottomLeftY;
+			//		if (topRightY <= (bottomLeftX + 1))
+			//		{
+			//			if ((bottomLeftX % 2 != 0 && topRightX % 2 != 0) || (bottomLeftX % 2 == 0 && topRightX % 2 == 0))
+			//			{
+			//				result = (int)(lengthX / 2d * lengthY);
+			//			}
+			//			else if (bottomLeftX % 2 != 0 && topRightX % 2 == 0)
+			//			{
+			//				result = (int)(Math.Round(lengthX / 2d, MidpointRounding.AwayFromZero) * lengthY);
+			//			}
+			//			else if (bottomLeftX % 2 == 0 && topRightX % 2 != 0)
+			//			{
+			//				result = (int)(Math.Round(lengthX / 2d, MidpointRounding.ToZero) * lengthY);
+			//			}
+			//		}
+			//	}
+			Console.WriteLine(result);
+		}
+	}
+
 	// 4344 Tanie hotele - https://pl.spoj.com/problems/HOT/
 	// source - https://github.com/JakubOgrodnikPL/Cpp_145_PL_SPOJ_4344_Tanie_hotele/blob/main/main.cpp
 	public static void HOT_Tanie_hotele()
