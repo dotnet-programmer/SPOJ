@@ -2939,10 +2939,10 @@ public static class PolishEasy
 			{
 				break;
 			}
-			var inputArray = input.Split(' ').Select(int.Parse).ToArray();
-			int powerBase = inputArray[0];
-			int power = inputArray[1];
-			int mod = inputArray[2];
+			var inputArray = input.Split(' ');
+			int powerBase = int.Parse(inputArray[0]);
+			int power = int.Parse(inputArray[1]);
+			int mod = int.Parse(inputArray[2]);
 
 			long result = 1;
 			long x = powerBase % mod;
@@ -2960,6 +2960,45 @@ public static class PolishEasy
 			Console.WriteLine(result);
 		}
 	}
+
+	// 5854 Okręgi - https://pl.spoj.com/problems/MWP2_2C/
+	public static void MWP2_2C_Okregi()
+	{
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		{
+			var input1 = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+			var input2 = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+
+			int circle1X = input1[0];
+			int circle1Y = input1[1];
+			int circle1R = input1[2];
+
+			int circle2X = input2[0];
+			int circle2Y = input2[1];
+			int circle2R = input2[2];
+
+			double result = 0;
+			double distance = Math.Sqrt(Math.Pow(circle2X - circle1X, 2) + Math.Pow(circle2Y - circle1Y, 2));
+			if ((circle1R + circle2R) > distance)
+			{
+				if (distance == 0)
+				{
+					result = (circle1R >= circle2R ? circle2R : circle1R);
+				}
+				else if (distance <= Math.Abs(circle1R - circle2R))
+				{
+					result = 2 * (circle1R >= circle2R ? circle2R : circle1R);
+				}
+				else
+				{
+					result = distance - (distance - circle1R) - (distance - circle2R);
+				}
+			}
+			Console.WriteLine(result.ToString("0.00"));
+		}
+	}
+
+	//result = distance == 0 ? (circle1R >= circle2R ? circle2R : circle1R) : (distance - (distance - circle1R) - (distance - circle2R));
 
 	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
 	public static void MWP3_3D_Dzielenie_pizzy()
