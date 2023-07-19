@@ -2998,7 +2998,49 @@ public static class PolishEasy
 		}
 	}
 
-	//result = distance == 0 ? (circle1R >= circle2R ? circle2R : circle1R) : (distance - (distance - circle1R) - (distance - circle2R));
+	// 5954 Permutacje - https://pl.spoj.com/problems/MWP2_3C/
+	public static void MWP2_3C_Permutacje()
+	{
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		{
+			int numberOfWords = int.Parse(Console.ReadLine());
+			List<string> words = new(numberOfWords);
+			for (int i = 0; i < numberOfWords; i++)
+			{
+				var word = Console.ReadLine().ToCharArray();
+				Array.Sort(word);
+				words.Add(new string(word));
+			}
+			words.Sort();
+			int max = 0;
+			int count = 1;
+			for (int i = 0; i < numberOfWords - 1; i++)
+			{
+				count = words[i] == words[i + 1] ? count + 1 : 1;
+				if (count > max)
+				{
+					max = count;
+				}
+			}
+			Console.WriteLine(max);
+		}
+
+		#region version with SortedDictionary
+		//for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		//{
+		//	int numberOfWords = int.Parse(Console.ReadLine());
+		//	SortedDictionary<string, int> words = new();
+		//	for (int i = 0; i < numberOfWords; i++)
+		//	{
+		//		var word = Console.ReadLine().ToCharArray();
+		//		Array.Sort(word);
+		//		string newWord = new string(word);
+		//		words[newWord] = words.ContainsKey(newWord) ? words[newWord] + 1 : 1;
+		//	}
+		//	Console.WriteLine(words.Max(x => x.Value));
+		//}
+		#endregion version with SortedDictionary
+	}
 
 	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
 	public static void MWP3_3D_Dzielenie_pizzy()
