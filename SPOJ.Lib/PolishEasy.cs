@@ -3063,8 +3063,6 @@ public static class PolishEasy
 		}
 	}
 
-	//result = distance == 0 ? (circle1R >= circle2R ? circle2R : circle1R) : (distance - (distance - circle1R) - (distance - circle2R));
-
 	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
 	public static void MWP3_3D_Dzielenie_pizzy()
 	{
