@@ -3042,6 +3042,44 @@ public static class PolishEasy
 		#endregion version with SortedDictionary
 	}
 
+	// 6441 Prostokąty - https://pl.spoj.com/problems/XIWTPZA/
+	// source: https://www.researchgate.net/publication/273573138_Rectangles_in_Rectangles
+	public static void XIWTPZA_Prostokaty()
+	{
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		{
+			var input = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+			double r1A = Math.Max(input[0], input[1]);
+			double r1B = Math.Min(input[0], input[1]);
+			double r2A = Math.Max(input[2], input[3]);
+			double r2B = Math.Min(input[2], input[3]);
+			Console.WriteLine(((r1A > r2A && r1B > r2B)
+				|| (r2A > r1A && r2B <= r1B && (Math.Pow(((r1A + r1B) / (r2A + r2B)), 2) + Math.Pow(((r1A - r1B) / (r2A - r2B)), 2)) >= 2))
+				? "TAK" : "NIE");
+		}
+	}
+
+	//if ((r1A > r2A && r1B > r2B) || (r2A > r1A && r2B <= r1B && (Math.Pow(((r1A + r1B) / (r2A + r2B)), 2) + Math.Pow(((r1A - r1B) / (r2A - r2B)), 2)) >= 2))
+	//{
+	//	Console.WriteLine("TAK");
+	//}
+	//else
+	//{
+	//	Console.WriteLine("NIE");
+	//}
+	//else if (r2A > r1A && r2B <= r1B && (Math.Pow(((r1A + r1B) / (r2A + r2B)), 2) + Math.Pow(((r1A - r1B) / (r2A - r2B)), 2)) >= 2)
+	//{
+	//}
+	// (r2A > r1A && r1B >=
+	//	((2 * r2A * r2B * r1A + (Math.Pow(r2A, 2) - Math.Pow(r2B, 2)) * Math.Sqrt(Math.Pow(r2A, 2) + Math.Pow(r2B, 2) - Math.Pow(r1A, 2))) / (Math.Pow(r2A, 2) + Math.Pow(r2B, 2))))
+	//{
+	//	Console.WriteLine("TAK");
+	//}
+	//else
+	//{
+	//	Console.WriteLine("NIE");
+	//}
+
 	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
 	public static void MWP3_3D_Dzielenie_pizzy()
 	{
