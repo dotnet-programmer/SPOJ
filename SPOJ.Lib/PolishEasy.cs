@@ -3059,26 +3059,49 @@ public static class PolishEasy
 		}
 	}
 
-	//if ((r1A > r2A && r1B > r2B) || (r2A > r1A && r2B <= r1B && (Math.Pow(((r1A + r1B) / (r2A + r2B)), 2) + Math.Pow(((r1A - r1B) / (r2A - r2B)), 2)) >= 2))
-	//{
-	//	Console.WriteLine("TAK");
-	//}
-	//else
-	//{
-	//	Console.WriteLine("NIE");
-	//}
-	//else if (r2A > r1A && r2B <= r1B && (Math.Pow(((r1A + r1B) / (r2A + r2B)), 2) + Math.Pow(((r1A - r1B) / (r2A - r2B)), 2)) >= 2)
-	//{
-	//}
-	// (r2A > r1A && r1B >=
-	//	((2 * r2A * r2B * r1A + (Math.Pow(r2A, 2) - Math.Pow(r2B, 2)) * Math.Sqrt(Math.Pow(r2A, 2) + Math.Pow(r2B, 2) - Math.Pow(r1A, 2))) / (Math.Pow(r2A, 2) + Math.Pow(r2B, 2))))
-	//{
-	//	Console.WriteLine("TAK");
-	//}
-	//else
-	//{
-	//	Console.WriteLine("NIE");
-	//}
+	// 6702 Rodzaje trójkątów
+	// unspecified amount of input data
+	public static void RODZ_TRO_Rodzaje_trojkatow()
+	{
+		while (true)
+		{
+			string input = Console.ReadLine();
+			if (string.IsNullOrWhiteSpace(input))
+			{
+				break;
+			}
+			var numbers = input.Split(' ').Select(int.Parse).ToList();
+			numbers.Sort();
+
+			int a = numbers[0];
+			int b = numbers[1];
+			int c = numbers[2];
+
+			if (a + b > c)
+			{
+				double squareA = a * a;
+				double squareB = b * b;
+				double squareC = c * c;
+
+				if (squareA + squareB == squareC)
+				{
+					Console.WriteLine("prostokatny");
+				}
+				else
+				{
+					double radToDegree = 180 / Math.PI;
+					double cosA = Math.Acos((squareA + squareC - squareB) / (2 * a * c)) * radToDegree;
+					double cosB = Math.Acos((squareA + squareB - squareC) / (2 * a * b)) * radToDegree;
+					double cosC = Math.Acos((squareB + squareC - squareA) / (2 * c * b)) * radToDegree;
+					Console.WriteLine((cosA < 90 && cosB < 90 && cosC < 90) ? "ostrokatny" : "rozwartokatny");
+				}
+			}
+			else
+			{
+				Console.WriteLine("brak");
+			}
+		}
+	}
 
 	// 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
 	public static void MWP3_3D_Dzielenie_pizzy()
