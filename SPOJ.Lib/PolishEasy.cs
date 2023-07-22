@@ -431,13 +431,9 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void FANGEN_Wiatraczki_1()
 	{
-		while (true)
-		{
-			int input = int.Parse(Console.ReadLine());
-			if (input == 0)
-			{
-				break;
-			}
+		int input;
+		while ((input = int.Parse(Console.ReadLine())) != 0)
+		{ 
 			System.Text.StringBuilder sb = new();
 			if (input > 0)
 			{
@@ -532,13 +528,9 @@ public static class PolishEasy
 
 	public static void FANGEN_Wiatraczki_2()
 	{
-		while (true)
+		int input;
+		while ((input = int.Parse(Console.ReadLine())) != 0)
 		{
-			int input = int.Parse(Console.ReadLine());
-			if (input == 0)
-			{
-				break;
-			}
 			int arraySize = Math.Abs(input);
 			System.Text.StringBuilder[] pattern = new System.Text.StringBuilder[arraySize];
 			if (input > 0)
@@ -584,13 +576,9 @@ public static class PolishEasy
 
 	public static void FANGEN_Wiatraczki_3()
 	{
-		while (true)
+		int input;
+		while ((input = int.Parse(Console.ReadLine())) != 0)
 		{
-			int input = int.Parse(Console.ReadLine());
-			if (input == 0)
-			{
-				break;
-			}
 			System.Text.StringBuilder sb = new();
 			bool isAsterisk = false;
 			int breakValue = 0;
@@ -637,13 +625,9 @@ public static class PolishEasy
 
 	public static void FANGEN_Wiatraczki_4()
 	{
-		while (true)
+		int input;
+		while ((input = int.Parse(Console.ReadLine())) != 0)
 		{
-			int input = int.Parse(Console.ReadLine());
-			if (input == 0)
-			{
-				break;
-			}
 			int arraySize = Math.Abs(input) * 2;
 			char[,] pattern = new char[arraySize, arraySize];
 			if (input > 0)
@@ -1887,7 +1871,7 @@ public static class PolishEasy
 		while (true)
 		{
 			string input = Console.ReadLine();
-			if (input == null)
+			if (string.IsNullOrWhiteSpace(input))
 			{
 				break;
 			}
@@ -2642,6 +2626,8 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void WI_TRIGR_Zastępowanie_trojznakow()
 	{
+		System.Text.StringBuilder result = new System.Text.StringBuilder();
+		Dictionary<string, string> chars = new Dictionary<string, string>() { ["??="] = "#", ["??/"] = @"\", ["??'"] = "^", ["??("] = "[", ["??)"] = "]", ["??!"] = "|", ["??<"] = "{", ["??>"] = "}", ["??-"] = "~", };
 		while (true)
 		{
 			string input = Console.ReadLine();
@@ -2649,16 +2635,17 @@ public static class PolishEasy
 			{
 				break;
 			}
-			Dictionary<string, string> chars = new() { ["??="] = "#", ["??/"] = "\\", ["??'"] = "^", ["??("] = "[", ["??)"] = "]", ["??!"] = "|", ["??<"] = "{", ["??>"] = "}", ["??-"] = "~", };
+			result.Append(input);
 			foreach (var item in chars)
 			{
 				if (input.Contains(item.Key))
 				{
-					input = input.Replace(item.Key, item.Value);
+					result.Replace(item.Key, item.Value);
 				}
 			}
-			Console.WriteLine(input);
+			result.Append(Environment.NewLine);
 		}
+		Console.WriteLine(result);
 	}
 
 	// 4840 Szyfr Gronsfelda - https://pl.spoj.com/problems/WI_SZYFR/
@@ -2803,14 +2790,10 @@ public static class PolishEasy
 	// x % 3 = 0 when the sum of all digits is divisible by 3
 	public static void WZP09_2F_XV()
 	{
-		while (true)
+		string input;
+		while ((input = Console.ReadLine()) != "0")
 		{
 			bool isDivisibleBy15 = false;
-			string input = Console.ReadLine();
-			if (input == "0")
-			{
-				break;
-			}
 			if (input[^1] is '0' or '5')
 			{
 				var digits = input.Select(x => int.Parse(x.ToString())).ToArray();
@@ -2932,21 +2915,15 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void MWP2_2B_Majatek_Billa()
 	{
-		while (true)
+		string input;
+		while ((input = Console.ReadLine()) != "0 0 0")
 		{
-			string input = Console.ReadLine();
-			if (input == "0 0 0")
-			{
-				break;
-			}
 			var inputArray = input.Split(' ');
 			int powerBase = int.Parse(inputArray[0]);
 			int power = int.Parse(inputArray[1]);
 			int mod = int.Parse(inputArray[2]);
-
 			long result = 1;
 			long x = powerBase % mod;
-
 			for (int i = 1; i <= power; i <<= 1)
 			{
 				x %= mod;
