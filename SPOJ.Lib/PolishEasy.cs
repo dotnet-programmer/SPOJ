@@ -725,13 +725,9 @@ public static class PolishEasy
 	public static void SUMA_Suma()
 	{
 		int result = 0;
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			int number = int.Parse(input);
 			result += number;
 			Console.WriteLine(result);
@@ -766,13 +762,9 @@ public static class PolishEasy
 	{
 		string[] stack = new string[10];
 		int count = 0;
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			if (input == "+")
 			{
 				string number = Console.ReadLine();
@@ -806,13 +798,9 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void CALC_Kalkulator()
 	{
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			var inputs = input.Split(' ');
 			string operation = inputs[0];
 			int number1 = int.Parse(inputs[1]);
@@ -835,13 +823,9 @@ public static class PolishEasy
 	public static void CALC2_Kalkulator2()
 	{
 		int[] register = new int[10];
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			var inputs = input.Split(' ');
 			string operation = inputs[0];
 			int number1 = int.Parse(inputs[1]);
@@ -1320,14 +1304,10 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void JSPACE_Spacje()
 	{
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
 			bool isNextUpper = false;
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			for (int i = 0; i < input.Length; i++)
 			{
 				char inputChar = input[i];
@@ -1356,13 +1336,9 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void JHTMLLET_Tagi_HTML()
 	{
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			bool isHtml = false;
 			for (int i = 0; i < input.Length; i++)
 			{
@@ -1520,13 +1496,9 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void KC003_Nierownosc_trojkata()
 	{
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			var numbers = input.Split(' ').Select(double.Parse).ToList();
 			numbers.Sort();
 			Console.WriteLine(numbers[0] + numbers[1] > numbers[2] ? "1" : "0");
@@ -1537,13 +1509,9 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void KC004_Zliczanie_wystapien()
 	{
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			var numbers = input.Split(' ').Select(int.Parse).ToArray();
 			int searchValue = numbers[0];
 			int count = 0;
@@ -1562,13 +1530,9 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void KC005_Formularz()
 	{
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			var tmpInput = input.Split(';');
 
 			if (!CheckNameOrSurname(tmpInput[0].Split(':')[1].Trim()))
@@ -1691,15 +1655,9 @@ public static class PolishEasy
 	public static void KC008_Sumy_wielokrotne()
 	{
 		long sum = 0;
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				Console.WriteLine(sum);
-				break;
-			}
-			//var number = input.Split(' ').Select(int.Parse).Sum();
 			long number = 0;
 			var inputs = input.Split(' ');
 			for (int j = 0; j < inputs.Length; j++)
@@ -1709,19 +1667,16 @@ public static class PolishEasy
 			sum += number;
 			Console.WriteLine(number);
 		}
+		Console.WriteLine(sum);
 	}
 
 	// 1910 Odwracanie wyrazów - https://pl.spoj.com/problems/KC009
 	// unspecified amount of input data
 	public static void KC009_Odwracanie_wyrazow()
 	{
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			Console.WriteLine(string.Join("", input.Reverse()));
 		}
 	}
@@ -1793,13 +1748,9 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void KC015_Porownywanie_duzych_liczb()
 	{
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			var values = input.Split(' ');
 			string number1 = values[0];
 			string number2 = values[2];
@@ -1868,13 +1819,9 @@ public static class PolishEasy
 	public static void PROGC01_Zliczanie_linii()
 	{
 		int count = 0;
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			count++;
 		}
 		Console.WriteLine(count);
@@ -1935,13 +1882,9 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void PROGC05_Wycinanie_literek()
 	{
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			Console.WriteLine(input[2..].Replace(input[0].ToString(), ""));
 		}
 	}
@@ -1950,13 +1893,9 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void KC022_Statystyka_pozycyjna()
 	{
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			var numbers = input.Split(' ').Select(int.Parse).ToList();
 			int position = numbers[0];
 			numbers.RemoveAt(0);
@@ -2013,13 +1952,9 @@ public static class PolishEasy
 		{
 			numbers.Add(i.ToString(), 0);
 		}
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			numbers[input]++;
 		}
 		int max = numbers.Max(x => x.Value);
@@ -2257,14 +2192,9 @@ public static class PolishEasy
 		const string tab = "    ";
 		int tabCount = 0;
 		System.Text.StringBuilder result = new();
-		while (true)
+		string text;
+		while (!string.IsNullOrWhiteSpace(text = Console.ReadLine()))
 		{
-			string text = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(text))
-			{
-				break;
-			}
-
 			int index = 0;
 			bool isAttributeValue = false;
 			while (text.Length > 0)
@@ -2628,13 +2558,9 @@ public static class PolishEasy
 	{
 		System.Text.StringBuilder result = new();
 		Dictionary<string, string> chars = new() { ["??="] = "#", ["??/"] = @"\", ["??'"] = "^", ["??("] = "[", ["??)"] = "]", ["??!"] = "|", ["??<"] = "{", ["??>"] = "}", ["??-"] = "~", };
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			result.Append(input);
 			foreach (var item in chars)
 			{
