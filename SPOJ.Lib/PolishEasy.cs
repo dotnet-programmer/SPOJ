@@ -433,7 +433,7 @@ public static class PolishEasy
 	{
 		int input;
 		while ((input = int.Parse(Console.ReadLine())) != 0)
-		{ 
+		{
 			System.Text.StringBuilder sb = new();
 			if (input > 0)
 			{
@@ -2626,8 +2626,8 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void WI_TRIGR_Zastępowanie_trojznakow()
 	{
-		System.Text.StringBuilder result = new System.Text.StringBuilder();
-		Dictionary<string, string> chars = new Dictionary<string, string>() { ["??="] = "#", ["??/"] = @"\", ["??'"] = "^", ["??("] = "[", ["??)"] = "]", ["??!"] = "|", ["??<"] = "{", ["??>"] = "}", ["??-"] = "~", };
+		System.Text.StringBuilder result = new();
+		Dictionary<string, string> chars = new() { ["??="] = "#", ["??/"] = @"\", ["??'"] = "^", ["??("] = "[", ["??)"] = "]", ["??!"] = "|", ["??<"] = "{", ["??>"] = "}", ["??-"] = "~", };
 		while (true)
 		{
 			string input = Console.ReadLine();
@@ -3040,13 +3040,9 @@ public static class PolishEasy
 	// unspecified amount of input data
 	public static void RODZ_TRO_Rodzaje_trojkatow()
 	{
-		while (true)
+		string input;
+		while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
 		{
-			string input = Console.ReadLine();
-			if (string.IsNullOrWhiteSpace(input))
-			{
-				break;
-			}
 			var numbers = input.Split(' ').Select(int.Parse).ToList();
 			numbers.Sort();
 
@@ -3091,5 +3087,145 @@ public static class PolishEasy
 			int numberOfSegments = numberOfCuts * 2;
 			Console.WriteLine($"{(Math.PI * int.Parse(input[0]) / numberOfSegments):F3} {numberOfCuts}");
 		}
+	}
+
+	// 8091 Emocjonująca rozgrywka w węża
+	// TLE - time limit exceeded :(
+	public static void MWP3_3E_Emocjonujaca_rozgrywka_w_weza()
+	{
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		{
+			var input = Console.ReadLine().Split(' ');
+			bool isGameOver = false;
+			int count = 1;
+			LinkedList<Point> snake = new();
+			snake.AddFirst(new Point());
+			MoveDirection moveDirection = MoveDirection.Right;
+			string movements = input[1];
+			for (int i = 0; i < movements.Length; i++)
+			{
+				moveDirection = movements[i] switch
+				{
+					'L' => SetMoveDirection(moveDirection, MoveDirection.Left),
+					'R' => SetMoveDirection(moveDirection, MoveDirection.Right),
+					_ => moveDirection
+				};
+
+				bool isFood = movements[i] == 'E';
+				(int newXPos, int newYPos) = GetNewPosition(snake, moveDirection);
+				if (CheckIfSnakeCanMove(snake, newXPos, newYPos))
+				{
+					MoveSnake(snake, newXPos, newYPos, isFood);
+					count++;
+				}
+				else
+				{
+					isGameOver = true;
+					break;
+				}
+			}
+			Console.WriteLine(isGameOver ? count : "TAK");
+		}
+
+		static MoveDirection SetMoveDirection(MoveDirection actualDirection, MoveDirection newDirection)
+		{
+			switch (actualDirection)
+			{
+				case MoveDirection.Left:
+					if (newDirection == MoveDirection.Left)
+					{
+						return MoveDirection.Down;
+					}
+					if (newDirection == MoveDirection.Right)
+					{
+						return MoveDirection.Up;
+					}
+					break;
+				case MoveDirection.Right:
+					if (newDirection == MoveDirection.Left)
+					{
+						return MoveDirection.Up;
+					}
+					if (newDirection == MoveDirection.Right)
+					{
+						return MoveDirection.Down;
+					}
+					break;
+				case MoveDirection.Up:
+					if (newDirection == MoveDirection.Left)
+					{
+						return MoveDirection.Left;
+					}
+					if (newDirection == MoveDirection.Right)
+					{
+						return MoveDirection.Right;
+					}
+					break;
+				case MoveDirection.Down:
+					if (newDirection == MoveDirection.Left)
+					{
+						return MoveDirection.Right;
+					}
+					if (newDirection == MoveDirection.Right)
+					{
+						return MoveDirection.Left;
+					}
+					break;
+			}
+			return actualDirection;
+		}
+
+		static (int, int) GetNewPosition(LinkedList<Point> snake, MoveDirection moveDirection)
+		{
+			var snakeHead = snake.First();
+			int newXPos = snakeHead.X;
+			int newYPos = snakeHead.Y;
+
+			switch (moveDirection)
+			{
+				case MoveDirection.Left:
+					newXPos--;
+					break;
+				case MoveDirection.Right:
+					newXPos++;
+					break;
+				case MoveDirection.Up:
+					newYPos++;
+					break;
+				case MoveDirection.Down:
+					newYPos--;
+					break;
+			}
+			return (newXPos, newYPos);
+		}
+
+		static bool CheckIfSnakeCanMove(LinkedList<Point> snake, int newXPos, int newYPos)
+		{
+			for (var segment = snake.First; segment != snake.Last; segment = segment.Next)
+			{
+				if (segment.Value.X == newXPos && segment.Value.Y == newYPos)
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
+		static void MoveSnake(LinkedList<Point> snake, int newXPos, int newYPos, bool isFood)
+		{
+			snake.AddFirst(new Point(newXPos, newYPos));
+			if (!isFood)
+			{
+				snake.Remove(snake.Last());
+			}
+		}
+	}
+
+	internal enum MoveDirection
+	{
+		Left,
+		Right,
+		Up,
+		Down
 	}
 }
