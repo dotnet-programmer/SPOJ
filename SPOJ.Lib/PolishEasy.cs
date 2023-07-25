@@ -2962,7 +2962,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 6702 Rodzaje trójkątów
+	// 6702 Rodzaje trójkątów - https://pl.spoj.com/problems/RODZ_TRO/
 	// unspecified amount of input data
 	public static void RODZ_TRO_Rodzaje_trojkatow()
 	{
@@ -3015,7 +3015,7 @@ public static class PolishEasy
 		}
 	}
 
-	// 8091 Emocjonująca rozgrywka w węża
+	// 8091 Emocjonująca rozgrywka w węża - https://pl.spoj.com/problems/MWP3_3E/
 	// TLE - time limit exceeded :(
 	public static void MWP3_3E_Emocjonujaca_rozgrywka_w_weza()
 	{
@@ -3153,5 +3153,27 @@ public static class PolishEasy
 		Right,
 		Up,
 		Down
+	}
+
+	// 14779 Reszta z dzielenia - https://pl.spoj.com/problems/AL_06_01/
+	public static void AL_06_01_Reszta_z_dzielenia()
+	{
+		int mod = 0;
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		{
+			var input = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+			int number1 = input[0];
+			int number2 = input[1];
+			if (number1 > 0)
+			{
+				mod = number1 % number2;
+			}
+			else
+			{
+				int multiplier = (int)Math.Round(number1 / Math.Abs((double)number2), MidpointRounding.ToNegativeInfinity);
+				mod = (number2 > 0) ? (number1 - number2 * multiplier) : (number1 + number2 * multiplier);
+			}
+			Console.WriteLine(mod);
+		}
 	}
 }
