@@ -3176,4 +3176,39 @@ public static class PolishEasy
 			Console.WriteLine(mod);
 		}
 	}
+
+	// 17140 To zadanie jest łatwe! - https://pl.spoj.com/problems/AL_13_10/
+	public static void AL_13_10_To_zadanie_jest_latwe()
+	{
+		System.Text.StringBuilder result = new();
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		{
+			var input = Console.ReadLine().Split(' ');
+			string word = input[0];
+			string substring = input[1];
+			if (substring.Length > word.Length)
+			{
+				Console.WriteLine("Nie");
+			}
+			else
+			{
+				result.Clear();
+				int wordPosition = 0;
+				for (int i = 0; i < substring.Length; i++)
+				{
+					while (wordPosition < word.Length)
+					{
+						if (substring[i] == word[wordPosition])
+						{
+							result.Append(word[wordPosition]);
+							wordPosition++;
+							break;
+						}
+						wordPosition++;
+					}
+				}
+				Console.WriteLine(result.ToString() == substring ? "Tak" : "Nie");
+			}
+		}
+	}
 }
