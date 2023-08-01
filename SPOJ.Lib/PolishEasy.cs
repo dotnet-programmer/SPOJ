@@ -3211,4 +3211,32 @@ public static class PolishEasy
 			}
 		}
 	}
+
+	// 19278 Test - https://pl.spoj.com/problems/AL_15_01/
+	public static void AL_15_01_Test()
+	{
+		string darek = Console.ReadLine();
+		string jarek = Console.ReadLine();
+		string marek = Console.ReadLine();
+		int count = 0;
+		for (int i = 0; i < darek.Length; i++)
+		{
+			if (jarek[i] != darek[i] && marek[i] != darek[i] && jarek[i] != marek[i])
+			{
+				count++;
+			}
+			else
+			{
+				if (jarek[i] != darek[i])
+				{
+					count++;
+				}
+				if (marek[i] != darek[i])
+				{
+					count++;
+				}
+			}
+		}
+		Console.WriteLine(count);
+	}
 }
