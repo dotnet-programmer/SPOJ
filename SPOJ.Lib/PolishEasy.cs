@@ -3239,4 +3239,44 @@ public static class PolishEasy
 		}
 		Console.WriteLine(count);
 	}
+
+	// 21021 BMI - https://pl.spoj.com/problems/FR_02_06/
+	public static void FR_02_06_BMI()
+	{
+		List<string> underweight = new();
+		List<string> correctly = new();
+		List<string> overweight = new();
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		{
+			var person = Console.ReadLine().Split(' ');
+			double bmi = int.Parse(person[1]) / Math.Pow(double.Parse(person[2]) / 100d, 2);
+			if (bmi < 18.5)
+			{
+				underweight.Add(person[0]);
+			}
+			else if (bmi < 25)
+			{
+				correctly.Add(person[0]);
+			}
+			else
+			{
+				overweight.Add(person[0]);
+			}
+		}
+		Console.WriteLine("niedowaga");
+		foreach (var item in underweight)
+		{
+			Console.WriteLine(item);
+		}
+		Console.WriteLine("wartosc prawidlowa");
+		foreach (var item in correctly)
+		{
+			Console.WriteLine(item);
+		}
+		Console.WriteLine("nadwaga");
+		foreach (var item in overweight)
+		{
+			Console.WriteLine(item);
+		}
+	}
 }
