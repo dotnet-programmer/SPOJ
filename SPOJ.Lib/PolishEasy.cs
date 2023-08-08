@@ -3212,6 +3212,36 @@ public static class PolishEasy
 		}
 	}
 
+	// TODO - 19246 Zamien na dziesietny - https://pl.spoj.com/problems/FR_01_05/
+	public static void FR_01_05_Zamien_na_dziesietny()
+	{
+		int divider = 1010101;
+		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
+		{
+			int result = 0;
+			var input = Console.ReadLine().Split(' ');
+			int convertBase = int.Parse(input[0]);
+			string inputNumber = input[1];
+			double inputNumberInDecimal = convertBase < 10 ? ConvertFromGivenBaseToDecimal(inputNumber, convertBase) : double.Parse(inputNumber);
+			Console.WriteLine(inputNumberInDecimal % divider);
+		}
+
+		// Function to convert a number from given base to decimal number
+		static int ConvertFromGivenBaseToDecimal(string str, int convertBase)
+		{
+			int powerOfConvertBase = 1;
+			int result = 0;
+
+			// Decimal equivalent is str[len-1]*1 + str[len-2]*base + str[len-3]*(base^2) + ...
+			for (int i = str.Length - 1; i >= 0; i--)
+			{
+				result += ((int)str[i] - '0') * powerOfConvertBase;
+				powerOfConvertBase *= convertBase;
+			}
+			return result;
+		}
+	}
+
 	// 19278 Test - https://pl.spoj.com/problems/AL_15_01/
 	public static void AL_15_01_Test()
 	{
