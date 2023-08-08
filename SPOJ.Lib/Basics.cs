@@ -508,16 +508,10 @@ public static class Basics
 	}
 
 	// TODO - 17126 Fun with Sequences (Act 4) - https://www.spoj.com/problems/SMPSEQ6
-	public static void SMPSEQ6_Fun_with_Sequences_Act_4()
-	{
-		throw new NotImplementedException();
-	}
+	public static void SMPSEQ6_Fun_with_Sequences_Act_4() => throw new NotImplementedException();
 
 	// TODO - 17481 Fun with Sequences (Act 5) - https://www.spoj.com/problems/SMPSEQ7
-	public static void SMPSEQ7_Fun_with_Sequences_Act_5()
-	{
-		throw new NotImplementedException();
-	}
+	public static void SMPSEQ7_Fun_with_Sequences_Act_5() => throw new NotImplementedException();
 
 	// 17921 XOR - https://www.spoj.com/problems/BSCXOR
 	public static void BSCXOR_XOR()
@@ -527,21 +521,49 @@ public static class Basics
 	}
 
 	// TODO - 18011 Fun with Sequences (Act 6) - https://www.spoj.com/problems/SMPSEQ8
-	public static void SMPSEQ8_Fun_with_Sequences_Act_6()
-	{
-		throw new NotImplementedException();
-	}
+	public static void SMPSEQ8_Fun_with_Sequences_Act_6() => throw new NotImplementedException();
 
 	// TODO - 18012 Fun with Sequences (Act 7) - https://www.spoj.com/problems/SMPSEQ9
-	public static void SMPSEQ9_Fun_with_Sequences_Act_7()
-	{
-		throw new NotImplementedException();
-	}
+	public static void SMPSEQ9_Fun_with_Sequences_Act_7() => throw new NotImplementedException();
 
-	// TODO - 18139 Substitution cipher - https://www.spoj.com/problems/SMPCPH1
+	// 18139 Substitution cipher - https://www.spoj.com/problems/SMPCPH1
 	public static void SMPCPH1_Substitution_cipher()
 	{
-		throw new NotImplementedException();
+		int lengthOfCipher = int.Parse(Console.ReadLine());
+		string cipher = Console.ReadLine();
+
+		Dictionary<char, char> cipherLetters = new(lengthOfCipher);
+		for (int i = 0; i < lengthOfCipher; i++)
+		{
+			if (i < lengthOfCipher - 1)
+			{
+				cipherLetters.Add(cipher[i], cipher[i + 1]);
+			}
+			else
+			{
+				cipherLetters.Add(cipher[i], cipher[0]);
+			}
+		}
+
+		System.Text.StringBuilder result = new();
+		int numberOfTexts = int.Parse(Console.ReadLine());
+		for (int i = 0; i < numberOfTexts; i++)
+		{
+			string text = Console.ReadLine();
+			for (int j = 0; j < text.Length; j++)
+			{
+				if (cipherLetters.ContainsKey(text[j]))
+				{
+					result.Append(cipherLetters[text[j]]);
+				}
+				else
+				{
+					result.Append(text[j]);
+				}
+			}
+			Console.WriteLine(result);
+			result.Clear();
+		}
 	}
 
 	// 23919 Sum of two numbers - https://www.spoj.com/problems/CHITEST1
