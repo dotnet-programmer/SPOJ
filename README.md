@@ -1,13 +1,13 @@
 # spoj.com
 
-List of solved problems from spoj.com:
+## List of solved problems from spoj.com:
 
-### Tutorial:
+### Tutorial
 - 4138 Harry and big doughnuts - https://www.spoj.com/problems/DOUGHNUT
 - 5872 Anagram - https://www.spoj.com/problems/ANAG
 - 11226 Hello World! - https://www.spoj.com/problems/HELLO
 
-### Basics:
+### Basics
 - 2135 SPOJ Custom Test - https://www.spoj.com/problems/BACTERIA
 - 12026 Test 1 - https://www.spoj.com/problems/TESTINT
 - 12156 Half of the half - https://www.spoj.com/problems/STRHH
@@ -32,11 +32,11 @@ List of solved problems from spoj.com:
 - 29154 SUM OF DIGITS - https://www.spoj.com/problems/ALCATRAZ1
 - 34596 Compare two numbers - https://www.spoj.com/problems/FUCT_IF_COMPARE
 
-### Classical:
+### Classical
 - 1 Life, the Universe, and Everything - https://www.spoj.com/problems/TEST
 - 42 Adding Reversed Numbers - https://www.spoj.com/problems/ADDREV
 
-### Polish easy:
+### Polish easy
 - 438 Liczby Pierwsze - https://pl.spoj.com/problems/PRIME_T/
 - 496 Dwie cyfry silni - https://pl.spoj.com/problems/FCTRL3/
 - 499 Czy umiesz potęgować - https://pl.spoj.com/problems/PA05_POT/
@@ -135,5 +135,5 @@ List of solved problems from spoj.com:
 - 19278 Test - https://pl.spoj.com/problems/AL_15_01/
 - 21021 BMI - https://pl.spoj.com/problems/FR_02_06/
 
-### Polish medium:
+### Polish medium
 - 1346 Łamacz gg - https://pl.spoj.com/problems/JGGHACK/
