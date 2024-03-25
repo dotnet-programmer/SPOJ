@@ -1,0 +1,139 @@
+# spoj.com
+
+List of solved problems from spoj.com:
+
+### Tutorial:
+- 4138 Harry and big doughnuts - https://www.spoj.com/problems/DOUGHNUT
+- 5872 Anagram - https://www.spoj.com/problems/ANAG
+- 11226 Hello World! - https://www.spoj.com/problems/HELLO
+
+### Basics:
+- 2135 SPOJ Custom Test - https://www.spoj.com/problems/BACTERIA
+- 12026 Test 1 - https://www.spoj.com/problems/TESTINT
+- 12156 Half of the half - https://www.spoj.com/problems/STRHH
+- 12176 Character Patterns (Act 1) - https://www.spoj.com/problems/CPTTRN1
+- 12177 Character Patterns (Act 2) - https://www.spoj.com/problems/CPTTRN2
+- 12178 Character Patterns (Act 3) - https://www.spoj.com/problems/CPTTRN3
+- 12180 Character Patterns (Act 4) - https://www.spoj.com/problems/CPTTRN4
+- 12185 Character Patterns (Act 5) - https://www.spoj.com/problems/CPTTRN5
+- 12187 Character Patterns(Act 6) - https://www.spoj.com/problems/CPTTRN6
+- 12205 Minimum Bounding Rectangle - https://www.spoj.com/problems/HS12MBR
+- 12206 Hidden Password - https://www.spoj.com/problems/HS12HDPW
+- 15708 Divisibility - https://www.spoj.com/problems/SMPDIV
+- 15709 Two Circles - https://www.spoj.com/problems/SMPCIRC
+- 15710 Iterated sums - https://www.spoj.com/problems/SMPSUM
+- 15711 Wow - https://www.spoj.com/problems/SMPWOW
+- 17102 Fun with Sequences - https://www.spoj.com/problems/SMPSEQ3
+- 17103 Fun with Sequences (Act 2) - https://www.spoj.com/problems/SMPSEQ4
+- 17104 Fun with Sequences (Act 3) - https://www.spoj.com/problems/SMPSEQ5
+- 17921 XOR - https://www.spoj.com/problems/BSCXOR
+- 18139 Substitution cipher - https://www.spoj.com/problems/SMPCPH1
+- 23919 Sum of two numbers - https://www.spoj.com/problems/CHITEST1
+- 29154 SUM OF DIGITS - https://www.spoj.com/problems/ALCATRAZ1
+- 34596 Compare two numbers - https://www.spoj.com/problems/FUCT_IF_COMPARE
+
+### Classical:
+- 1 Life, the Universe, and Everything - https://www.spoj.com/problems/TEST
+- 42 Adding Reversed Numbers - https://www.spoj.com/problems/ADDREV
+
+### Polish easy:
+- 438 Liczby Pierwsze - https://pl.spoj.com/problems/PRIME_T/
+- 496 Dwie cyfry silni - https://pl.spoj.com/problems/FCTRL3/
+- 499 Czy umiesz potęgować - https://pl.spoj.com/problems/PA05_POT/
+- 506 Flamaster - https://pl.spoj.com/problems/FLAMASTE/
+- 522 Przedszkolanka - https://pl.spoj.com/problems/PRZEDSZK/
+- 549 Proste dodawanie - https://pl.spoj.com/problems/RNO_DOD/
+- 568 Zabawne Dodawanie Piotrusia - https://pl.spoj.com/problems/BFN1/
+- 601 NWD - https://pl.spoj.com/problems/PP0501A/
+- 606 Tablice - https://pl.spoj.com/problems/PP0502B/
+- 609 Pole pewnego koła - https://pl.spoj.com/problems/ETI06F1/
+- 617 StringMerge - https://pl.spoj.com/problems/PP0504B/
+- 619 Reprezentacja liczb typu float - https://pl.spoj.com/problems/PP0504D
+- 626 Obżartuchy - https://pl.spoj.com/problems/GLUTTON
+- 663 Sort 1 - https://pl.spoj.com/problems/PP0506A
+- 675 SkarbFinder - https://pl.spoj.com/problems/SKARBFI
+- 708 Problem Collatza - https://pl.spoj.com/problems/PTCLTZ
+- 723 ROL - https://pl.spoj.com/problems/PTROL
+- 769 Zadanie próbne - https://pl.spoj.com/problems/PTEST
+- 804 Gra Euklidesa - https://pl.spoj.com/problems/EUCGAME
+- 806 Wiatraczki - https://pl.spoj.com/problems/FANGEN
+- 833 Dwumiany - https://pl.spoj.com/problems/BINOMS
+- 968 Suma - https://pl.spoj.com/problems/SUMA
+- 969 Równanie kwadratowe - https://pl.spoj.com/problems/ROWNANIE
+- 977 Tablica - https://pl.spoj.com/problems/TABLICA
+- 978 Stos - https://pl.spoj.com/problems/STOS
+- 997 Kalkulator - https://pl.spoj.com/problems/CALC
+- 998 Kalkulator 2 - https://pl.spoj.com/problems/CALC2
+- 1011 Połowa - https://pl.spoj.com/problems/POL
+- 1016 Predkość średnia - https://pl.spoj.com/problems/VSR
+- 1019 Systemy pozycyjne - https://pl.spoj.com/problems/SYS
+- 1032 Podzielność - https://pl.spoj.com/problems/PP0601B
+- 1035 Test 3 - https://pl.spoj.com/problems/PP0601A2
+- 1042 Transponowanie macierzy - https://pl.spoj.com/problems/TRN
+- 1055 Parzyste nieparzyste - https://pl.spoj.com/problems/PP0602A
+- 1056 Tabelki liczb - https://pl.spoj.com/problems/PP0602B
+- 1102 Średnia arytmetyczna - https://pl.spoj.com/problems/PP0604A
+- 1125 Ostatnia cyfra - BR - https://pl.spoj.com/problems/OSTBR
+- 1139 Nowa działka - https://pl.spoj.com/problems/MWPZ06X
+- 1142 Ciążowy specjalista - https://pl.spoj.com/problems/MWPZ06A
+- 1145 Imieniny - https://pl.spoj.com/problems/MWPZ06D
+- 1149 Konkurs pseudomatematyczny - https://pl.spoj.com/problems/MWPZ06H
+- 1211 Niekolejne - https://pl.spoj.com/problems/NIEKOLEJ
+- 1228 Rownanie liniowe - https://pl.spoj.com/problems/JROWLIN
+- 1240 Współliniowość punktów - https://pl.spoj.com/problems/JWSPLIN
+- 1242 Zliczacz liter - https://pl.spoj.com/problems/JZLICZ
+- 1261 Pesel - https://pl.spoj.com/problems/JPESEL
+- 1262 ROL (k) - https://pl.spoj.com/problems/PP0602D
+- 1276 Spacje - https://pl.spoj.com/problems/JSPACE
+- 1289 Tagi HTML - https://pl.spoj.com/problems/JHTMLLET
+- 1299 Stefan - https://pl.spoj.com/problems/FZI_STEF
+- 1300 Szyfr Cezara - https://pl.spoj.com/problems/JSZYCER
+- 1310 Liczba na słowo - https://pl.spoj.com/problems/JLITOSL
+- 1502 Samolot - https://pl.spoj.com/problems/POTSAM
+- 1596 Wiek segmentolka - https://pl.spoj.com/problems/WSEGA
+- 1828 Dodawanie liczb całkowitych - https://pl.spoj.com/problems/KC001
+- 1830 Nierówność trójkąta - https://pl.spoj.com/problems/KC003
+- 1844 Zliczanie wystąpień - https://pl.spoj.com/problems/KC004
+- 1853 Formularz - https://pl.spoj.com/problems/KC005/
+- 1854 Godzina chaosu - https://pl.spoj.com/problems/CHAOS/
+- 1909 Sumy wielokrotne - https://pl.spoj.com/problems/KC008
+- 1910 Odwracanie wyrazów - https://pl.spoj.com/problems/KC009
+- 1911 Zliczanie liczb i wyrazów - https://pl.spoj.com/problems/KC010
+- 1941 Porównywanie dużych liczb - https://pl.spoj.com/problems/KC015/
+- 1978 Zliczanie linii - https://pl.spoj.com/problems/PROGC01/
+- 2016 Zliczanie wystąpień (kody ASCII) - https://pl.spoj.com/problems/PROGC02/
+- 2045 Pola Prostokątów - https://pl.spoj.com/problems/SIL/
+- 2181 Wycinanie literek - https://pl.spoj.com/problems/PROGC05
+- 2217 Statystyka pozycyjna - https://pl.spoj.com/problems/KC022/
+- 2598 Kabalistyczny zapis daty - https://pl.spoj.com/problems/JZAPKAB/
+- 3326 Warunek w tablicy - https://pl.spoj.com/problems/PASTAB2/
+- 3328 Histogram z liczb - https://pl.spoj.com/problems/PASTAB4/
+- 3366 Sprawdzanie sudoku - https://pl.spoj.com/problems/SUDOKUC/
+- 3456 Szyfrowanie ROT13 - https://pl.spoj.com/problems/PASCHAR5/
+- 4138 Harry and big doughnuts - https://pl.spoj.com/problems/DOUGHNUT
+- 4254 Pieczątki dzieci - https://pl.spoj.com/problems/CHSTAMPS/
+- 4344 Tanie hotele - https://pl.spoj.com/problems/HOT/
+- 4619 PTwPZ KWIX - https://pl.spoj.com/problems/PTWPZ093/
+- 4629 PTwPZ Kalkulator - https://pl.spoj.com/problems/PTWPZ083/
+- 4647 PTwPZ Telefony - https://pl.spoj.com/problems/PTWPZ073/
+- 4797 Skracanie identyfikatorów - https://pl.spoj.com/problems/WI_IDEN/
+- 4799 Zastępowanie trójznaków - https://pl.spoj.com/problems/WI_TRIGR/
+- 4840 Szyfr Gronsfelda - https://pl.spoj.com/problems/WI_SZYFR/
+- 4843 Szkolne dzwonki - https://pl.spoj.com/problems/WI_DZWON/
+- 5136 XV - https://pl.spoj.com/problems/WZP09_2F/
+- 5517 Punkty w okręgu - https://pl.spoj.com/problems/PICIRC/
+- 5805 Zegar - https://pl.spoj.com/problems/MWP2_1A/
+- 5853 Majątek Billa - https://pl.spoj.com/problems/MWP2_2B/
+- 5854 Okręgi - https://pl.spoj.com/problems/MWP2_2C/
+- 5954 Permutacje - https://pl.spoj.com/problems/MWP2_3C/
+- 6441 Prostokąty - https://pl.spoj.com/problems/XIWTPZA/
+- 6702 Rodzaje trójkątów - https://pl.spoj.com/problems/RODZ_TRO/
+- 8090 Dzielenie pizzy - https://pl.spoj.com/problems/MWP3_3D/
+- 8091 Emocjonująca rozgrywka w węża - https://pl.spoj.com/problems/MWP3_3E/
+- 14779 Reszta z dzielenia - https://pl.spoj.com/problems/AL_06_01/
+- 17140 To zadanie jest łatwe! - https://pl.spoj.com/problems/AL_13_10/
+- 19278 Test - https://pl.spoj.com/problems/AL_15_01/
+- 21021 BMI - https://pl.spoj.com/problems/FR_02_06/
+
+### Polish medium:
+- 1346 Łamacz gg - https://pl.spoj.com/problems/JGGHACK/
