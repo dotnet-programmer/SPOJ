@@ -5,39 +5,55 @@ using SPOJ.Lib;
 Console.Title = "Sphere online judge - SPOJ";
 Console.ForegroundColor = ConsoleColor.Green;
 
-Action[] _basics = typeof(Basics).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
+Action[] _basics =
+	typeof(Basics)
+	.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
 	.Select(x => x.CreateDelegate<Action>())
 	.ToArray();
 
-Action[] _tutorial = typeof(Tutorial).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
+Action[] _tutorial =
+	typeof(Tutorial)
+	.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
 	.Select(x => x.CreateDelegate<Action>())
 	.ToArray();
 
-Action[] _classical = typeof(Classical).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
+Action[] _classical =
+	typeof(Classical)
+	.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
 	.Select(x => x.CreateDelegate<Action>())
 	.ToArray();
 
-Action[] _challenge = typeof(Challenge).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
+Action[] _challenge =
+	typeof(Challenge)
+	.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
 	.Select(x => x.CreateDelegate<Action>())
 	.ToArray();
 
-Action[] _partial = typeof(Partial).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
+Action[] _partial =
+	typeof(Partial)
+	.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
 	.Select(x => x.CreateDelegate<Action>())
 	.ToArray();
 
-Action[] _riddle = typeof(Riddle).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
+Action[] _riddle =
+	typeof(Riddle)
+	.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
 	.Select(x => x.CreateDelegate<Action>())
 	.ToArray();
 
-Action[] _polishEasy = typeof(PolishEasy).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
+Action[] _polishEasy =
+	typeof(PolishEasy)
+	.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
 	.Select(x => x.CreateDelegate<Action>())
 	.ToArray();
 
-Action[] _polishMedium = typeof(PolishMedium).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
+Action[] _polishMedium =
+	typeof(PolishMedium)
+	.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Instance)
 	.Select(x => x.CreateDelegate<Action>())
 	.ToArray();
 
-string[] menuItems = new[] { "Basics", "Tutorial", "Classical", "Challenge", "Partial", "Riddle", "Polish Easy", "Polish Medium" };
+string[] menuItems = ["Basics", "Tutorial", "Classical", "Challenge", "Partial", "Riddle", "Polish Easy", "Polish Medium"];
 
 while (true)
 {
