@@ -289,7 +289,7 @@ public static class PolishEasy
 	{
 		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
-			List<MyPoint> points = new();
+			List<MyPoint> points = [];
 			int numberOfPoints = int.Parse(Console.ReadLine());
 			for (int i = 0; i < numberOfPoints; i++)
 			{
@@ -922,7 +922,7 @@ public static class PolishEasy
 	// 1032 Podzielność - https://pl.spoj.com/problems/PP0601B
 	public static void PP0601B_Podzielnosc()
 	{
-		List<int> dividers = new();
+		List<int> dividers = [];
 		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			dividers.Clear();
@@ -995,7 +995,7 @@ public static class PolishEasy
 	// 1055 Parzyste nieparzyste - https://pl.spoj.com/problems/PP0602A
 	public static void PP0602A_Parzyste_nieparzyste()
 	{
-		List<string> numbers = new();
+		List<string> numbers = [];
 		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			numbers.Clear();
@@ -1079,7 +1079,7 @@ public static class PolishEasy
 		{
 			//var inputs = Console.ReadLine().Trim().Substring(2).Split(' ').Select(int.Parse).ToArray();
 			var inputs = Console.ReadLine().Split(' ');
-			List<int> numbers = new();
+			List<int> numbers = [];
 			for (int i = 1; i < inputs.Length; i++)
 			{
 				numbers.Add(int.Parse(inputs[i]));
@@ -1226,8 +1226,8 @@ public static class PolishEasy
 	// 1242 Zliczacz liter - https://pl.spoj.com/problems/JZLICZ
 	public static void JZLICZ_Zliczacz_liter()
 	{
-		SortedDictionary<char, int> smallLetters = new();
-		SortedDictionary<char, int> bigLetters = new();
+		SortedDictionary<char, int> smallLetters = [];
+		SortedDictionary<char, int> bigLetters = [];
 		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			string input = Console.ReadLine().Replace(" ", "");
@@ -1832,7 +1832,7 @@ public static class PolishEasy
 	public static void PROGC02_Zliczanie_wystąpien_kody_ASCII()
 	{
 		const int maxAnsiCode = 255;
-		SortedDictionary<int, int> chars = new();
+		SortedDictionary<int, int> chars = [];
 		while (true)
 		{
 			var input = Console.Read();
@@ -1947,7 +1947,7 @@ public static class PolishEasy
 		const int width = 30;
 		const int minRange = -10;
 		const int maxRange = 10;
-		Dictionary<string, int> numbers = new();
+		Dictionary<string, int> numbers = [];
 		for (int i = minRange; i <= maxRange; i++)
 		{
 			numbers.Add(i.ToString(), 0);
@@ -2807,7 +2807,7 @@ public static class PolishEasy
 		{
 			int numbers = int.Parse(Console.ReadLine());
 			var numbersOnClock = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
-			Dictionary<int, int> turns = new();
+			Dictionary<int, int> turns = [];
 			for (int i = 0; i < numbers; i++)
 			{
 				int howManyMatches = 0;
@@ -3273,9 +3273,9 @@ public static class PolishEasy
 	// 21021 BMI - https://pl.spoj.com/problems/FR_02_06/
 	public static void FR_02_06_BMI()
 	{
-		List<string> underweight = new();
-		List<string> correctly = new();
-		List<string> overweight = new();
+		List<string> underweight = [];
+		List<string> correctly = [];
+		List<string> overweight = [];
 		for (int t = int.Parse(Console.ReadLine()); t > 0; t--)
 		{
 			var person = Console.ReadLine().Split(' ');

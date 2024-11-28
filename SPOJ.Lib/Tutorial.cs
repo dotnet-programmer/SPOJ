@@ -55,7 +55,7 @@ public static class Tutorial
 				}
 			}
 			// Add all prime numbers to new list
-			List<int> primes = new();
+			List<int> primes = [];
 			for (int i = 2; i <= n; i++)
 			{
 				if (prime[i] == true)
@@ -68,7 +68,7 @@ public static class Tutorial
 
 		static Dictionary<int, int> PrimeFactorization(int n, int upperBound, List<int> primes)
 		{
-			Dictionary<int, int> primeFactors = new();
+			Dictionary<int, int> primeFactors = [];
 			int primeIndex = 0;
 			while (n > 1 && primes[primeIndex] <= upperBound)
 			{
@@ -118,5 +118,6 @@ public static class Tutorial
 	}
 
 	// 11226 Hello World! - https://www.spoj.com/problems/HELLO
-	public static void PRF00_Hello_world() => Console.WriteLine("Hello World!");
+	public static void PRF00_Hello_world()
+		=> Console.WriteLine("Hello World!");
 }

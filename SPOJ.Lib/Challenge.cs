@@ -2,5 +2,6 @@
 
 public static class Challenge
 {
-	public static void Method1() => throw new NotImplementedException();
+	public static void Method1()
+		=> throw new NotImplementedException();
 }

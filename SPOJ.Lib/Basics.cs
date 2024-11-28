@@ -5,10 +5,12 @@ namespace SPOJ.Lib;
 public static class Basics
 {
 	// 2135	SPOJ Custom Test - https://www.spoj.com/problems/BACTERIA
-	public static void BACTERIA_SPOJ_Custom_Test() => Console.WriteLine("1234");
+	public static void BACTERIA_SPOJ_Custom_Test()
+		=> Console.WriteLine("1234");
 
 	// 12026 Test 1 - https://www.spoj.com/problems/TESTINT
-	public static void TESTINT_Test_1() => Console.WriteLine(int.Parse(Console.ReadLine()) + int.Parse(Console.ReadLine()));
+	public static void TESTINT_Test_1()
+		=> Console.WriteLine(int.Parse(Console.ReadLine()) + int.Parse(Console.ReadLine()));
 
 	// 12156 Half of the half - https://www.spoj.com/problems/STRHH
 	public static void STRHH_Half_of_the_half()
@@ -495,7 +497,7 @@ public static class Basics
 		{
 			set2.Add(int.Parse(input[i]));
 		}
-		List<int> result = new();
+		List<int> result = [];
 		int minCount = numberOfFirstSet <= numberOfSecondSet ? numberOfFirstSet : numberOfSecondSet;
 		for (int i = 0; i < minCount; i++)
 		{
@@ -508,10 +510,12 @@ public static class Basics
 	}
 
 	// TODO - 17126 Fun with Sequences (Act 4) - https://www.spoj.com/problems/SMPSEQ6
-	public static void SMPSEQ6_Fun_with_Sequences_Act_4() => throw new NotImplementedException();
+	public static void SMPSEQ6_Fun_with_Sequences_Act_4()
+		=> throw new NotImplementedException();
 
 	// TODO - 17481 Fun with Sequences (Act 5) - https://www.spoj.com/problems/SMPSEQ7
-	public static void SMPSEQ7_Fun_with_Sequences_Act_5() => throw new NotImplementedException();
+	public static void SMPSEQ7_Fun_with_Sequences_Act_5()
+		=> throw new NotImplementedException();
 
 	// 17921 XOR - https://www.spoj.com/problems/BSCXOR
 	public static void BSCXOR_XOR()
@@ -521,10 +525,12 @@ public static class Basics
 	}
 
 	// TODO - 18011 Fun with Sequences (Act 6) - https://www.spoj.com/problems/SMPSEQ8
-	public static void SMPSEQ8_Fun_with_Sequences_Act_6() => throw new NotImplementedException();
+	public static void SMPSEQ8_Fun_with_Sequences_Act_6()
+		=> throw new NotImplementedException();
 
 	// TODO - 18012 Fun with Sequences (Act 7) - https://www.spoj.com/problems/SMPSEQ9
-	public static void SMPSEQ9_Fun_with_Sequences_Act_7() => throw new NotImplementedException();
+	public static void SMPSEQ9_Fun_with_Sequences_Act_7()
+		=> throw new NotImplementedException();
 
 	// 18139 Substitution cipher - https://www.spoj.com/problems/SMPCPH1
 	public static void SMPCPH1_Substitution_cipher()

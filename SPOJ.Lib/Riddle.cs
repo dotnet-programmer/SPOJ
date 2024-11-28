@@ -2,5 +2,6 @@
 
 public static class Riddle
 {
-	public static void Method1() => throw new NotImplementedException();
+	public static void Method1()
+		=> throw new NotImplementedException();
 }
